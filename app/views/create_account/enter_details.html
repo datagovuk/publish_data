@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block proposition_header %}
-  {% include "includes/propositional_navigation.html" %}
+  {% include "includes/propositional_navigation_service.html" %}
 {% endblock %}
 
 {% block header_class %}
@@ -37,26 +37,26 @@
           </legend>
 
           <div class="form-group">
-            <label class="form-label" for="first-name-2">Full name</label>
-            <input class="form-control form-control-2-3" id="first-name-2" name="first-name-2" type="text">
+            <label class="form-label" for="full-name">Full name</label>
+            <input class="form-control form-control-2-3" id="full-name" name="full-name" type="text">
           </div>
           <div class="form-group">
-            <label class="form-label" for="last-name-2">Email address</label>
+            <label class="form-label" for="email-address">Email address</label>
               <span class="form-hint">Must be from a central government organisation</span>
-            <input class="form-control form-control-2-3" id="last-name-2" name="last-name-2" type="text">
+            <input class="form-control form-control-2-3" id="email-address" name="email-address" type="text">
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="first-name-2">Mobile number
+            <label class="form-label" for="mobile-number">Mobile number
               <span class="form-hint">We’ll send you a security code by text message</span>
             </label>
-            <input class="form-control form-control-2-3" id="first-name-2" name="first-name-2" type="text">
+            <input class="form-control form-control-2-3" id="mobile-number" name="mobile-number" type="text">
           </div>
           <div class="form-group">
-            <label class="form-label" for="last-name-2">Password
+            <label class="form-label" for="password">Password
               <span class="form-hint">At least 10 characters</span>
             </label>
-            <input class="form-control form-control-2-3" id="last-name-2" name="last-name-2" type="text">
+            <input class="form-control form-control-2-3" id="password" name="password" type="text">
           </div>
 
         </fieldset>

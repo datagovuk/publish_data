@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block proposition_header %}
-  {% include "includes/propositional_navigation_service.html" %}
+  {% include "includes/propositional_navigation_signed_in.html" %}
 {% endblock %}
 
 {% block header_class %}
@@ -18,35 +18,32 @@
 
 {% include "includes/phase_banner_beta.html" %}
 
-
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <form method="get" action="/create_account/enter_details" class="form">
+      <form method="get" action="/questions/place_type" class="form">
 
       {{formData | safe}}
 
         <h1 class="heading-large">
-          Does your department already have an account?
+          Dash board
         </h1>
+
+        <p>A 5 digit code has been sent to *******6534</p>
 
         <fieldset>
           <legend class="visuallyhidden">
-            Does your department have an account already?
+            Enter security code
           </legend>
 
-          <div class="form-group">
-            <label for="existing_account-1" class="block-label">
-              <input type="radio" id="existing_account-1" name="existing_account" value="yes">
-              Yes
-            </label>
+          <label class="form-label" for="full-name-f1">Security code</label>
+            <span class="form-hint">
+              For example 67234
+            </span>
+          <input class="form-control form-control-1-8" id="full-name-f1" type="text" name="number_of_children">
 
-            <label for="existing_account-2" class="block-label">
-              <input type="radio" id="existing_account-2" name="existing_account" value="no">
-              No
-            </label>
-
-          </div>
+          <br>
+          <br>
 
         </fieldset>
 

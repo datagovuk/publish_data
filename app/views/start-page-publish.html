@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="https://www.gov.uk">Home</a></li>
+      <li><a href="">Data</a></li>
+      <li>Publishing</li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+
+      <p>Use this service to:</p>
+
+      <ul class="list list-bullet" style="font-size: 24px;">
+        <li>make your data easy to find</li>
+        <li>make your data simpler to use</li>
+        <li>be open with your data</li>
+      </ul>
+
+      <p>Registering take around 5 minutes.</p>
+
+      <a class="button" href="/create_account/existing_account" role="button">Create account</a><span class="login-normal">  or <a href="#">sign in</a> if you’ve used it before</span>
+
+
+      <h3 class="heading-medium" id="1">Benefits of GOV.UK Data</h3>
+
+      <p>You should use GOV.UK Frontend because it makes it simpler, faster, easier to publish and manage government data.</p>
+
+      <p>It also means you can:</p>
+
+      <ul class="list list-bullet">
+        <li>make your data easy to find</li>
+        <li>make your data simpler to use</li>
+        <li>be open with your data</li>
+      </ul>
+
+      <hr>
+
+      <h3 class="heading-medium" id="5">Contact product team</h3>
+
+      <p>GOV.UK Data is built and supported by a full time team at GDS.</p>
+
+      <p>To contact the team email:</p>
+
+      <p>govuk-frontend@digital.cabinet-office.gov.uk</p>
+
+    </div>
+    <div class="column-third">
+
+      <aside class="govuk-related-items" role="complementary">
+        <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="font-xsmall">
+            <li><a href="#">Manage government data</a></li>
+            <li><a href="#">Find government data</a></li>
+            <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

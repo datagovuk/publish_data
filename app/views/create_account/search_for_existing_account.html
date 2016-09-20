@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK Data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <form method="get" action="/create_account/email_sent" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Search for existing account
+        </h1>
+
+        <br>
+
+          <legend class="visuallyhidden">
+            Search for existing account
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label" for="first-name-2">Organisation name</label>
+              <span class="form-hint">
+                For example Land Registry
+              </span>
+            <input class="form-control form-control-3-4" id="first-name-2" name="first-name-2" type="text">
+            <input type="submit" class="button" value="Search" />
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

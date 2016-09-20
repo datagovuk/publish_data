@@ -41,7 +41,7 @@ router.get('/create_account/enter_details', function (req, res) {
   if (existing_account == "yes" ){
 
     // if users is DOES have account
-    res.redirect("/create_account/has_existing_account" + res.locals.formQuery);
+    res.redirect("/create_account/search_for_existing_account" + res.locals.formQuery);
 
   } else {
 
