@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK Data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <form method="get" action="/lpa/check/view_permissions" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Check your email
+        </h1>
+
+        <p>An email has been sent to harry.trimble@digital.cabinet-office.gov.uk</p>
+
+        <p>Click the link in the email to continue your registration.</p>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
