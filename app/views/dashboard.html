@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK Data
+  Publish government data
 {% endblock %}
 
 {% block proposition_header %}
@@ -19,7 +19,12 @@
 {% include "includes/phase_banner_beta.html" %}
 
   <div class="grid-row">
-    <div class="column-two-thirds">
+
+        
+    {% include "includes/side-navigation.html" %}
+
+
+    <div class="column-two-thirds" style="width:80%;">
 
       <form method="get" action="/questions/place_type" class="form">
 
@@ -29,29 +34,31 @@
           Dash board
         </h1>
 
-        <p>A 5 digit code has been sent to *******6534</p>
+        <hr style="height:3px;">
 
-        <fieldset>
-          <legend class="visuallyhidden">
-            Enter security code
-          </legend>
+          <div class="column-one-half" id="dashboard-panel">
+            <p>Published datasets</p>
+            <h2 class="bold-xlarge">592</h2>
+          </div>
 
-          <label class="form-label" for="full-name-f1">Security code</label>
-            <span class="form-hint">
-              For example 67234
-            </span>
-          <input class="form-control form-control-1-8" id="full-name-f1" type="text" name="number_of_children">
+          <div class="column-one-half" id="dashboard-panel">
+            <p>Downloads</p>
+            <h2 class="bold-xlarge">2</h2>
+          </div>
 
-          <br>
-          <br>
+          <div class="column-one-half" id="dashboard-panel">
+            <br>
+            <p>Most recent published dataset</p>
+            <hr>
+            <p class="bold">Name</p>
+          </div>
 
-        </fieldset>
-
-        <div class="form-group">
-          <input type="submit" class="button" value="Continue" />
-        </div>
-
-      </form>
+          <div class="column-one-half" id="dashboard-panel">
+            <br>
+            <p>Most recent updated dataset</p>
+            <hr>
+            <p class="bold">Downloads</p>
+          </div>
 
     </div>
   </div>
