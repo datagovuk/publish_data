@@ -31,34 +31,48 @@
       {{formData | safe}}
 
         <h1 class="heading-large">
-          Dash board
+          Dashboard
         </h1>
 
-        <hr style="height:3px;">
+        <br>
 
-          <div class="column-one-half" id="dashboard-panel">
-            <p>Published datasets</p>
-            <h2 class="bold-xlarge">592</h2>
-          </div>
+        <!-- search box -->
+        <div class="in-manual-search">
+          <form action="/search">
+                 <input type="hidden" name="filter_manual[]" value="/guidance/content-design">
+                 <input id="search-box" type="text" name="q" placeholder="search your datasets">
+                 <button type="submit">search</button>
+          </form>
+        </div>
 
-          <div class="column-one-half" id="dashboard-panel">
-            <p>Downloads</p>
-            <h2 class="bold-xlarge">2</h2>
-          </div>
+        <br>
+        <br>
 
-          <div class="column-one-half" id="dashboard-panel">
-            <br>
-            <p>Most recent published dataset</p>
-            <hr>
-            <p class="bold">Name</p>
-          </div>
+        <div class="column-one-half" id="dashboard-panel">
+          <p>Published datasets</p>
+          <h2 class="bold-xlarge"><a href="#">592</a></h2>
+        </div>
 
-          <div class="column-one-half" id="dashboard-panel">
-            <br>
-            <p>Most recent updated dataset</p>
-            <hr>
-            <p class="bold">Downloads</p>
-          </div>
+        <div class="column-one-half" id="dashboard-panel">
+          <p>Downloads</p>
+          <h2 class="bold-xlarge"><a href="#">2</a></h2>
+        </div>
+        
+        <!--
+        <div class="column-one-half" id="dashboard-panel">
+          <br>
+          <p>Most recent published dataset</p>
+          <hr>
+          <p class="bold">Name</p>
+        </div>
+
+        <div class="column-one-half" id="dashboard-panel">
+          <br>
+          <p>Most recent updated dataset</p>
+          <hr>
+          <p class="bold">Downloads</p>
+        </div>
+        -->
 
     </div>
   </div>

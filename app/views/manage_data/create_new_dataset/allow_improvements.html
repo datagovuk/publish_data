@@ -20,15 +20,24 @@
 
 
   <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
     <div class="column-two-thirds">
 
-      <form method="get" action="/create_account/enter_details" class="form">
+      <form method="get" action="#" class="form">
 
       {{formData | safe}}
 
         <h1 class="heading-large">
-          Does your department already have an account?
+          Create a new dataset
         </h1>
+
+        <h2 class="heading-medium">
+          Do you want other people improving your dataset?
+        </h2>
+
+        <p>These will allow your users to upload their version.</p>
 
         <fieldset>
           <legend class="visuallyhidden">

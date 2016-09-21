@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Find government data
+{% endblock %}
+
+{% block proposition_header %}
+  <!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block header_class %}
+  <!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Find government data
+      </h1>
+
+      <p class="lede">Find data published by government departments and agencies, public bodies and local authorities.</p>
+
+      <div class="in-manual-search">
+        <form action="/search">
+               <input type="hidden" name="filter_manual[]" value="/guidance/content-design">
+               <input id="search-box" type="text" name="q" placeholder="search your datasets">
+               <button type="submit">search</button>
+        </form>
+      </div>
+
+    <br>
+    <br>
+
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Business and economy</a></h4>
+      <p>Small businesses, industry, imports, exports and trade</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Environment</a></h4>
+      <p>Weather, flooding, rivers, air quality, geology and agriculture</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Mapping</a></h4>
+      <p>Addresses, boundaries, land ownership, aerial photographs, seabed and land terrain</p>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Crime and justice</a></h4>
+      <p>Courts, police, prisons, offenders, borders and immigration</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Government</a></h4>
+      <p>Staff numbers and pay, local councillors and department business plans</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Society</a></h4>
+      <p>Employment, benefits, household finances, poverty and population</p>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Defence</a></h4>
+      <p>Armed forces, health and safety, search and rescue</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Government spending</a></h4>
+      <p>Includes all payments by government departments over £25,000</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Towns and cities</a></h4>
+      <p>Includes housing, urban planning, leisure, waste and energy consumption</p>
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Education</a></h4>
+      <p>Students, training, qualifications and the National Curriculum</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Health</a></h4>
+      <p>Includes smoking, drugs, alcohol, medicine performance and hospitals</p>
+    </div>
+
+    <div class="column-one-third">
+      <h4 class="heading-small"><a href="#">Transport</a></h4>
+      <p>Airports, roads, freight, electric vehicles, parking, buses and footpaths</p>
+    </div>
+
+  </div>
+
+
+</main>
+
+{% endblock %}

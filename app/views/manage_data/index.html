@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_signed_in.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/manage_data/create_new_dataset/name_label" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Manage datasets
+        </h1>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Manage datasets
+          </legend>
+
+          <div class="form-group">
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="create-dataset" name="create-dataset" value="yes">
+              Create new dataset
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="update-dataset" name="update-dataset" value="no">
+              Update existing dataset
+            </label>
+
+            <label for="pull-data" class="block-label">
+              <input type="radio" id="pull-data" name="pull-data" value="no">
+              Pull data: we’ll harvest your data
+            </label>
+
+            <label for="push-data-to-api" class="block-label">
+              <input type="radio" id="push-data-to-api" name="push-data-to-api" value="no">
+              Push data to API integration
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

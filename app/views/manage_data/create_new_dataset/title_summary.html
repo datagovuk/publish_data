@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/create_account/email_sent" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Create a new dataset
+        </h1>
+
+        <p class="lede">You must give your data a title and summary.</p>
+
+        <p class="lede">This will make it easier for users to find it on data.gov.uk.</p>
+
+        <br>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Create a new dataset
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label" for="title-dataset">Title</label>
+            <span class="form-hint">
+              Titles should be 65 characters or less, including spaces.<br>
+              Most search engines will shorten titles if they’re longer than this.
+            </span>
+            <input class="form-control form-control-2-3" id="title-dataset" name="title-dataset" type="text">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="summary-dataset">Summary</label>
+            <span class="form-hint">
+              The rst sentence of the summary will appear in search results.<br>
+              It should be 140 characters or less.
+            </span>
+            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
