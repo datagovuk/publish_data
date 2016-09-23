@@ -69,6 +69,8 @@
   font-size: 14px;
 }
 
+// product page
+
 #product-style {
   background-color: #005EA5;
   color: #ffffff; 
@@ -76,6 +78,10 @@
 
 #product-style a {
   color: #ffffff; 
+}
+
+.bold {
+  font-weight: 700;
 }
 
 // Make sign in link right-align
@@ -102,6 +108,8 @@
 
 }
 
+// product page
+
 #product-style {
   background-color: #005EA5;
   color: #ffffff; 
@@ -110,6 +118,8 @@
 #product-style a {
   color: #ffffff; 
 }
+
+// buttons
 
 .login-white {
   padding-left: 6px;
@@ -129,22 +139,7 @@
   font-size: 24px;
 }
 
-#side-navigation {
-  margin-top: 56px;
-  font-weight: 700px;
-}
-
-#side-navigation a {
-  font-weight: 700px;
-}
-
-#side-navigation p {
-  font-weight: 700px;
-}
-
-.bold {
-  font-weight: 700;
-}
+// dashboard
 
 #dashboard-panel {
   padding-left: 0px;
@@ -162,6 +157,52 @@
 #dashboard-panel a {
   color: #fff;
 }
+
+// side navigation
+
+#side-navigation {
+  margin-top: 56px;
+  font-weight: 700px;
+}
+
+#side-navigation a {
+  font-weight: 700px;
+}
+
+#side-navigation p {
+  font-weight: 700px;
+}
+
+// get started
+
+.get-started {
+  background-color: #005EA5;
+  color: #ffffff; 
+  padding-left: 30px;
+  padding-right: 18px;
+  padding-bottom: 8%;
+}
+
+.get-started h3 {
+  font-weight: 400;
+  padding-top: 18px;
+}
+
+.get-started li {
+  font-size: 24px;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.step-to-start {
+  font-weight: 400;
+  font-size: 19px;
+}
+
+#active-step li {
+  opacity: 1;
+}
+
 
 // search box
 

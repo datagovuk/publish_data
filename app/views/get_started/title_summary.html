@@ -20,27 +20,75 @@
 
   <div class="grid-row">
 
-    {% include "includes/side-navigation.html" %}
+    <div class="column-one-third">
+  
+      <div class="get-started">
+
+        <h3 class="heading-medium">Get started</h3>
+
+        <ol class="list list-number">
+          <div id="active-step">
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/1.html" %}
+            </span>
+          </li>
+          </div>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/2.html" %}
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/3.html" %}
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/4.html" %}me
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/5.html" %}
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/6.html" %}
+            </span>
+          </li>
+        </ol>
+
+      </div>
+
+    </div>
 
     <div class="column-two-thirds">
 
-      <form method="get" action="/create_account/email_sent" class="form">
+      <form method="get" action="/get_started/file_upload" class="form">
 
       {{formData | safe}}
 
         <h1 class="heading-large">
-          Create a new dataset
+          Title and summary
         </h1>
 
-        <p class="lede">You must give your data a title and summary.</p>
+        <p>You must give your dataset a title and summary.</p>
 
-        <p class="lede">This will make it easier for users to find it on data.gov.uk.</p>
+        <p>This will make it easier for users to find it on GOV.UK</p>
 
         <br>
 
         <fieldset>
           <legend class="visuallyhidden">
-            Create a new dataset
+            Upload a new dataset
           </legend>
 
           <div class="form-group">

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="#" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Upload a new dataset
+        </h1>
+
+        <h2 class="heading-medium">
+          Do you want other people improving your dataset?
+        </h2>
+
+        <p>These will allow your users to upload their version.</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Does your department have an account already?
+          </legend>
+
+          <div class="form-group">
+            <label for="existing_account-1" class="block-label">
+              <input type="radio" id="existing_account-1" name="existing_account" value="yes">
+              Yes
+            </label>
+
+            <label for="existing_account-2" class="block-label">
+              <input type="radio" id="existing_account-2" name="existing_account" value="no">
+              No
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

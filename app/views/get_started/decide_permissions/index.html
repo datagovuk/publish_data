@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_signed_in.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+
+  <div class="grid-row">
+
+        <div class="column-one-third">
+  
+      <div class="get-started">
+
+        <h3 class="heading-medium">Get started</h3>
+
+        <ol class="list list-number">
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/1.html" %}
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/2.html" %}
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/3.html" %}
+            </span>
+          </li>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/4.html" %}me
+            </span>
+          </li>
+          <br>
+          <div id="active-step">
+            <li>
+              <span class="step-to-start">
+                {% include "includes/get_started/5.html" %}
+              </span>
+            </li>
+          </div>
+          <br>
+          <li>
+            <span class="step-to-start">
+              {% include "includes/get_started/6.html" %}
+            </span>
+          </li>
+        </ol>
+
+      </div>
+
+    </div>
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/get_started/decide_permissions/allow_improvements" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Licensing your dataset
+        </h1>
+
+        <p>Explaining what this means</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Data licence
+          </legend>
+
+          <div class="form-group">
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="create-dataset" name="create-dataset" value="yes">
+              UK Open Government Licence
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="update-dataset" name="update-dataset" value="no">
+              Specify other
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
