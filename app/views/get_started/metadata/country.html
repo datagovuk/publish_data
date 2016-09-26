@@ -1,0 +1,71 @@
+{% extends "layout.html" %} {% block page_title %} Example - Forms {% endblock %} {% block content %}
+<main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/get_started.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/questions/eligibility/age" class="form">
+
+      {{formData | safe}}
+
+        <h3 class="heading-medium">
+          What place does your dataset represent?
+        </h3>
+
+        <p>This may also be referred to as geographic coverage.</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            What place does your dataset represent?
+          </legend>
+
+          <div class="form-group">
+            <label for="country-1" class="block-label">
+              <input type="checkbox" id="country-1" name="country" value="england">
+              England
+            </label>
+
+            <label for="country-2" class="block-label">
+              <input type="checkbox" id="country-2" name="country" value="northern_ireland">
+              Northern Ireland
+            </label>
+
+            <label for="country-3" class="block-label">
+              <input type="checkbox" id="country-3" name="country" value="scotland">
+              Scotland
+            </label>
+
+            <label for="country-4" class="block-label">
+              <input type="checkbox" id="country-4" name="country" value="wales">
+              Wales
+            </label>
+
+            <label for="country-5" class="block-label">
+              <input type="checkbox" id="country-5" name="country" value="overseas">
+              Overseas
+            </label>
+
+            <label for="country-6" class="block-label">
+              <input type="checkbox" id="country-6" name="country" value="global">
+              Global
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

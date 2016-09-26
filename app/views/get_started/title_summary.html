@@ -20,65 +20,17 @@
 
   <div class="grid-row">
 
-    <div class="column-one-third">
-  
-      <div class="get-started">
-
-        <h3 class="heading-medium">Get started</h3>
-
-        <ol class="list list-number">
-          <div id="active-step">
-          <li>
-            <span class="step-to-start">
-              {% include "includes/get_started/1.html" %}
-            </span>
-          </li>
-          </div>
-          <br>
-          <li>
-            <span class="step-to-start">
-              {% include "includes/get_started/2.html" %}
-            </span>
-          </li>
-          <br>
-          <li>
-            <span class="step-to-start">
-              {% include "includes/get_started/3.html" %}
-            </span>
-          </li>
-          <br>
-          <li>
-            <span class="step-to-start">
-              {% include "includes/get_started/4.html" %}me
-            </span>
-          </li>
-          <br>
-          <li>
-            <span class="step-to-start">
-              {% include "includes/get_started/5.html" %}
-            </span>
-          </li>
-          <br>
-          <li>
-            <span class="step-to-start">
-              {% include "includes/get_started/6.html" %}
-            </span>
-          </li>
-        </ol>
-
-      </div>
-
-    </div>
+    {% include "includes/get_started.html" %}
 
     <div class="column-two-thirds">
 
-      <form method="get" action="/get_started/file_upload" class="form">
+      <form method="get" action="/get_started/upload/data_type" class="form">
 
       {{formData | safe}}
 
-        <h1 class="heading-large">
+        <h3 class="heading-medium">
           Title and summary
-        </h1>
+        </h3>
 
         <p>You must give your dataset a title and summary.</p>
 

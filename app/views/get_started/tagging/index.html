@@ -20,7 +20,7 @@
 
   <div class="grid-row">
 
-    {% include "includes/side-navigation.html" %}
+    {% include "includes/get_started.html" %}
 
     <div class="column-two-thirds">
 
@@ -28,13 +28,13 @@
 
       {{formData | safe}}
 
-        <h1 class="heading-large">
-          Upload a new dataset
-        </h1>
+        <h3 class="heading-medium">
+          Tagging your dataset
+        </h3>
 
-        <p>You must give your dataset a title and summary.</p>
+        <p>Tagging the themes of your dataset makes it easier to find.</p>
 
-        <p>This will make it easier for users to find it on GOV.UK</p>
+        <p>90.1% of users find data on GOV.UK by browsing themes.</p>
 
         <br>
 
@@ -44,21 +44,11 @@
           </legend>
 
           <div class="form-group">
-            <label class="form-label" for="title-dataset">Title</label>
+            <label class="form-label" for="title-dataset">Search themes</label>
             <span class="form-hint">
-              Titles should be 65 characters or less, including spaces.<br>
-              Most search engines will shorten titles if they’re longer than this.
+              For example crime and justice
             </span>
             <input class="form-control form-control-2-3" id="title-dataset" name="title-dataset" type="text">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="summary-dataset">Summary</label>
-            <span class="form-hint">
-              The rst sentence of the summary will appear in search results.<br>
-              It should be 140 characters or less.
-            </span>
-            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
           </div>
 
         </fieldset>

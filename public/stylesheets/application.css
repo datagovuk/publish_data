@@ -2050,7 +2050,6 @@ input[type=number] {
 .get-started li {
   font-size: 24px;
   font-weight: 700;
-  opacity: 0.5;
 }
 
 .step-to-start {
@@ -2060,6 +2059,11 @@ input[type=number] {
 
 #active-step li {
   opacity: 1;
+}
+
+.bold-date {
+  font-weight: 700;
+  color: #0b0c0c;
 }
 
 .in-manual-search {
