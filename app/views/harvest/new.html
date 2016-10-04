@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/harvest/ckan" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Create a new harvester
+        </h1>
+
+        <p>You must provide a name and the URL of the catalogue from where we can harvest datasets</p>
+
+
+        <br>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+          Create a harvester
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label" for="title-dataset">Name</label>
+            <span class="form-hint">
+                Give this harvester a name so that you can identify it<br/>
+                at a later time.
+            </span>
+            <input class="form-control form-control-2-3" id="" name="" type="text">
+          </div>
+
+
+          <div class="form-group">
+            <label class="form-label" for="title-dataset">URL</label>
+            <span class="form-hint">
+              Provide the URL from where your data catalogue can<br/>
+              be found, including the http:// or https://
+            </span>
+            <input class="form-control form-control-2-3" id="" name="" type="text">
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
