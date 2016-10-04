@@ -25,7 +25,7 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="/manage_data/upload_new_dataset/title_summary" class="form">
+      <form method="get" action="/menu" class="form">
 
       {{formData | safe}}
 
@@ -40,22 +40,22 @@
 
           <div class="form-group">
             <label for="create-dataset" class="block-label">
-              <input type="radio" id="create-dataset" name="create-dataset" value="yes">
+              <input type="radio" id="create-dataset" name="goto" value="/manage_data/upload_new_dataset/title_summary">
               Upload a new dataset
             </label>
 
             <label for="update-dataset" class="block-label">
-              <input type="radio" id="update-dataset" name="update-dataset" value="no">
+              <input type="radio" id="update-dataset" name="goto" value="/">
               Update or add to a existing dataset
             </label>
 
             <label for="pull-data" class="block-label">
-              <input type="radio" id="pull-data" name="pull-data" value="no">
+              <input type="radio" id="pull-data" name="goto" value="/harvest/new">
               Pull data: we’ll harvest your data
             </label>
 
             <label for="push-data-to-api" class="block-label">
-              <input type="radio" id="push-data-to-api" name="push-data-to-api" value="no">
+              <input type="radio" id="push-data-to-api" name="goto" value="/pull">
               Push data to API integration
             </label>
 
