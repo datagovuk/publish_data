@@ -19,7 +19,7 @@ router.use(function (req, res, next) {
  res.locals.formQuery = res.locals.formQuery.slice(0,-1);
 
  next();
- 
+
 });
 
 router.get('/', function (req, res) {
@@ -50,6 +50,11 @@ router.get('/create_account/enter_details', function (req, res) {
 
   }
 
+});
+
+// Check if we've got to this page but user actually selected harvest
+router.get('/menu', function (req, res) {
+  res.redirect(req.query.goto);
 });
 
 module.exports = router;
