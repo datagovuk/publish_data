@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Product: GOV.UK Frontend
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+    <form method="post" action="/send-login" class="form">
+
+        <h1 class="heading-large">
+            Log in
+        </h1>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Please provide your credentials
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-control form-control-2-3" id="email" name="email" type="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control form-control-2-3" id="password" name="password" type="password">
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue"/>
+        </div>
+    </form>
+</main>
+
+{% endblock %}
+
+
