@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+        <h1 class="heading-large">
+          Land Registry Users
+        </h1>
+
+        <p>Here you can manage the users who are able to publish data<br/>
+        for Land Registry</p>
+
+        <table>
+          <thead>
+            <tr>
+                <th>User</th>
+                <th>Last activity</th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Louise Petre</td>
+              <td>Today</td>
+              <td>
+                <a href="/settings/users">Edit</a>
+                <a href="/settings/users">Remove</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Maria Izquierdo</td>
+              <td>This week</td>
+              <td>
+                <a href="/settings/users">Edit</a>
+                <a href="/settings/users">Remove</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Tom Hughes</td>
+              <td>Today</td>
+              <td>
+                <a href="/settings/users">Edit</a>
+                <a href="/settings/users">Remove</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+        <a class="button" href="/settings/invite">Add a new user</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

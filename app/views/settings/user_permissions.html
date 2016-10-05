@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/dashboard" class="form">
+
+        <h1 class="heading-large">
+          Choose user permissions
+        </h1>
+
+        <p>You can control which permissions the newly invite user has</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Please choose the permissions for the new user.
+          </legend>
+
+          <p>Select all that apply</p>
+
+          <div class="form-group">
+            <label for="create" class="block-label">
+              <input type="checkbox" id="create" name="create" value="">
+              Create and Edit datasets
+            </label>
+            <label for="publish" class="block-label">
+              <input type="checkbox" id="publish" name="publish" value="">
+              Publish datasets
+            </label>
+            <label for="harvesters" class="block-label">
+              <input type="checkbox" id="harvesters" name="harvesters" value="">
+              Manage harvesters
+            </label>
+            <label for="admin" class="block-label">
+              <input type="checkbox" id="admin" name="admin" value="">
+              Manage the Land Registry Organisation
+            </label>
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <a class="button" class="button" href="/settings/users    ">Continue</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

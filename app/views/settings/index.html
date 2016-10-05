@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/menu" class="form">
+
+        <h1 class="heading-large">
+          Land Registry Settings
+        </h1>
+
+        <p>Here you are able to manage the users within your organisation <br>
+        and make changes to how the organisation is displayed</p>
+
+        <h2 class="heading-medium">
+          What would you like to change?
+        </h2>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            What would you like to change?
+          </legend>
+
+          <div class="form-group">
+            <label for="notify-2" class="block-label">
+              <input type="radio" id="notify-2" name="goto" value="/settings/users">
+              Users and permissions
+            </label>
+
+            <label for="notify-1" class="block-label">
+              <input type="radio" id="notify-1" name="goto" value="/settings/organisation">
+               Organisation settings for Land Registry
+            </label>
+
+            <label for="contact" class="block-label">
+              <input type="radio" id="contact" name="goto" value="/settings/contact">
+               Contact details for Land Registry
+            </label>
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

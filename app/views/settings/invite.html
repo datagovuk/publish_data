@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/settings/user_permissions" class="form">
+
+        <h1 class="heading-large">
+          Invite a new user
+        </h1>
+
+        <p>You can invite another person to help you manage the<br/>
+        Land Registry datasets by providing their email address</p>
+
+        <p>If the user is already registered they will be added to the<br/>
+        Organisation immediately</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Please provide the contributors details
+          </legend>
+
+
+          <div class="form-group">
+            <label class="form-label" for="summary-dataset">Email address</label>
+            <span class="form-hint">
+              The email address of the person to invite
+            </span>
+            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="email">
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <a class="button" class="button" href="/settings/user_permissions">Continue</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
