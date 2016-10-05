@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/harvest/ckan" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Default harvester
+        </h1>
+
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Type</td>
+              <td>CKAN</td>
+            </tr>
+            <tr>
+              <td>URL</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>Organisations</td>
+              <td>All</td>
+            </tr>
+            <tr>
+              <td>Last run</td>
+              <td>Yesterday</td>
+            </tr>
+            <tr>
+              <td>Datasets processed</td>
+              <td>4</td>
+            </tr>
+            <tr>
+             <td>Warnings</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        <h2 class="heading-medium">
+        Imported datasets
+        </h2>
+        <p>The following datasets were imported on the last run</p>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="">Administrative Areas</a></td>
+                    <td>New</td>
+                </tr>
+                <tr>
+                    <td><a href="">Spending data</a></td>
+                    <td>Updated</td>
+                </tr>
+                <tr>
+                    <td><a href="">Price Paid Data</a></td>
+                    <td>Updated</td>
+                </tr>
+                <tr>
+                    <td><a href="">UK House Price Index</a></td>
+                    <td>Updated</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
