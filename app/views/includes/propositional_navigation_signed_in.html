@@ -5,7 +5,7 @@
     <a href="/start-page" id="proposition-name">{% if serviceName %} {{ serviceName }} {% endif %}</a>
       <ul id="proposition-links">
 
-        <li><a>{% if userName %} {{ userName }} {% endif %}</a><a href="/logout">(Log out)</a></li>
+        <li>{% if userName %}<a> {{ userName }} </a><a href="/logout">(Log out)</a>{% endif %}</li>
       </ul>
     </nav>
   </div>
