@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="/dashboard" class="form">
+
+        <h1 class="heading-large">
+          Land Registry Settings
+        </h1>
+
+        <p>Changes you make here will take effect immediately</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            What would you like to change?
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label" for="title-dataset">Title</label>
+            <span class="form-hint">
+              Titles should be 128 characters or less, including spaces.
+            </span>
+            <input class="form-control form-control-2-3" id="title-dataset" name="title-dataset" type="text" value="Land Registry">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="title-dataset">Description</label>
+            <span class="form-hint">
+              The description should describe what your organisation is<br/>
+              responsible for.
+            </span>
+            <textarea rows="5" class="form-control form-control-2-3" id="title-dataset" name="title-dataset">Land Registry safeguards land and property ownership worth more than £4 trillion, including more than £1 trillion of mortgages. The Land Register contains more than 24 million titles, which show evidence of ownership, covering more than 83% of the land mass.</textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Save changes" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
