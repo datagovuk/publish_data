@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+        <h1 class="heading-large">
+          Harvesters
+        </h1>
+
+        <p>These are the harvesters that are configured for Land Registry that will perform a bulk import on a regular schedule</p>
+
+        <table>
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Last activity</th>
+                <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/harvest/view">Default</a></td>
+              <td>CKAN</td>
+              <td>Today</td>
+              <td>
+              Ok
+              </td>
+            </tr>
+            <tr>
+              <td><a href="/harvest/view_failed">Inspire Geo Data</a></td>
+              <td>INSPIRE - WMS</td>
+              <td>Monday</td>
+              <td>
+                <div class="error" style="color: #B10E1E;">
+                Failed
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <p>
+          <a href="/harvest/new" class="button">Add new harvester</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}
