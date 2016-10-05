@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+ <form method="get" action="/menu" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Please choose your data catalogue
+        </h1>
+
+        <p>We were unable to determine the type of data catalogue you are using</p>
+
+        <p>Please provide more information below, or contact <a>Support</a> for help</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Choose catalogue
+          </legend>
+
+          <div class="form-group">
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="ckan" name="goto" value="/harvest/ckan">
+              CKAN
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="socrata" name="goto" value="/harvest/ckan">
+              Publish My Data
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="socrata" name="goto" value="/harvest/ckan">
+              LGA Inventory
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="socrata" name="goto" value="/harvest/ckan">
+              Socrata
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="socrata" name="goto" value="/harvest/ckan">
+              INSPIRE - WMS
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="socrata" name="goto" value="/harvest/ckan">
+              INSPIRE - CSW
+            </label>
+
+            <label for="update-dataset" class="block-label">
+              <input type="radio" id="socrata" name="goto" value="/harvest/ckan">
+              INSPIRE - A web accessible folder
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+ <form method="get" action="/menu" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Please choose a harvest frequency
+        </h1>
+
+        <p>Please select how frequently you would like us to extract data </p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Choose catalogue
+          </legend>
+
+          <div class="form-group">
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="ckan" name="goto" value="/harvest/done">
+              Every day
+            </label>
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="ckan" name="goto" value="/harvest/done">
+              Every week
+            </label>
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="ckan" name="goto" value="/harvest/done">
+              Every month
+            </label>
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="ckan" name="goto" value="/harvest/done">
+              Every 3 months
+            </label>
+
+            <label for="create-dataset" class="block-label">
+              <input type="radio" id="ckan" name="goto" value="/harvest/done">
+              I'll run it manually
+            </label>
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</main>
+{% endblock %}
