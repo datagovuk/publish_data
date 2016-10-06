@@ -2,9 +2,9 @@
   <div class="content">
     <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
     <nav id="proposition-menu">
-    <a href="/" id="proposition-name">{% if serviceName %} {{ serviceName }} {% endif %}</a>
+    <a href="/start-page" id="proposition-name">{% if serviceName %} {{ serviceName }} {% endif %}</a>
       <ul id="proposition-links">
-        <li><a href="/login">Sign in to your account</a></li>
+        <li>{% if userName %}<a> {{ userName }} </a><a href="/logout">(Log out)</a>{% endif %}</li>
       </ul>
     </nav>
   </div>
