@@ -2098,3 +2098,29 @@ input[type=number] {
   -moz-border-radius: 0;
   border-radius: 0;
 }
+
+.filter-panel {
+  margin-bottom: 1em;
+  padding: .5em;
+  background-color: #dee0e2;
+}
+
+.filter-panel h2 {
+  margin-top: 0;
+}
+
+.filter-panel label {
+  display: block;
+}
+
+.filter-panel input[type="submit"] {
+  margin-left: 1em;
+}
+
+.filter-panel input[type="text"] {
+  width: 80%;
+}
+
+.filter-panel .statuses legend {
+  display: inline;
+}
