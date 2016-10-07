@@ -16,12 +16,12 @@ $(document).ready(function() {
       var rowDisplay = 'table-row';
 
       if (nameSearch) {
-        if ($row.find('td')[0].innerText.toLowerCase().indexOf(nameSearch.toLowerCase()) === -1) {
+        if ($row.find('td.name')[0].innerText.toLowerCase().indexOf(nameSearch.toLowerCase()) === -1) {
           rowDisplay = 'none';
         }
       }
       if (rowDisplay !== 'none' && status && status !== 'all') {
-        if ($row.find('td')[1].getAttribute('data-status') !== status) {
+        if ($row.find('td[data-status]')[0].getAttribute('data-status') !== status) {
           rowDisplay = 'none';
         }
       }
@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
   }
 
-  $('.filtered-table input[type=submit]').on('click', filter);
+  $('.filtered-table input[class~=filter]').on('click', filter);
 
 
 });

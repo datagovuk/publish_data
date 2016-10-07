@@ -247,25 +247,33 @@
 }
 
 // Filter box
-.filter-panel {
-  margin-bottom: 1em;
-  padding: .5em;
-  background-color: $panel-colour;
-  h2 {
-    margin-top: 0;
+.filtered-table {
+  table {
+    margin-bottom: 1em;
   }
-  label {
-    display: block;
-  }
-  input[type="submit"] {
-    margin-left: 1em;
-  }
-  input[type="text"] {
-    width: 80%;
-  }
-  .statuses {
-    legend {
-      display: inline;
+  .filter-panel {
+    margin-bottom: 1em;
+    padding: .5em;
+    background-color: $panel-colour;
+    h2 {
+      margin-top: 0;
+    }
+    label {
+      display: block;
+    }
+    input[type="submit"] {
+      margin-left: 1em;
+    }
+    input[type="text"] {
+      width: 80%;
+    }
+    .statuses {
+      legend {
+        display: inline;
+      }
+    }
+    .button.filter {
+      background-color: $grey-1;
     }
   }
 }
