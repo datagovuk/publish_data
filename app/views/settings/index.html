@@ -24,39 +24,45 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="/menu" class="form">
+      <form method="get" action="/dashboard" class="form">
 
         <h1 class="heading-large">
-          Land Registry Settings
+          Contact Details
         </h1>
 
-        <p>Here you are able to manage the users within your organisation <br>
-        and make changes to how the organisation is displayed</p>
-
-        <h2 class="heading-medium">
-          What would you like to change?
-        </h2>
+        <p>The contact details here are publically displayed to allow users<br/>
+        to contact your organisation when discussing datasets</p>
 
         <fieldset>
           <legend class="visuallyhidden">
             What would you like to change?
           </legend>
 
+
           <div class="form-group">
-            <label for="notify-2" class="block-label">
-              <input type="radio" id="notify-2" name="goto" value="/settings/users">
-              Users and permissions
-            </label>
+            <label class="form-label" for="summary-dataset">Name</label>
+            <span class="form-hint">
+              The name of the person, or team, who are responsible <br/>
+              for Land Registry datasets
+            </span>
+            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
+          </div>
 
-            <label for="notify-1" class="block-label">
-              <input type="radio" id="notify-1" name="goto" value="/settings/organisation">
-               Organisation settings for Land Registry
-            </label>
+          <div class="form-group">
+            <label class="form-label" for="summary-dataset">Email address</label>
+            <span class="form-hint">
+              The email address where the team or person above<br/> can be contacted
+            </span>
+            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="email">
+          </div>
 
-            <label for="contact" class="block-label">
-              <input type="radio" id="contact" name="goto" value="/settings/contact">
-               Contact details for Land Registry
-            </label>
+          <div class="form-group">
+            <label class="form-label" for="summary-dataset">Telephone Number</label>
+            <span class="form-hint">
+              If one is available, please provide the telephone number for<br/>
+              the team, or person, responsible for Land Registry datasets
+            </span>
+            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
           </div>
 
         </fieldset>
