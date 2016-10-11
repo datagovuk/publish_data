@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <form method="get" action="period" class="form">
+
+      {{formData | safe}}
+
+        <h1 class="heading-large">
+          Choose a theme
+        </h1>
+
+        <p>Tag your dataset to one of the following themes.</p>
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Would you like to be notified?
+          </legend>
+
+          {% set themes=['Business and economy',
+                         'Crime and justice',
+                         'Defence',
+                         'Education',
+                         'Environment',
+                         'Government',
+                         'Government spending',
+                         'Health',
+                         'Mapping',
+                         'Society',
+                         'Towns and cities',
+                         'Transport'
+                         ] %}
+
+
+          <div class="form-group">
+            {% for theme in themes %}
+            <label for="{{theme}}" class="block-label">
+              <input type="radio" id="{{theme}}" name="theme" value="yes">
+              {{theme}}
+            </label>
+            {% endfor %}
+          </div>
+
+        </fieldset>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue" />
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
