@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Data added
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+<div class="govuk-box-highlight">
+  <h1 class="bold-large">
+    Upload complete
+  </h1>
+</div>
+
+<p>Go back to the <a href="http://localhost:3000/dashboard">dashboard</a></p>
+
+</main>
+{% endblock %}

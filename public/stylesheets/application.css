@@ -2099,28 +2099,36 @@ input[type=number] {
   border-radius: 0;
 }
 
-.filter-panel {
+.filtered-table table {
+  margin-bottom: 1em;
+}
+
+.filtered-table .filter-panel {
   margin-bottom: 1em;
   padding: .5em;
   background-color: #dee0e2;
 }
 
-.filter-panel h2 {
+.filtered-table .filter-panel h2 {
   margin-top: 0;
 }
 
-.filter-panel label {
+.filtered-table .filter-panel label {
   display: block;
 }
 
-.filter-panel input[type="submit"] {
+.filtered-table .filter-panel input[type="submit"] {
   margin-left: 1em;
 }
 
-.filter-panel input[type="text"] {
+.filtered-table .filter-panel input[type="text"] {
   width: 80%;
 }
 
-.filter-panel .statuses legend {
+.filtered-table .filter-panel .statuses legend {
   display: inline;
+}
+
+.filtered-table .filter-panel .button.filter {
+  background-color: #6f777b;
 }
