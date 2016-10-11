@@ -25,15 +25,20 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="done" class="form">
+      <form method="get" action="themes.html" class="form">
 
       {{formData | safe}}
 
         <h1 class="heading-large">
-          Get notifications
+          Choose a licence
         </h1>
 
-        <p>Would you like us to send you an email when your dataset needs to be updated?</p>
+        <h2 class="heading-medium">
+        Tell us more about your dataset. This information will help users find and use it.
+
+        </h2>
+
+        <p>Which licence will this dataset be published under?</p>
 
         <fieldset>
           <legend class="visuallyhidden">
@@ -42,13 +47,18 @@
 
           <div class="form-group">
             <label for="notify-1" class="block-label">
-              <input type="radio" id="notify-1" name="notify" value="yes">
-              Yes
+              <input type="radio" id="notify-1" name="licence" value="yes">
+              Open Government Licence (OGL)
             </label>
 
             <label for="notify-2" class="block-label">
-              <input type="radio" id="notify-2" name="notify" value="no">
-              No
+              <input type="radio" id="notify-2" name="licence" value="no">
+              INSPIRE Licence
+            </label>
+
+            <label for="other" class="block-label">
+              <input type="radio" id="other" name="licence" value="no">
+              Other (please specify)
             </label>
 
           </div>

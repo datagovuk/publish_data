@@ -20,57 +20,53 @@
 
   <div class="grid-row">
 
-    {% include "includes/side-navigation.html" %}
+      {% include "includes/side-navigation.html" %}
 
-    <div class="column-two-thirds">
-
-      <form method="get" action="/create_account/email_sent" class="form">
-
-      {{formData | safe}}
+      <div class="column-two-thirds">
 
         <h1 class="heading-large">
-          Upload a new dataset
+        Upload your file
         </h1>
 
-        <p>You must give your dataset a title and summary.</p>
+        <form method="get" action="want_notifications" class="form">
 
-        <p>This will make it easier for users to find it on GOV.UK</p>
-
-        <br>
-
-        <fieldset>
-          <legend class="visuallyhidden">
-            Upload a new dataset
-          </legend>
+          {{formData | safe}}
 
           <div class="form-group">
-            <label class="form-label" for="title-dataset">Title</label>
+            <label class="form-label bold" for="filename">
+              Name
+            </label>
             <span class="form-hint">
-              Titles should be 65 characters or less, including spaces.<br>
-              Most search engines will shorten titles if they’re longer than this.
-            </span>
-            <input class="form-control form-control-2-3" id="title-dataset" name="title-dataset" type="text">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="summary-dataset">Summary</label>
-            <span class="form-hint">
-              The rst sentence of the summary will appear in search results.<br>
-              It should be 140 characters or less.
+              Give your file a meaningful name, for example 'Spend for February 2016'
             </span>
             <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
           </div>
 
-        </fieldset>
+          <p>Please either provide a file to upload, or provide the URL of the data file</p>
 
-        <div class="form-group">
-          <input type="submit" class="button" value="Continue" />
-        </div>
+          <div class="form-group">
+            <label class="form-label bold" for="file-input">
+              Upload a file
+            </label>
+            <input type="file" id="file-input">
+          </div>
 
-      </form>
+          <div class="form-group">
+            <label class="form-label bold" for="filename">
+              URL
+            </label>
+            <span class="form-hint">
+              The URL should start with http:// or https:// and point directly at the data file.
+            </span>
+            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
+          </div>
 
+          <div class="form-group">
+            <input type="submit" class="button" value="Upload file" />
+          </div>
+
+        </form>
+      </div>
     </div>
-  </div>
-
 </main>
 {% endblock %}
