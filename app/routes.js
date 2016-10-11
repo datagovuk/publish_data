@@ -19,7 +19,7 @@ router.use(function (req, res, next) {
 
  res.locals.formQuery = res.locals.formQuery.slice(0,-1);
 
- if (!req.session.userName && req.originalUrl !== '/login' && req.originalUrl !== '/send-login') {
+ if (!req.session.userName && req.originalUrl !== '/login' && req.originalUrl !== '/send-login'  && req.originalUrl !== '/') {
    res.redirect('/login');
  } else {
    next();
@@ -72,7 +72,7 @@ router.post('/send-login', function (req, res) {
 
 router.get('/logout', function (req, res) {
   req.session.destroy(function(err) {
-    res.redirect('/login');
+    res.redirect('/');
   });
 })
 
