@@ -1889,6 +1889,10 @@ input[type=number] {
   padding-right: 0;
 }
 
+pre.language-markup {
+  background-color: #F5F2F0;
+}
+
 .unbranded {
   background: #fff;
 }

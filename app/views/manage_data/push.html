@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+        <h1 class="heading-large">
+          Push API
+        </h1>
+
+        <p>
+          The push API allows you to programmatically perform any of the following tasks.
+        </p>
+
+        <p>
+          <ul class="list list-contents">
+              <li><a href="/manage_data/push_documentation#create">Create a dataset</a></li>
+              <li><a href="/manage_data/push_documentation#update">Update an existing dataset</a></li>
+              <li><a href="/manage_data/push_documentation#add">Add data to a dataset</a></li>
+          </ul>
+        </p>
+
+        <p>To use the API you must have an API Key which will authorise your requests.</p>
+
+        <div class="panel panel-border-wide">
+          Your API Key is:
+          <h2 class="heading-large">
+            XXXX-XXXX-XXXX-XXXX
+          </h2>
+        </div>
+
+        <p>Please record your API Key and keep it safe.  If you accidentally expose the API Key
+        publically, please contact <a href="mailto:team@data.gov.uk?Subject=Lost API Key">Support</a></p>
+
+
+        <form method="get" action="/manage_data/push_documentation" class="form">
+          <div class="form-group">
+            <input type="submit" class="button" value="Read Developer Documentation" />
+          </div>
+        </form>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
