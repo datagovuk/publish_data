@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_beta.html" %}
+
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+        <h1 class="heading-large">
+          Push API Documentation
+        </h1>
+
+        <p>This page describes how to use the 'Publish Data' API to interact
+        with this service from software</p>
+
+        <p>Each field in the requests below is documented in the <a href="data-dictionary">Data Dictionary</a></p>
+
+        <h2 id="auth" class="heading-medium">
+          Authenticating requests
+        </h2>
+
+        <p>All requests to the API should be authenticated with your API Key. The API key should be added as the Authorization HTTP header.</p>
+
+
+        <h2 id="create" class="heading-medium">
+          Creating a dataset
+        </h2>
+
+        <p>To create a new dataset you should send a POST request to /api/dataset/create
+        with the following fields</p>
+
+        <pre class="language-markup">
+          <code class=" language-markup">
+ {
+    "title": "The dataset title",
+    "owner_org": "land-registry",
+    "description": "....."
+ }
+          </code>
+        </pre>
+
+        <h2 id="update" class="heading-medium">
+          Updating a dataset
+        </h2>
+
+        <p>When updating datasets, the ID of the dataset must be specified.  This can be retrieved from /api/dataset/{short-name}.  If you make a POST request to /api/dataset/{short-name} then all of the fields in the submission will be written to the database</p>
+
+        <pre class="language-markup">
+          <code class=" language-markup">
+ {
+    "id": "ID"
+    "title": "The dataset title",
+    "owner_org": "land-registry",
+    "description": "....."
+ }
+          </code>
+        </pre>
+
+
+        <h2 id="add" class="heading-medium">
+          Adding data to a dataset
+        </h2>
+
+        <p>To add a new datafile to a known dataset, you should make a POST request to
+        /api/add_data</p>
+
+        <pre class="language-markup">
+          <code class=" language-markup">
+  {
+    "dataset_id": "XXXX",
+    "url": "http://....",
+    "title": "February update"
+  }
+          </code>
+        </pre>
+
+
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
