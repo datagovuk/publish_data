@@ -19,7 +19,11 @@ router.use(function (req, res, next) {
 
  res.locals.formQuery = res.locals.formQuery.slice(0,-1);
 
- if (!req.session.userName && req.originalUrl !== '/login' && req.originalUrl !== '/send-login'  && req.originalUrl !== '/') {
+ if (!req.session.userName &&
+     req.originalUrl !== '/login' &&
+     req.originalUrl !== '/send-login'  &&
+     req.originalUrl !== '/' &&
+     !req.originalUrl.startsWith('/create_account') ) {
    res.redirect('/login');
  } else {
    next();
