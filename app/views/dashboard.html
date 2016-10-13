@@ -1,81 +1,113 @@
-{% extends "layout.html" %}
-
-{% block page_title %}
-  Publish government data
-{% endblock %}
-
-{% block proposition_header %}
-  {% include "includes/propositional_navigation_service.html" %}
-{% endblock %}
-
-{% block header_class %}
-  with-proposition
-{% endblock %}
-
-{% block content %}
-
-<main id="content" role="main">
-
-{% include "includes/phase_banner_beta.html" %}
-
-  <div class="grid-row">
-
-
-    {% include "includes/side-navigation.html" %}
-
-
-    <div class="column-two-thirds" style="width:80%;">
-
-      <form method="get" action="/questions/place_type" class="form">
-
-      {{formData | safe}}
-
-        <h1 class="heading-large">
-          Dashboard
-        </h1>
-
-        <br>
-
-        <!-- search box -->
-        <div class="in-manual-search">
-          <form action="/search">
-                 <input type="hidden" name="filter_manual[]" value="/guidance/content-design">
-                 <input id="search-box" type="text" name="q" placeholder="search your datasets">
-                 <button type="submit">search</button>
-          </form>
-        </div>
-
-        <br>
-        <br>
-
-        <div class="column-one-half" id="dashboard-panel">
-          <p>Published datasets</p>
-          <h2 class="bold-xlarge"><a href="#">592</a></h2>
-        </div>
-
-        <div class="column-one-half" id="dashboard-panel">
-          <p>Downloads</p>
-          <h2 class="bold-xlarge"><a href="#">2</a></h2>
-        </div>
-
-        <!--
-        <div class="column-one-half" id="dashboard-panel">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cabinet Office – Dashboard</title>
+</head>
+<body>
+  {% extends "layout.html" %} {% block page_title %} Publish data {% endblock
+  %} {% block proposition_header %} {% include
+  "includes/propositional_navigation_signed_in.html" %} {% endblock %} {% block
+  header_class %} with-proposition {% endblock %} {% block content %}
+  <main id="content" role="main">
+    {% include "includes/phase_banner_beta.html" %}
+    <div class="grid-row">
+      {% include "includes/side-navigation.html" %}
+      <div class="column-two-thirds" style="width:80%;">
+        <form action="/questions/place_type" class="form" method="get">
+          {{formData | safe}}
+          <h1 class="heading-large">Dashboard</h1><br>
+          <!-- search box -->
+          <div class="in-manual-search">
+            <form action="/search">
+              <input name="filter_manual[]" type="hidden" value=
+              "/guidance/content-design"> <input id="search-box" name="q"
+              placeholder="search your datasets" type="text"> <button type=
+              "submit">search</button>
+            </form>
+          </div><br>
           <br>
-          <p>Most recent published dataset</p>
+          <div class="column-one-half" id="dashboard-panel">
+            <h2 class="heading-large">592<br>
+            <span class="big-number-label"><a href="#">published
+            datasets</a></span></h2>
+          </div>
+          <div class="column-one-half" id="dashboard-panel">
+            <h2 class="heading-large">2<br>
+            <span class="big-number-label"><a href="#">broken
+            links</a></span></h2>
+          </div>
+          <h2 class="heading-medium">Tasks</h2>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Downloads</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="clickable-row" data-href=
+                "staff-transaction-detail-in-progress">
+                  <td>Land registry price paid data</td>
+                  <td>5 Sep 2016 – 12:45</td>
+                </tr>
+                <tr class="clickable-row" data-href=
+                "staff-transaction-detail-in-progress">
+                  <td>Land registry price paid data</td>
+                  <td>5 Sep 2016 – 12:45</td>
+                </tr>
+                <tr class="clickable-row" data-href=
+                "staff-transaction-detail-in-progress">
+                  <td>Land registry price paid data</td>
+                  <td>5 Sep 2016 – 12:45</td>
+                </tr>
+                <tr class="clickable-row" data-href=
+                "staff-transaction-detail-in-progress">
+                  <td>Land registry price paid data</td>
+                  <td>5 Sep 2016 – 12:45</td>
+                </tr>
+                <tr class="clickable-row" data-href=
+                "staff-transaction-detail-in-progress">
+                  <td>Land registry price paid data</td>
+                  <td>5 Sep 2016 – 12:45</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <hr>
-          <p class="bold">Name</p>
-        </div>
-
-        <div class="column-one-half" id="dashboard-panel">
-          <br>
-          <p>Most recent updated dataset</p>
-          <hr>
-          <p class="bold">Downloads</p>
-        </div>
-        -->
-
+          <h2 class="heading-medium">Most popular</h2>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Downloads</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="clickable-row">
+                  <td>Land registry price paid data</td>
+                  <td>125 <span class="text-supporting"><span class=
+                  "data-neutral-arrow">&#9650;</span> +1% since Sep
+                  2015</span></td>
+                </tr>
+                <tr class="clickable-row">
+                  <td>Land registry price paid data</td>
+                  <td>12 <span class="text-supporting"><span class=
+                  "data-neutral-arrow">&#9650;</span> +1% since Sep
+                  2015</span></td>
+                </tr>
+                <tr class="clickable-row">
+                  <td>Land registry price paid data</td>
+                  <td>5 <span class="text-supporting"><span class=
+                  "data-neutral-arrow">▼</span> -1% since Sep 2015</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-
-</main>
-{% endblock %}
+  </main>{% endblock %}
+</body>
+</html>
