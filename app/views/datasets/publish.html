@@ -25,34 +25,30 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="#" class="form">
+      <form method="get" action="/menu" class="form">
 
       {{formData | safe}}
 
         <h1 class="heading-large">
-          Upload a new dataset
+          Publish dataset
         </h1>
 
-        <h2 class="heading-medium">
-          Would you like to be notified?
-        </h2>
-
-        <p>These will give us permission to remember you when your data needs to be updated, and you could do so via email.</p>
+        <p>You can choose to publish this dataset immediately, or choose a date and time when it will be published automatically</p>
 
         <fieldset>
           <legend class="visuallyhidden">
-            Would you like to be notified?
+            Publish dataset
           </legend>
 
           <div class="form-group">
-            <label for="notify-1" class="block-label">
-              <input type="radio" id="notify-1" name="notify" value="yes">
-              Yes
+            <label for="now" class="block-label">
+              <input type="radio" id="now" name="goto" value="/datasets/publish_done">
+              Publish immediately
             </label>
 
-            <label for="notify-2" class="block-label">
-              <input type="radio" id="notify-2" name="notify" value="no">
-              No
+            <label for="date-time" class="block-label">
+              <input type="radio" id="date-time" name="goto" value="/datasets/publish_when">
+              Publish at a specified date and time
             </label>
 
           </div>

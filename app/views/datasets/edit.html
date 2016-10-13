@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Data added
+  Publish government data
 {% endblock %}
 
 {% block proposition_header %}
@@ -18,14 +18,15 @@
 
 {% include "includes/phase_banner_alpha.html" %}
 
-<div class="govuk-box-highlight">
-  <h1 class="bold-large">
-    Dataset created
-  </h1>
-</div>
 
-<p>Go to your <a href="/metadata_edit/">dataset</a> or visit your
-<a href="/dashboard">dashboard</a></p>
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+
+    This is the edit page
+
+  </div>
 
 </main>
 {% endblock %}
