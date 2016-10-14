@@ -24,17 +24,11 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="/settings/user_permissions" class="form">
+      <form method="get" action="/team" class="form">
 
         <h1 class="heading-large">
-          Invite a new user
+          Invite a team membmer
         </h1>
-
-        <p>You can invite another person to help you manage the<br/>
-        Land Registry datasets by providing their email address</p>
-
-        <p>If the user is already registered they will be added to the<br/>
-        Organisation immediately</p>
 
         <fieldset>
           <legend class="visuallyhidden">
@@ -43,7 +37,7 @@
 
 
           <div class="form-group">
-            <label class="form-label" for="summary-dataset">Email address</label>
+            <label class="form-label bold" for="summary-dataset">Email address</label>
             <span class="form-hint">
               The email address of the person to invite
             </span>
@@ -52,8 +46,46 @@
 
         </fieldset>
 
+
+        <fieldset>
+          <legend class="visuallyhidden">
+            Please choose the permissions for the new user.
+          </legend>
+
+          <p class="bold">Permissions</p>
+
+          <div class="form-group">
+            <label for="create" class="block-label">
+              <input type="checkbox" id="create" name="create" value="">
+              Create and Edit datasets
+            </label>
+            <label for="publish" class="block-label">
+              <input type="checkbox" id="publish" name="publish" value="">
+              Publish datasets
+            </label>
+            <label for="harvesters" class="block-label">
+              <input type="checkbox" id="harvesters" name="harvesters" value="">
+              Manage harvesters
+            </label>
+            <label for="admin" class="block-label">
+              <input type="checkbox" id="admin" name="admin" value="">
+              Manage the Land Registry Organisation
+            </label>
+          </div>
+
+        </fieldset>
+
+        <p>
+          All team members can see
+          <ul class="list list-bullet">
+              <li>Datasets that are not published</li>
+              <li>Team notifications and tasks to be done</li>
+          </ul>
+        </p>
+
+
         <div class="form-group">
-          <a class="button" class="button" href="/team/user_permissions">Continue</a>
+          <a class="button" class="button" href="/team">Send invitation email</a>
         </div>
 
       </form>
