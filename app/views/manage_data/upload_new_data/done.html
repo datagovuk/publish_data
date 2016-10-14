@@ -18,13 +18,21 @@
 
 {% include "includes/phase_banner_alpha.html" %}
 
-<div class="govuk-box-highlight">
-  <h1 class="bold-large">
-    Upload complete
-  </h1>
-</div>
+  <div class="grid-row">
 
-<p>Go back to the <a href="/dashboard">dashboard</a></p>
+    {% include "includes/side-navigation.html" %}
 
+    <div class="column-two-thirds">
+
+        <div class="govuk-box-highlight">
+          <h1 class="bold-large">
+            Upload complete
+          </h1>
+        </div>
+
+        <p>Go back to the <a href="/dashboard">dashboard</a></p>
+    </div>
+
+  </div>
 </main>
 {% endblock %}
