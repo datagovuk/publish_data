@@ -1,3 +1,14 @@
+.bordered {
+  border-bottom: solid 2px #ddd;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.team-member-name {
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
 .grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
