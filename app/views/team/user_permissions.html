@@ -26,6 +26,8 @@
 
       <form method="get" action="/dashboard" class="form">
 
+        {{ back.show() }}
+
         <h1 class="heading-large">
           Edit user permissions
         </h1>
@@ -64,7 +66,6 @@
           <a class="button" class="button" href="/team/">Continue</a>
         </div>
 
-        {% include "includes/back.html" %}
 
       </form>
 

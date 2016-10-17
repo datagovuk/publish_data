@@ -1900,6 +1900,12 @@ input[type=number] {
   padding-bottom: 1em;
 }
 
+.step {
+  margin-left: 20px;
+  font-size: smaller;
+  font-weight: bold;
+}
+
 pre.language-markup {
   background-color: #F5F2F0;
 }
