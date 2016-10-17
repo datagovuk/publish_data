@@ -1,0 +1,6 @@
+---
+applications:
+- name: publish-data
+  memory: 256M
+  buildpack: nodejs_buildpack
+
