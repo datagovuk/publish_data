@@ -24,10 +24,9 @@
 
     <div class="column-two-thirds">
 
- <form method="get" action="/menu" class="form">
+    <form method="get" action="/menu" class="form">
 
-
-        {% include "includes/back.html" %}
+        {{ back.show(2, 4) }}
 
         <h1 class="heading-large">
           Please choose which organisations to harvest
@@ -46,7 +45,7 @@
 
           <div class="form-group">
             <label for="create-dataset" class="block-label">
-              <input type="checkbox" id="ckan" name="goto" value="/harvest/frequency">
+              <input type="checkbox" id="ckan" name="goto" value="/harvest/frequency" checked>
               All 3 organisations
             </label>
             <label for="create-dataset" class="block-label">

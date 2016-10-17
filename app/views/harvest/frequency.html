@@ -24,11 +24,11 @@
 
     <div class="column-two-thirds">
 
- <form method="get" action="/menu" class="form">
+    <form method="get" action="/menu" class="form">
 
       {{formData | safe}}
 
-        {% include "includes/back.html" %}
+        {{ back.show(3, 4) }}
 
         <h1 class="heading-large">
           Please choose a harvest frequency
@@ -43,7 +43,7 @@
 
           <div class="form-group">
             <label for="create-dataset" class="block-label">
-              <input type="radio" id="ckan" name="goto" value="/harvest/done">
+              <input type="radio" id="ckan" name="goto" value="/harvest/done" checked=checked>
               Every day
             </label>
             <label for="create-dataset" class="block-label">
