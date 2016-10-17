@@ -1904,6 +1904,21 @@ pre.language-markup {
   background-color: #F5F2F0;
 }
 
+#back a {
+  display: inline-block;
+  margin-top: 15px;
+  padding-left: 14px;
+  border-bottom: #0b0c0c 1px solid;
+  color: #0b0c0c;
+  text-decoration: none;
+  background: url("/public/images/icon-caret-left.png") no-repeat 0 4px;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+
 .unbranded {
   background: #fff;
 }
