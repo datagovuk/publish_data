@@ -2173,3 +2173,9 @@ pre.language-markup {
 ul.publisher-tasks li::before {
   content: "➜ ";
 }
+
+div.dataset-preview {
+  margin-top: 1em;
+  overflow-x: scroll;
+  width: 100%;
+}
