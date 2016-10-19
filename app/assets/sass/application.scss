@@ -313,3 +313,7 @@ pre.language-markup {
     }
   }
 }
+
+ul.publisher-tasks li::before {
+  content: "➜ "
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
@@ -2167,4 +2168,8 @@ pre.language-markup {
 
 .filtered-table .filter-panel .button.filter {
   background-color: #6f777b;
+}
+
+ul.publisher-tasks li::before {
+  content: "➜ ";
 }
