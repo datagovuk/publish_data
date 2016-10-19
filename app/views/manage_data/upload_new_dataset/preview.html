@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Dataset preview - Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_alpha.html" %}
+
+  <div class="grid-row">
+
+      {% include "includes/side-navigation.html" %}
+
+      <div class="column-two-thirds">
+
+        {{ back.show(8, 9) }}
+
+        <h1 class="heading-large">
+        Check your data
+        </h1>
+
+        <p>Below is a preview of your dataset. Please check that it looks ok.</p>
+
+        <a href="want_notifications" class="button">Continue</a>
+
+        <div class="dataset-preview">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">2004</th>
+                <th scope="col"></th>
+                <th scope="col">Quality</th>
+                <th scope="col">Units</th>
+                <th scope="col">Jan</th>
+                <th scope="col">Feb</th>
+                <th scope="col">Mar</th>
+                <th scope="col">Apr</th>
+                <th scope="col">Jun</th>
+                <th scope="col">July</th>
+                <th scope="col">Aug</th>
+                <th scope="col">Sep</th>
+                <th scope="col">Nov</th>
+                <th scope="col">Dec</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>FRUIT</td><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td></td><td></td><td></td></tr>
+
+              <tr><td>Blackberries</td><td>All varieties</td><td>-</td><td>£/Kg</td><td/><td/><td/><td/><td/><td/><td>3.26</td><td></td><td></td><td></td></tr>
+
+              <tr><td>Cherries</td><td>Sweet black</td><td>-</td><td>£/Kg</td><td>65</td><td></td><td>12.3</td><td>2.4</td><td></td><td></td><td>9.9</td><td></td><td></td><td></td></tr>
+
+              <tr><td></td><td>Sweet black</td><td>-</td><td>£/Kg</td><td></td><td>26</td><td>12.3</td><td>2.4</td><td></td><td></td><td>89</td><td></td><td></td><td></td></tr>
+
+              <tr><td></td><td>Sweet white</td><td>-</td><td>£/Kg</td><td>65</td><td></td><td></td><td>2.4</td><td>4.4</td><td></td><td>32</td><td></td><td></td><td></td></tr>
+
+              <tr><td>Cooking Apples</td><td>Bramley’s Seedling</td><td>1st</td><td></td><td></td><td>£/Kg</td><td>33</td><td>34</td><td>33</td><td>24</td><td></td><td></td><td>33</td><td></td><td></td></tr>
+
+              <tr><td>Cooking Apples</td><td>Bramley’s Seedling</td><td>2nd</td><td>£/Kg</td><td>65</td><td></td><td>12.3</td><td>2.4</td><td></td><td></td><td>3.25</td></tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock %}
