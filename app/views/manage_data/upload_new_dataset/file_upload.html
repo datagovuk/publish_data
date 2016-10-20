@@ -26,11 +26,24 @@
 
         {{ back.show(7, 9) }}
 
+        {% if query.error %}
+          <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+            <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+              File Error
+            </h1>
+
+            <p>
+              The file you are trying to upload contains an error.
+            </p>
+          </div>
+        {% endif %}
+
+
         <h1 class="heading-large">
         Upload your file
         </h1>
 
-        <form method="get" action="preview" class="form">
+        <form method="post" action="preview" class="form">
 
           {{formData | safe}}
 
@@ -50,7 +63,7 @@
             <label class="form-label bold" for="file-input">
               Upload a file
             </label>
-            <input type="file" id="file-input">
+            <input type="file" id="file-input" name="file-input">
           </div>
 
           <div class="form-group">
