@@ -14,11 +14,11 @@
 
 {% block content %}
 
-<main id="content" role="main">
+  <main id="content" role="main">
 
-{% include "includes/phase_banner_alpha.html" %}
+    {% include "includes/phase_banner_alpha.html" %}
 
-  <div class="grid-row">
+    <div class="grid-row">
 
       {% include "includes/side-navigation.html" %}
 
@@ -27,7 +27,11 @@
         {{ back.show(7, 9) }}
 
         {% if query.error %}
-          <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+          <div
+              class="error-summary"
+              role="group"
+              aria-labelledby="error-summary-heading-example-1"
+              tabindex="-1">
             <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
               File Error
             </h1>
@@ -39,12 +43,9 @@
         {% endif %}
 
 
-        <h1 class="heading-large">
-        Upload your file
-        </h1>
+        <h1 class="heading-large">Upload your file</h1>
 
         <form method="post" action="preview" class="form">
-
           {{formData | safe}}
 
           <div class="form-group">
@@ -52,12 +53,20 @@
               Name
             </label>
             <span class="form-hint">
-              Give your file a meaningful name, for example 'Spend for February 2016'
+              Give your file a meaningful name,
+              for example 'Spend for February 2016'
             </span>
-            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
+            <input
+                class="form-control form-control-2-3"
+                id="summary-dataset"
+                name="summary-dataset"
+                type="text">
           </div>
 
-          <p>Please either provide a file to upload, or provide the URL of the data file</p>
+          <p>
+            Please either provide a file to upload,
+            or provide the URL of the data file
+          </p>
 
           <div class="form-group">
             <label class="form-label bold" for="file-input">
@@ -71,9 +80,14 @@
               URL
             </label>
             <span class="form-hint">
-              The URL should start with http:// or https:// and point directly at the data file.
+              The URL should start with <code>http://<code>
+              or <code>https:// </code> and point directly at the data file.
             </span>
-            <input class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset" type="text">
+            <input
+                class="form-control form-control-2-3"
+                id="summary-dataset"
+                name="summary-dataset"
+                type="text">
           </div>
 
           <div class="form-group">
@@ -83,5 +97,5 @@
         </form>
       </div>
     </div>
-</main>
+  </main>
 {% endblock %}
