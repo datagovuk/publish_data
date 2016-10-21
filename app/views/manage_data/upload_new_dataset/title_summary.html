@@ -24,14 +24,16 @@
 
       <div class="column-two-thirds">
 
-        <form method="get" action="licence.html" class="form">
+        {{ back.show(1, 9) }}
+
+
+        <form method="get" action="file_upload.html" class="form">
 
         {{formData | safe}}
 
-          {{ back.show(1, 9) }}
 
           <h1 class="heading-large">
-            Upload a new dataset
+            Create a dataset
           </h1>
 
           <p>You must give your dataset a title and a description.</p>
@@ -64,14 +66,20 @@
                 Description
               </label>
               <span class="form-hint">
-                Write a description of the dataset. The first sentence of the
-                description will appear in search results.
+                Write a description of the dataset. Along with the title,
+                the first sentence of the description will appear in search
+                results.
+                <br/>
+                <br/>
+                Include any keywords that you didn’t use in the title to help
+                users find your dataset.
+
               </span>
               <textarea
                   rows="10"
                   class="form-control form-control-2-3"
                   id="summary-dataset"
-                  name="summary-dataset"/>
+                  name="summary-dataset"></textarea>
             </div>
 
           </fieldset>

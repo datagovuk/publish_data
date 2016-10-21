@@ -28,33 +28,30 @@
 
         {{formData | safe}}
 
-          {{ back.show(2, 9) }}
+          {{ back.show(3, 9) }}
 
           <h1 class="heading-large">
             Choose a licence
           </h1>
 
-          <h2 class="heading-medium">
-            Tell us more about your dataset. This information will help
-            users find and use it.
-          </h2>
-
-          <p>Which licence will this dataset be published under?</p>
+          <p>
+            Most datasets are published under the Open Government Licence.
+          </p>
 
           <fieldset>
             <legend class="visuallyhidden">
-              Would you like to be notified?
+              Choose a licence
             </legend>
 
             <div class="form-group">
               <label for="notify-1" class="block-label">
                 <input type="radio" id="notify-1" name="licence" value="yes">
-                Open Government Licence (OGL)
+                Open Government Licence
               </label>
 
               <label for="notify-2" class="block-label">
                 <input type="radio" id="notify-2" name="licence" value="no">
-                INSPIRE Licence
+                INSPIRE
               </label>
 
               <label for="other" class="block-label">
@@ -62,6 +59,12 @@
                 Other (please specify)
               </label>
 
+              <div class="panel panel-border">
+                <label for="other-licence" class="visuallyhidden">
+                  please type the name of your licence
+                </label>
+                <input type="text" name="other-licence" id="other-licence"/>
+              </div>
             </div>
 
           </fieldset>

@@ -24,7 +24,7 @@
 
       <div class="column-two-thirds">
 
-        {{ back.show(7, 9) }}
+        {{ back.show(2, 9) }}
 
         {% if query.error %}
           <div
@@ -43,45 +43,18 @@
         {% endif %}
 
 
-        <h1 class="heading-large">Upload your file</h1>
+        <h1 class="heading-large">Add a file</h1>
 
-        <form method="post" action="preview" class="form">
+        <form method="get" action="licence" class="form">
           {{formData | safe}}
-
-          <div class="form-group">
-            <label class="form-label bold" for="filename">
-              Name
-            </label>
-            <span class="form-hint">
-              Give your file a meaningful name,
-              for example 'Spend for February 2016'
-            </span>
-            <input
-                class="form-control form-control-2-3"
-                id="summary-dataset"
-                name="summary-dataset"
-                type="text">
-          </div>
-
-          <p>
-            Please either provide a file to upload,
-            or provide the URL of the data file
-          </p>
-
-          <div class="form-group">
-            <label class="form-label bold" for="file-input">
-              Upload a file
-            </label>
-            <input type="file" id="file-input" name="file-input">
-          </div>
 
           <div class="form-group">
             <label class="form-label bold" for="filename">
               URL
             </label>
             <span class="form-hint">
-              The URL should start with <code>http://<code>
-              or <code>https:// </code> and point directly at the data file.
+              The URL should start with <code>http://</code>
+              or <code>https://</code> and point directly at the data file.
             </span>
             <input
                 class="form-control form-control-2-3"
@@ -91,7 +64,7 @@
           </div>
 
           <div class="form-group">
-            <input type="submit" class="button" value="Upload file" />
+            <input type="submit" class="button" value="Continue" />
           </div>
 
         </form>

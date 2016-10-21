@@ -2180,6 +2180,7 @@ pre.language-markup {
 
 .filtered-table .filter-panel .button.filter {
   background-color: #6f777b;
+  margin-top: 1em;
 }
 
 ul.publisher-tasks li::before {
