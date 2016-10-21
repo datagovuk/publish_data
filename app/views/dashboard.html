@@ -1,82 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cabinet Office – Dashboard</title>
-</head>
-<body>
-  {% extends "layout.html" %} {% block page_title %} Publish data {% endblock
-  %} {% block proposition_header %}  {% include "includes/propositional_navigation_service.html" %}
- {% endblock %} {% block
-  header_class %} with-proposition {% endblock %} {% block content %}
-  <main id="content" role="main">
-    {% include "includes/phase_banner_alpha.html" %}
-    <div class="grid-row">
-      {% include "includes/side-navigation.html" %}
-      <div class="column-two-thirds" style="width:80%;">
-        <form action="/questions/place_type" class="form" method="get">
-          {{formData | safe}}
-          <h1 class="heading-large">Dashboard</h1><br>
-          <!-- search box -->
-          <div class="in-manual-search">
-            <form action="/search">
-              <input name="filter_manual[]" type="hidden" value=
-              "/guidance/content-design"> <input id="search-box" name="q"
-              placeholder="search your datasets" type="text"> <button type=
-              "submit">search</button>
+  <head>
+    <title>Cabinet Office – Dashboard</title>
+  </head>
+  <body>
+    {% extends "layout.html" %}
+    {% block page_title %}
+      Publish data
+    {% endblock %}
+
+    {% block proposition_header %}
+      {% include "includes/propositional_navigation_service.html" %}
+    {% endblock %}
+
+    {% block header_class %} with-proposition {% endblock %}
+
+    {% block content %}
+      <main id="content" role="main">
+        {% include "includes/phase_banner_alpha.html" %}
+        <div class="grid-row">
+          {% include "includes/side-navigation.html" %}
+          <div class="column-two-thirds" style="width:80%;">
+            <form action="/questions/place_type" class="form" method="get">
+              {{formData | safe}}
+              <h1 class="heading-large">Dashboard</h1><br>
+              <!-- search box -->
+              <div class="in-manual-search">
+                <form action="/search">
+                  <input name="filter_manual[]"
+                         type="hidden"
+                         value="/guidance/content-design">
+                  <input id="search-box"
+                         name="q"
+                         placeholder="search your datasets" type="text">
+                  <button type="submit">search</button>
+                </form>
+              </div>
+              <br>
+              <br>
+              <div class="column-one-half" id="dashboard-panel">
+                <h2 class="heading-large">592<br>
+                  <span class="big-number-label"><a href="#">published
+                    datasets</a></span></h2>
+              </div>
+              <div class="column-one-half" id="dashboard-panel">
+                <h2 class="heading-large">2<br>
+                  <span class="big-number-label"><a href="#">broken links</a></span>
+                </h2>
+              </div>
+
+              <h2 class="heading-medium">Tasks</h2>
+              <ul class="publisher-tasks">
+                <li>Fix broken link in <a href="#">Land registry price paid data</a></li>
+                <li>Upload an update to <a href="#">Spend controls</a> (due next Monday)</li>
+                <li>Grant administrator access to <a href="#">Adam Ibuna</a></li>
+              </ul>
+
+              <h2 class="heading-medium">Most popular</h2>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Downloads</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="clickable-row">
+                      <td>Land registry price paid data</td>
+                      <td>125
+                        <span class="text-supporting">
+                          <span class="data-neutral-arrow">&#9650;</span>
+                          +1% since Sep 2015
+                        </span>
+                      </td>
+                    </tr>
+                    <tr class="clickable-row">
+                      <td>Land registry price paid data</td>
+                      <td>12
+                        <span class="text-supporting">
+                          <span class=""data-neutral-arrow">&#9650;</span>
+                          +1% since Sep 2015
+                        </span>
+                      </td>
+                    </tr>
+                    <tr class="clickable-row">
+                      <td>Land registry price paid data</td>
+                      <td>5
+                        <span class="text-supporting">
+                          <span class="data-neutral-arrow">▼</span>
+                          -1% since Sep 2015
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </form>
-          </div><br>
-          <br>
-          <div class="column-one-half" id="dashboard-panel">
-            <h2 class="heading-large">592<br>
-            <span class="big-number-label"><a href="#">published
-            datasets</a></span></h2>
           </div>
-          <div class="column-one-half" id="dashboard-panel">
-            <h2 class="heading-large">2<br>
-            <span class="big-number-label"><a href="#">broken
-            links</a></span></h2>
-          </div>
-
-          <h2 class="heading-medium">Tasks</h2>
-          <ul class="publisher-tasks">
-            <li>Fix broken link in <a href="#">Land registry price paid data</a></li>
-            <li>Upload an update to <a href="#">Spend controls</a> (due next Monday)</li>
-            <li>Grant administrator access to <a href="#">Adam Ibuna</a></li>
-          </ul>
-
-          <h2 class="heading-medium">Most popular</h2>
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Downloads</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="clickable-row">
-                  <td>Land registry price paid data</td>
-                  <td>125 <span class="text-supporting"><span class=
-                  "data-neutral-arrow">&#9650;</span> +1% since Sep
-                  2015</span></td>
-                </tr>
-                <tr class="clickable-row">
-                  <td>Land registry price paid data</td>
-                  <td>12 <span class="text-supporting"><span class=
-                  "data-neutral-arrow">&#9650;</span> +1% since Sep
-                  2015</span></td>
-                </tr>
-                <tr class="clickable-row">
-                  <td>Land registry price paid data</td>
-                  <td>5 <span class="text-supporting"><span class=
-                  "data-neutral-arrow">▼</span> -1% since Sep 2015</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </form>
-      </div>
-    </div>
-  </main>{% endblock %}
-</body>
+        </div>
+      </main>
+    {% endblock %}
+  </body>
 </html>
