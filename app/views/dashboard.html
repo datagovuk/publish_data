@@ -23,33 +23,20 @@
           <div class="column-two-thirds" style="width:80%;">
             <form action="/questions/place_type" class="form" method="get">
               {{formData | safe}}
-              <h1 class="heading-large">Dashboard</h1><br>
-              <!-- search box -->
-              <div class="in-manual-search">
-                <form action="/search">
-                  <input name="filter_manual[]"
-                         type="hidden"
-                         value="/guidance/content-design">
-                  <input id="search-box"
-                         name="q"
-                         placeholder="search your datasets" type="text">
-                  <button type="submit">search</button>
-                </form>
+              <div class="grid-row">
+                <h1 class="heading-large">Dashboard</h1><br>
+                <div class="column-one-half dashboard-panel panel-published">
+                  <span class="big-number">592</span>
+                  <br/>
+                  <a href="#">published datasets</a>
+                </div>
+                <div class="column-one-half dashboard-panel panel-broken">
+                  <span class="big-number">12</span>
+                  <br/>
+                  <a href="#">broken links</a>
+                </div>
               </div>
-              <br>
-              <br>
-              <div class="column-one-half" id="dashboard-panel">
-                <h2 class="heading-large">592<br>
-                  <span class="big-number-label"><a href="#">published
-                    datasets</a></span></h2>
-              </div>
-              <div class="column-one-half" id="dashboard-panel">
-                <h2 class="heading-large">2<br>
-                  <span class="big-number-label"><a href="#">broken links</a></span>
-                </h2>
-              </div>
-
-              <h2 class="heading-medium">Tasks</h2>
+              <h2 class="heading-medium">Task list</h2>
               <ul class="publisher-tasks">
                 <li>Fix broken link in <a href="#">Land registry price paid data</a></li>
                 <li>Upload an update to <a href="#">Spend controls</a> (due next Monday)</li>

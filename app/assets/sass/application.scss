@@ -177,22 +177,37 @@ pre.language-markup {
 
 // dashboard
 
-#dashboard-panel {
-  padding-left: 0px;
+.dashboard-panel {
+  padding: .5em;
   margin-bottom: 18px;
+  width: 45%;
+  margin-right: 12px;
+
+  .big-number {
+    font-size: 200%;
+    font-weight: bold;
+    height: 3.5em;
+
+    color: #fff;
+    padding-left: 18px;
+    padding-top: 18px;
+    padding-bottom: 16px;
+  }
+
+  &.panel-published {
+    background-color: $govuk-blue;
+  }
+
+  &.panel-broken {
+    background-color: $error-colour;
+  }
+
+  a {
+    color: #fff;
+  }
+
 }
 
-#dashboard-panel h2 {
-  background: #000;
-  color: #fff;
-  padding-left: 18px;
-  padding-top: 18px;
-  padding-bottom: 16px;
-}
-
-#dashboard-panel a {
-  color: #fff;
-}
 
 // side navigation
 
