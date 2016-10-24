@@ -54,16 +54,16 @@
                 INSPIRE
               </label>
 
-              <label for="other" class="block-label">
+              <label for="other" class="block-label" data-target="other-licence-panel">
                 <input type="radio" id="other" name="licence" value="no">
                 Other (please specify)
               </label>
 
-              <div class="panel panel-border">
-                <label for="other-licence" class="visuallyhidden">
-                  please type the name of your licence
+              <div class="panel panel-border-narrow js-hidden" id="other-licence-panel">
+                <label class="form-label" for="other-licence" class="visuallyhidden">
+                  Name of your licence
                 </label>
-                <input type="text" name="other-licence" id="other-licence"/>
+                <input class="form-control" type="text" name="other-licence" id="other-licence"/>
               </div>
             </div>
 

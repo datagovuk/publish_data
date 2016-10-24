@@ -44,24 +44,29 @@
                          'Wales',
                          'Scotland',
                          'Northern Island',
-                         'Overseaa',
-                         'Another country (please specify)'
+                         'Overseas'
                          ] %}
 
 
           <div class="form-group">
             {% for region in regions %}
             <label for="{{region}}" class="block-label">
-              <input type="checkbox" id="{{region}}" name="theme" value="yes">
+              <input type="checkbox" id="{{region}}" name="theme" value="{{region}}">
               {{region}}
             </label>
             {% endfor %}
 
-            <div class="panel panel-border">
-              <label for="other-country" class="visuallyhidden">
-                please type the name of the country
+
+            <label class="block-label" data-target="panel-other-country">
+              <input type="checkbox" id="other" name="theme" value="Other">
+              Other
+            </label>
+
+            <div class="panel panel-border-narrow js-hidden" id="panel-other-country">
+              <label class="form-label" for="other-country">
+                Please type the name of the country
               </label>
-              <input type="text" name="other-country" id="other-country"/>
+              <input class="form-control" type="text" name="other-country" id="other-country"/>
             </div>
 
           </div>
