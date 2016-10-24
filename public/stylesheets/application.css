@@ -2192,3 +2192,10 @@ div.dataset-preview {
   overflow-x: scroll;
   width: 100%;
 }
+
+ul.themes {
+  background-color: #dee0e2;
+  width: 60%;
+  padding: 1em;
+  font-size: 120%;
+}

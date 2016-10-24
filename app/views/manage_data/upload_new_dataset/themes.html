@@ -35,7 +35,7 @@
           Choose a theme
         </h1>
 
-        <p>Tag your dataset to one of the following themes.</p>
+        <p>Tag your dataset to one or more of the following themes.</p>
 
         <fieldset>
           <legend class="visuallyhidden">
@@ -60,7 +60,7 @@
           <div class="form-group">
             {% for theme in themes %}
             <label for="{{theme}}" class="block-label">
-              <input type="radio" id="{{theme}}" name="theme" value="yes">
+              <input type="checkbox" id="{{theme}}" name="theme" value="yes">
               {{theme}}
             </label>
             {% endfor %}

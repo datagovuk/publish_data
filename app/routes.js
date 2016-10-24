@@ -83,10 +83,33 @@ router.get('/menu', function (req, res) {
   res.redirect(req.query.goto);
 });
 
-// router.get('/manage_data/upload_new_dataset/licence', function (req, res) {
-//   console.log(req.session.query);
-//   res.render('manage_data/upload_new_dataset/licence.html', req.session.query);
-// });
+router.get('/manage_data/upload_new_dataset/licence', function (req, res) {
+  if (/invalid/.test(req.query['dataset-url'])) {
+    res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
+  } else {
+    res.render('manage_data/upload_new_dataset/licence.html', req.session.query);
+  }
+});
+
+router.get('/manage_data/upload_new_dataset/want_notifications',
+  function (req, res) {
+    switch(req.query['status']) {
+      case 'now':
+        res.render('manage_data/upload_new_dataset/want_notifications.html');
+        break;
+      case 'draft':
+        res.redirect('/manage_data/upload_new_dataset/saved');
+        break;
+      case 'schedule':
+        res.redirect('/manage_data/upload_new_dataset/publish_date');
+        break;
+      default:
+        console.log('Error: unhandled status value: ' + req.query.status);
+        res.render('manage_data/upload_new_dataset/want_notifications.html');
+        break;
+    }
+  }
+);
 
 
 router.post('/send-login', function (req, res) {

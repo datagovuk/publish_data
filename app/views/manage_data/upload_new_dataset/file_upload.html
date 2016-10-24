@@ -28,17 +28,21 @@
 
         {% if query.error %}
           <div
-              class="error-summary"
-              role="group"
-              aria-labelledby="error-summary-heading-example-1"
-              tabindex="-1">
-            <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
-              File Error
+            class="error-summary"
+            role="group"
+            aria-labelledby="error-summary-heading-example-1"
+            tabindex="-1">
+            <h1
+              class="heading-medium error-summary-heading"
+              id="error-summary-heading-example-1">
+              Error on spend-data-february.csv
             </h1>
 
-            <p>
-              The file you are trying to upload contains an error.
-            </p>
+            <ul>
+              <li>Cell B2 contains invalid characters</li>
+              <li>Cell B4 should have the symbol £</li>
+            </ul>
+
           </div>
         {% endif %}
 
@@ -58,8 +62,8 @@
             </span>
             <input
                 class="form-control form-control-2-3"
-                id="summary-dataset"
-                name="summary-dataset"
+                id="dataset-url"
+                name="dataset-url"
                 type="text">
           </div>
 

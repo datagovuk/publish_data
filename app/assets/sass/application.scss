@@ -339,3 +339,10 @@ div.dataset-preview {
   overflow-x: scroll;
   width: 100%;
 }
+
+ul.themes {
+  background-color: $panel-colour;
+  width: 60%;
+  padding: 1em;
+  font-size: 120%;
+}
