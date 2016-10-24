@@ -14,128 +14,147 @@
 
 {% block content %}
 
-<main id="content" role="main">
+  <main id="content" role="main">
 
-{% include "includes/phase_banner_alpha.html" %}
+    {% include "includes/phase_banner_alpha.html" %}
 
-  <div class="grid-row">
-
-
-    {% include "includes/side-navigation.html" %}
+    <div class="grid-row">
 
 
-    <div class="column-two-thirds" style="width:80%;">
+      {% include "includes/side-navigation.html" %}
 
-      <h1 class="heading-large">Your datasets</h1>
 
-      <form class="form">
-        <fieldset>
-          <legend class="visuallyhidden">
-            Create a new dataset
-          </legend>
+      <div class="column-two-thirds" style="width:80%;">
 
-          <div class="form-group">
-            <a class="button" href="/manage_data/upload_new_dataset/title_summary">Create a dataset</a>
+        <h1 class="heading-large">Manage data</h1>
+
+        <form class="form">
+          <fieldset>
+            <legend class="visuallyhidden">
+              Create a new dataset
+            </legend>
+
+            <div class="form-group">
+              <a class="button"
+                 href="/manage_data/upload_new_dataset/title_summary">
+                Create a dataset
+              </a>
+            </div>
+          </fieldset>
+        </form>
+
+        <h2 class="heading-small">Find existing datasets</h2>
+        <div class="filtered-table">
+          <div class="filter-panel">
+            <div class="grid-row">
+              <div class="column-one-half">
+                <label for="name">Name: </label>
+                <input class="form-control" id="name" type="text">
+              </div>
+              <div class="column-one-quarter">
+                <fieldset class="statuses">
+                  <legend>Show: </legend>
+                  <br/>
+                  <select>
+                    <option value="all">All</option>
+                    <option value="ok">Up to date</option>
+                    <option value="due">Update due</option>
+                    <option value="draft">Draft</option>
+                  </select>
+                </fieldset>
+              </div>
+              <div class="column-one-quarter">
+                <input type="submit" class="button filter" value="Filter">
+              </div>
+            </div>
           </div>
-        </fieldset>
-      </form>
 
-      <div class="filtered-table">
-        <div class="filter-panel">
-          <div class="grid-row">
-            <div class="column-one-half">
-              <label for="name">Name: </label>
-              <input class="form-control" id="name" type="text">
-            </div>
-            <div class="column-one-half">
-              <fieldset class="statuses">
-                <legend>Show: </legend>
-                <label for="status-1">
-                  <input id="status-1" name="status" type="radio" value="all">
-                  All
-                </label>
-                <label for="status-1">
-                  <input id="status-1" name="status" type="radio" value="ok">
-                  Up to date
-                </label>
-                <label for="status-2">
-                  <input id="status-2" name="status" type="radio" value="due">
-                  Update due
-                </label>
-                <label for="status-3">
-                  <input id="status-3" name="status" type="radio" value="draft">
-                  Draft
-                </label>
-              </fieldset>
-            </div>
-            <input type="submit" class="button filter" value="Filter">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="name">Price Paid Data</td>
+                <td data-status="ok">OK - next update due 3/2/17</td>
+                <td>
+                  <a href="/manage_data/upload_new_data/upload_data?">
+                    Add Data
+                  </a>
+                  <br/>
+                  <a href="/datasets/edit">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Dataset inventory</td>
+                <td data-status="update">Update due</td>
+                <td>
+                  <a href="/manage_data/upload_new_data/upload_data?">
+                    Add Data
+                  </a>
+                  <br/>
+                  <a href="/datasets/edit">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Median House Prices</td>
+                <td data-status="ok">OK</td>
+                <td>
+                  <a href="/manage_data/upload_new_data/upload_data?">
+                    Add Data
+                  </a>
+                  <br/>
+                  <a href="/datasets/edit">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Organogram and staff pay data</td>
+                <td data-status="ok">OK</td>
+                <td>
+                  <a href="/manage_data/upload_new_data/upload_data?">
+                    Add Data
+                  </a>
+                  <br/>
+                  <a href="/datasets/edit">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Maladministration payments</td>
+                <td data-status="draft">
+                  Draft - <a href="/datasets/publish">Publish</a>
+                </td>
+                <td>
+                  <a href="/manage_data/upload_new_data/upload_data?">
+                    Add Data
+                  </a>
+                  <br/>
+                  <a href="/datasets/edit">Edit</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="name">Archived Price Paid Information</td>
+                <td data-status="ok">Harvested</td>
+                <td>
+                  <a href="/manage_data/upload_new_data/upload_data?">
+                    Add Data
+                  </a>
+                  <br/>
+                  <a href="/datasets/edit">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination">
+            1<span> </span>
+            <a href="#">2</a><span> </span>
+            <a href="#">3</a><span> </span>
+            <a href="#">4</a><span> </span>
           </div>
         </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Status</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="name">Price Paid Data</td>
-              <td data-status="ok">OK - next update due 3/2/17</td>
-              <td>
-                <a href="/manage_data/upload_new_data/upload_data?">Add Data</a>
-                <br/>
-                <a href="/datasets/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="name">Dataset inventory</td>
-              <td data-status="update">Update due</td>
-              <td>
-                <a href="/manage_data/upload_new_data/upload_data?">Add Data</a>
-                <br/>
-                <a href="/datasets/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="name">Median House Prices</td>
-              <td data-status="ok">OK</td>
-              <td>
-                <a href="/manage_data/upload_new_data/upload_data?">Add Data</a>
-                <br/>
-                <a href="/datasets/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="name">Organogram and staff pay data</td>
-              <td data-status="ok">OK</td>
-              <td>
-                <a href="/manage_data/upload_new_data/upload_data?">Add Data</a>
-                <br/>
-                <a href="/datasets/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="name">Maladministration payments</td>
-              <td data-status="draft">Draft - <a href="/datasets/publish">Publish</a></td>
-              <td>
-                <a href="/manage_data/upload_new_data/upload_data?">Add Data</a>
-                <br/>
-                <a href="/datasets/edit">Edit</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="name">Archived Price Paid Information</td>
-              <td data-status="ok">Harvested</td>
-              <td>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
-    </div>
-</main>
+  </main>
 {% endblock %}

@@ -69,13 +69,13 @@ router.get('/manage_data/upload_new_dataset/file_upload', function (req, res) {
 });
 
 
-router.post('/manage_data/upload_new_dataset/preview', function (req, res) {
-  if (req.body['file-input'].startsWith('bad')) {
-    res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
-  } else {
-    res.render('manage_data/upload_new_dataset/preview.html');
-  }
-});
+// router.post('/manage_data/upload_new_dataset/preview', function (req, res) {
+//   if (req.body['file-input'].startsWith('bad')) {
+//     res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
+//   } else {
+//     res.render('manage_data/upload_new_dataset/preview.html');
+//   }
+// });
 
 
 // Check if we've got to this page but user actually selected harvest
@@ -84,9 +84,32 @@ router.get('/menu', function (req, res) {
 });
 
 router.get('/manage_data/upload_new_dataset/licence', function (req, res) {
-  console.log(req.session.query);
-  res.render('manage_data/upload_new_dataset/licence.html', req.session.query);
+  if (/invalid/.test(req.query['dataset-url'])) {
+    res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
+  } else {
+    res.render('manage_data/upload_new_dataset/licence.html', req.session.query);
+  }
 });
+
+router.get('/manage_data/upload_new_dataset/want_notifications',
+  function (req, res) {
+    switch(req.query['status']) {
+      case 'now':
+        res.render('manage_data/upload_new_dataset/want_notifications.html');
+        break;
+      case 'draft':
+        res.redirect('/manage_data/upload_new_dataset/saved');
+        break;
+      case 'schedule':
+        res.redirect('/manage_data/upload_new_dataset/publish_date');
+        break;
+      default:
+        console.log('Error: unhandled status value: ' + req.query.status);
+        res.render('manage_data/upload_new_dataset/want_notifications.html');
+        break;
+    }
+  }
+);
 
 
 router.post('/send-login', function (req, res) {

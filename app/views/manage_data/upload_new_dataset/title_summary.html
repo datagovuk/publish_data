@@ -14,62 +14,81 @@
 
 {% block content %}
 
-<main id="content" role="main">
+  <main id="content" role="main">
 
-{% include "includes/phase_banner_alpha.html" %}
+    {% include "includes/phase_banner_alpha.html" %}
 
-  <div class="grid-row">
+    <div class="grid-row">
 
-    {% include "includes/side-navigation.html" %}
+      {% include "includes/side-navigation.html" %}
 
-    <div class="column-two-thirds">
-
-      <form method="get" action="licence.html" class="form">
-
-      {{formData | safe}}
+      <div class="column-two-thirds">
 
         {{ back.show(1, 9) }}
 
-        <h1 class="heading-large">
-          Upload a new dataset
-        </h1>
 
-        <p>You must give your dataset a title and a description.</p>
+        <form method="get" action="file_upload.html" class="form">
 
-        <br>
+        {{formData | safe}}
 
-        <fieldset>
-          <legend class="visuallyhidden">
-            Upload a new dataset
-          </legend>
+
+          <h1 class="heading-large">
+            Create a dataset
+          </h1>
+
+          <p>You must give your dataset a title and a description.</p>
+
+          <br>
+
+          <fieldset>
+            <legend class="visuallyhidden">
+              Upload a new dataset
+            </legend>
+
+            <div class="form-group">
+              <label class="form-label bold" for="title-dataset">Title</label>
+              <span class="form-hint">
+                Titles should be 65 characters or less, including spaces.<br>
+                Most search engines will shorten titles if they’re longer than
+                this.
+              </span>
+              <input
+                  class="form-control form-control-2-3"
+                  id="title-dataset"
+                  name="title-dataset"
+                  type="text">
+            </div>
+
+            <div class="form-group">
+              <label
+                  class="form-label bold"
+                  for="summary-dataset">
+                Description
+              </label>
+              <span class="form-hint">
+                Write a description of the dataset. Along with the title,
+                the first sentence of the description will appear in search
+                results.
+                <br/>
+                <br/>
+                Include any keywords that you didn’t use in the title to help
+                users find your dataset.
+
+              </span>
+              <textarea
+                  rows="10"
+                  class="form-control form-control-2-3"
+                  id="summary-dataset"
+                  name="summary-dataset"></textarea>
+            </div>
+
+          </fieldset>
 
           <div class="form-group">
-            <label class="form-label bold" for="title-dataset">Title</label>
-            <span class="form-hint">
-              Titles should be 65 characters or less, including spaces.<br>
-              Most search engines will shorten titles if they’re longer than this.
-            </span>
-            <input class="form-control form-control-2-3" id="title-dataset" name="title-dataset" type="text">
+            <input type="submit" class="button" value="Continue" />
           </div>
-
-          <div class="form-group">
-            <label class="form-label bold" for="summary-dataset">Description</label>
-            <span class="form-hint">
-              Write a description of the dataset. The first sentence of the description will appear in search results.
-            </span>
-            <textarea rows="10" class="form-control form-control-2-3" id="summary-dataset" name="summary-dataset"></textarea>
-          </div>
-
-        </fieldset>
-
-        <div class="form-group">
-          <input type="submit" class="button" value="Continue" />
-        </div>
-
-      </form>
-
+        </form>
+      </div>
     </div>
-  </div>
-
-</main>
+  </main>
 {% endblock %}

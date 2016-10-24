@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block proposition_header %}
-  {% include "includes/propositional_navigation.html" %}
+  {% include "includes/propositional_navigation_service.html" %}
 {% endblock %}
 
 {% block header_class %}
@@ -14,94 +14,44 @@
 
 {% block content %}
 
-<body id="product-style">
+  <body id="product-style">
+    <main id="content" role="main">
+      {% include "includes/phase_banner_alpha.html" %}
 
-<main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-two-thirds">
 
-<div class="breadcrumbs">
-  <ol>
-    <li>
-      <a href="#">Home</a>
-    </li>
-    <li>
-      <a href="#">Data</a>
-    </li>
-    <li>
-      Publishing
-    </li>
-  </ol>
-</div>
+          <h1 class="heading-xlarge">
+            Use this service to publish data for your organisation
+          </h1>
 
-<div class="grid-row">
-    <div class="column-two-thirds">
+          <p class="lede">
+            You must create an account to use this service.
+          </p>
 
-      <h1 class="heading-xlarge">
-      <!--
-      <span class="design-pattern" style="color: #fff;">Code library<br></span>-->
-      Publish government data
-      </h1>
+          <p class="lede">
+            If you already have an account, sign in to publish a new dataset
+            or update an existing one.
+          </p>
 
-      <p class="lede">
-        Publish and manage government data for transparency, research or to build applications and services.
-      </p>
 
-      <p class="lede">If you work for a UK government department or agency you can try it now.</p>
+          <a
+            class="button"
+            href="/create_account/existing_account"
+            role="button"
+            style="background-color: #fff; color: #005EA5;">
+            Create account
+          </a>
 
-    <br>
+          <span class="login-white">  or <a href="/login">sign in</a></span>
 
-        <a class="button" href="/create_account/existing_account" role="button" style="background-color: #fff; color: #005EA5;">Create account</a><span class="login-white">  or <a href="/login">sign in</a> if you’ve used it before</span>
+          <br>
+          <br>
 
-    <br>
-    <br>
+        </div>
 
-  </div>
-</div>
+      </main>
 
-<div class="grid-row">
-
-      <div class="column-two-thirds">
-
-      <h3 class="heading-medium" id="1">Benefits of GOV.UK Data</h3>
-
-      <p>You should use this product because it makes it simpler, faster, easier to publish and manage government data.</p>
-
-      <p>It also means you can:</p>
-
-      <ul class="list list-bullet">
-        <li>make your data easy to find</li>
-        <li>make your data simpler to use</li>
-        <li>be open with your data</li>
-      </ul>
-
-      <!--
-
-      <hr>
-
-      <h3 class="heading-medium" id="3">Getting started</h3>
-
-      <p><a href="#">Download GOV.UK Frontend code</a></p>
-
-      <p><a href="#">Steps to get code running</a></p>
-
-      -->
-
-      <hr>
-
-      <h3 class="heading-medium" id="5">Contact product team</h3>
-
-      <p>Data publisher is built and supported by a full time team at GDS.</p>
-
-      <p>To contact the team email:</p>
-
-      <p>govuk-data-publishing@digital.cabinet-office.gov.uk</p>
-
-    </div>
-  </div>
-
-</main>
-
-</body>
+    </body>
 
 {% endblock %}
-
-

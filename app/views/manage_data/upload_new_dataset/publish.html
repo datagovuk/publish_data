@@ -25,45 +25,40 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="publish" class="form">
+      <form method="get" action="want_notifications" class="form">
 
       {{formData | safe}}
 
-        {{ back.show(6, 9) }}
+        {{ back.show(3, 9) }}
 
         <h1 class="heading-large">
-          Choose a country
+          Publish your dataset
         </h1>
+
+
 
         <fieldset>
           <legend class="visuallyhidden">
-            Would you like to be notified?
+            When do you want to publish your dataset?
           </legend>
 
-          {% set regions=['England',
-                         'Wales',
-                         'Scotland',
-                         'Northern Island',
-                         'Overseaa',
-                         'Another country (please specify)'
-                         ] %}
+          {% set statuses=[{label: 'Publish now', value: 'now'},
+                           {label: 'Save as draft', value: 'draft' },
+                           {label: 'Schedule publishing', value: 'schedule'}
+                          ] %}
 
 
           <div class="form-group">
-            {% for region in regions %}
-            <label for="{{region}}" class="block-label">
-              <input type="checkbox" id="{{region}}" name="theme" value="yes">
-              {{region}}
+            {% for status in statuses %}
+            <label for="{{status.value}}" class="block-label">
+              <input
+                type="radio"
+                id="{{status.value}}"
+                name="status"
+                value="{{ status.value }}">
+              {{status.label}}
             </label>
             {% endfor %}
-
-            <div class="panel panel-border">
-              <label for="other-country" class="visuallyhidden">
-                please type the name of the country
-              </label>
-              <input type="text" name="other-country" id="other-country"/>
-            </div>
-
           </div>
 
         </fieldset>

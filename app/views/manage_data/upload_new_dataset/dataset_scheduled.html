@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Data added
+  Publish government data
 {% endblock %}
 
 {% block proposition_header %}
@@ -24,14 +24,24 @@
 
     <div class="column-two-thirds">
 
-        <div class="govuk-box-highlight">
-          <h1 class="bold-large">
-            Your dataset has been published
-          </h1>
-        </div>
+      <form method="get" action="geo" class="form">
+
+      {{formData | safe}}
+
+        {{ back.show(5, 9) }}
+
+        <h1 class="heading-large">
+          Your dataset has been scheduled to be published
+        </h1>
+
+        <p>
+          It will be published on 31 March 2017
+        </p>
+
+      </form>
 
     </div>
-
   </div>
+
 </main>
 {% endblock %}

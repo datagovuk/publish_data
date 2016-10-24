@@ -14,67 +14,69 @@
 
 {% block content %}
 
-<main id="content" role="main">
+  <main id="content" role="main">
 
-{% include "includes/phase_banner_alpha.html" %}
+    {% include "includes/phase_banner_alpha.html" %}
 
+    <div class="grid-row">
 
-  <div class="grid-row">
+      {% include "includes/side-navigation.html" %}
 
-    {% include "includes/side-navigation.html" %}
+      <div class="column-two-thirds">
 
-    <div class="column-two-thirds">
+        <form method="get" action="themes_auto.html" class="form">
 
-      <form method="get" action="themes.html" class="form">
+        {{formData | safe}}
 
-      {{formData | safe}}
+          {{ back.show(3, 9) }}
 
-        {{ back.show(2, 9) }}
+          <h1 class="heading-large">
+            Choose a licence
+          </h1>
 
-        <h1 class="heading-large">
-          Choose a licence
-        </h1>
+          <p>
+            Most datasets are published under the Open Government Licence.
+          </p>
 
-        <h2 class="heading-medium">
-        Tell us more about your dataset. This information will help users find and use it.
+          <fieldset>
+            <legend class="visuallyhidden">
+              Choose a licence
+            </legend>
 
-        </h2>
+            <div class="form-group">
+              <label for="notify-1" class="block-label">
+                <input type="radio" id="notify-1" name="licence" value="yes">
+                Open Government Licence
+              </label>
 
-        <p>Which licence will this dataset be published under?</p>
+              <label for="notify-2" class="block-label">
+                <input type="radio" id="notify-2" name="licence" value="no">
+                INSPIRE
+              </label>
 
-        <fieldset>
-          <legend class="visuallyhidden">
-            Would you like to be notified?
-          </legend>
+              <label for="other" class="block-label">
+                <input type="radio" id="other" name="licence" value="no">
+                Other (please specify)
+              </label>
+
+              <div class="panel panel-border">
+                <label for="other-licence" class="visuallyhidden">
+                  please type the name of your licence
+                </label>
+                <input type="text" name="other-licence" id="other-licence"/>
+              </div>
+            </div>
+
+          </fieldset>
 
           <div class="form-group">
-            <label for="notify-1" class="block-label">
-              <input type="radio" id="notify-1" name="licence" value="yes">
-              Open Government Licence (OGL)
-            </label>
-
-            <label for="notify-2" class="block-label">
-              <input type="radio" id="notify-2" name="licence" value="no">
-              INSPIRE Licence
-            </label>
-
-            <label for="other" class="block-label">
-              <input type="radio" id="other" name="licence" value="no">
-              Other (please specify)
-            </label>
-
+            <input type="submit" class="button" value="Continue" />
           </div>
 
-        </fieldset>
+        </form>
 
-        <div class="form-group">
-          <input type="submit" class="button" value="Continue" />
-        </div>
-
-      </form>
-
+      </div>
     </div>
-  </div>
 
-</main>
+  </main>
 {% endblock %}
