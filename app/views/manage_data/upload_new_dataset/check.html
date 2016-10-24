@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Publish government data
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation_service.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{% include "includes/phase_banner_alpha.html" %}
+
+  <div class="grid-row">
+
+    {% include "includes/side-navigation.html" %}
+
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Check your dataset
+      </h1>
+
+      <table class="check-your-answers">
+
+
+        <tbody>
+          <tr>
+            <td>
+              Name
+            </td>
+            <td>
+              Land registry price paid data
+            </td>
+            <td class="change-answer">
+              <a href="#">
+                Change <span class="visuallyhidden">Exporter name</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Description
+            </td>
+            <td>
+              Tracks the residential property sales in England and Wales
+              that are lodged with Land Registry for registration.
+            </td>
+            <td class="change-answer">
+              <a href="#">
+                Change <span class="visuallyhidden">Description</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Licence
+            </td>
+            <td>
+              Open Government Licence
+            </td>
+            <td class="change-answer">
+              <a href="#">
+                Change <span class="visuallyhidden">license</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Start date
+            </td>
+            <td>
+              1 January 2016
+            </td>
+            <td class="change-answer">
+              <a href="#">
+                Change <span class="visuallyhidden">start date</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Frequency Update
+            </td>
+            <td>
+              Every year
+            </td>
+            <td class="change-answer">
+              <a href="#">
+                Change <span class="visuallyhidden">frequency update</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              End date
+            </td>
+            <td>
+              1 Nov 2017
+            </td>
+            <td class="change-answer">
+              <a href="#">
+                Change <span class="visuallyhidden">end date</span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br/>
+
+      <div class="form-group">
+        <a href="publish" class="button">Accept</a>
+      </div>
+
+
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}

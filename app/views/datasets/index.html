@@ -43,6 +43,28 @@
           </fieldset>
         </form>
 
+        {% if query.status == 'now' %}
+        <div class="govuk-box-highlight">
+          <h1 class="bold-large">
+            Your dataset has been published
+          </h1>
+        </div>
+        {% elif query.status == 'draft' %}
+        <div class="govuk-box-highlight">
+          <h1 class="bold-large">
+            Your dataset has been saved as a draft
+          </h1>
+        </div>
+        {% elif query.status == 'schedule' %}
+        <div class="govuk-box-highlight">
+          <h1 class="bold-large">
+            Your dataset has been scheduled
+          </h1>
+          <p>It will be published on 1 January 2017</p>
+        </div>
+        {% endif %}
+
+
         <h2 class="heading-small">Find existing datasets</h2>
         <div class="filtered-table">
           <div class="filter-panel">

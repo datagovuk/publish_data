@@ -24,39 +24,15 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="update_frequency" class="form">
+      <form method="get" action="check" class="form">
 
       {{formData | safe}}
 
         {{ back.show(4, 9) }}
 
         <h1 class="heading-large">
-          What time period does this dataset cover?
+          What is the ending date for the data?
         </h1>
-
-        <fieldset>
-          <legend>
-            <span class="form-label-bold">
-              Start date
-            </span>
-          </legend>
-          <div class="form-date">
-            <div class="form-group form-group-day">
-              <label class="form-label" for="dob-day">Day</label>
-              <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
-            </div>
-            <div class="form-group form-group-month">
-              <label class="form-label" for="dob-month">Month</label>
-              <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
-            </div>
-            <div class="form-group form-group-year">
-              <label class="form-label" for="dob-year">Year</label>
-              <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
-            </div>
-          </div>
-        </fieldset>
-
-        <br/>
 
         <fieldset>
           <legend>
@@ -81,6 +57,7 @@
         </fieldset>
 
         <br/>
+
         <div class="form-group">
           <input type="submit" class="button" value="Continue" />
         </div>
