@@ -24,7 +24,9 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="dataset_scheduled" class="form">
+      <form method="get" action="/datasets" class="form">
+
+        <input type="hidden" name="status" value="schedule"/>
 
       {{formData | safe}}
 

@@ -67,9 +67,16 @@
                 type="text">
           </div>
 
-          <div class="form-group">
-            <input type="submit" class="button" value="Continue" />
-          </div>
+          {% if query.error %}
+            <div class="form-group">
+              <input type="submit" class="button" value="Check again" />
+            </div>
+            <p><a href="licence">Continue with errors</a></p>
+          {% else %}
+            <div class="form-group">
+              <input type="submit" class="button" value="Check for errors" />
+            </div>
+          {% endif %}
 
         </form>
       </div>
