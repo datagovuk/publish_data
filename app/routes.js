@@ -188,7 +188,7 @@ router.get('/menu', function (req, res) {
 
 router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
   req.session.data.url = req.body['dataset-url'];
-  if (/invalid/.test(req.body['dataset-url'])) {
+  if (req.body['dataset-url'] === 'http://justice.gov.uk/test-data') {
     res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
   } else {
     res.render('manage_data/upload_new_dataset/licence.html');
