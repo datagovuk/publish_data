@@ -75,10 +75,7 @@ router.post('/manage_data/upload_new_dataset/file_upload', function (req, res) {
   req.session.data.title = req.body['title-dataset'];
   req.session.data.summary = req.body['summary-dataset'];
 
-  res.render(
-    'manage_data/upload_new_dataset/file_upload.html',
-    { query: req.query }
-  );
+  res.render('manage_data/upload_new_dataset/file_upload.html');
 });
 
 
@@ -190,14 +187,11 @@ router.get('/menu', function (req, res) {
 });
 
 router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
-  if (/invalid/.test(req.query['dataset-url'])) {
+  req.session.data.url = req.body['dataset-url'];
+  if (/invalid/.test(req.body['dataset-url'])) {
     res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
   } else {
-    req.session.data.url = req.body['dataset-url'];
-    res.render(
-      'manage_data/upload_new_dataset/licence.html',
-      req.session.query
-    );
+    res.render('manage_data/upload_new_dataset/licence.html');
   }
 });
 
