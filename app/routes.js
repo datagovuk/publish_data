@@ -3,33 +3,38 @@ var router = express.Router();
 
 router.use(function (req, res, next) {
 
- // Store common vars
+  // Store common vars
 
- res.locals.formData = "";
- res.locals.formQuery = "?";
- res.locals.data = {};
- res.locals.userName = req.session.userName;
+  res.locals.formData = "";
+  res.locals.formQuery = "?";
+  res.locals.data = {};
+  res.locals.userName = req.session.userName;
 
- for (var name in req.query) {
-   var value = req.query[name];
-   res.locals.formData += '<input type="hidden" name="'+name+'" value="' + value + '">\n';
-   res.locals.formQuery += name + "=" + value + "&";
-   res.locals.data[name] = value;
- }
+  for (var name in req.query) {
+    var value = req.query[name];
+    res.locals.formData +=
+      '<input type="hidden" name="'+name+'" value="' + value + '">\n';
+    res.locals.formQuery += name + "=" + value + "&";
+    res.locals.data[name] = value;
+  }
 
- res.locals.formQuery = res.locals.formQuery.slice(0,-1);
+  res.locals.formQuery = res.locals.formQuery.slice(0,-1);
 
- if (!req.session.userName &&
-     !req.originalUrl.match(/^\/login/) &&
-     !req.originalUrl.match(/^\/send-login/)  &&
-     !req.originalUrl.match(/^\//) &&
-     !req.originalUrl.startsWith('/create_account') ) {
-   res.redirect('/login');
- } else {
-   next();
- }
 
+  if (req.session.userName) {
+    next();
+  } else {
+    if (req.originalUrl.match(/^\/login$/) ||
+        req.originalUrl.match(/^\/send-login$/) ||
+        req.originalUrl.match(/^\/$/) ||
+        req.originalUrl.match(/^\/create_account/)) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
+  }
 });
+
 
 router.get('/', function (req, res) {
   req.session.regenerate(function(err) {
