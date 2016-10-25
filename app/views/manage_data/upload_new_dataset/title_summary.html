@@ -27,10 +27,10 @@
         {{ back.show(1, 9) }}
 
 
-        <form method="get" action="file_upload.html" class="form">
-
-        {{formData | safe}}
-
+        <form
+            method="post"
+            action="{% if query.change == 1 %}check{% else %}file_upload{% endif %}"
+            class="form">
 
           <h1 class="heading-large">
             Create a dataset
@@ -56,7 +56,8 @@
                   class="form-control form-control-2-3"
                   id="title-dataset"
                   name="title-dataset"
-                  type="text">
+                  type="text"
+                  value="{{ data.title }}">
             </div>
 
             <div class="form-group">
@@ -79,7 +80,7 @@
                   rows="10"
                   class="form-control form-control-2-3"
                   id="summary-dataset"
-                  name="summary-dataset"></textarea>
+                  name="summary-dataset">{{ data.summary }}</textarea>
             </div>
 
           </fieldset>

@@ -24,9 +24,12 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="check" class="form">
+      <form
+          method="post"
+          action="check"
+          class="form">
 
-      {{formData | safe}}
+        {{formData | safe}}
 
         {{ back.show(4, 9) }}
 
@@ -42,16 +45,37 @@
           </legend>
           <div class="form-date">
             <div class="form-group form-group-day">
-              <label class="form-label" for="dob-day">Day</label>
-              <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
+              <label class="form-label" for="end-day">Day</label>
+              <input
+                class="form-control"
+                id="end-day"
+                name="end-day"
+                type="number"
+                pattern="[0-9]*"
+                min="0"
+                max="31"
+                aria-describedby="end-hint">
             </div>
             <div class="form-group form-group-month">
-              <label class="form-label" for="dob-month">Month</label>
-              <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+              <label class="form-label" for="end-month">Month</label>
+              <input
+                class="form-control"
+                id="end-month"
+                name="end-month"
+                type="number"
+                pattern="[0-9]*"
+                min="0"
+                max="12">
             </div>
             <div class="form-group form-group-year">
-              <label class="form-label" for="dob-year">Year</label>
-              <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
+              <label class="form-label" for="end-year">Year</label>
+              <input
+                class="form-control"
+                id="end-year"
+                name="end-year"
+                type="number"
+                pattern="[0-9]*"
+                min="0">
             </div>
           </div>
         </fieldset>

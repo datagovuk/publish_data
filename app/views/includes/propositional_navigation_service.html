@@ -4,7 +4,12 @@
     <nav id="proposition-menu">
     <a href="/" id="proposition-name">{% if serviceName %} {{ serviceName }} {% endif %}</a>
       <ul id="proposition-links">
-        <li>{% if userName %}<a> {{ userName }} </a><a href="/logout">(Log out)</a>{% endif %}</li>
+        <li>
+          {% if data.userName %}
+            <a> {{ data.userName }} </a>
+            <a href="/logout">(Log out)</a>
+          {% endif %}
+        </li>
       </ul>
     </nav>
   </div>

@@ -29,84 +29,136 @@
       </h1>
 
       <table class="check-your-answers">
-
-
         <tbody>
           <tr>
             <td>
               Name
             </td>
             <td>
-              Land registry price paid data
+              {{ data.title }}
             </td>
             <td class="change-answer">
-              <a href="#">
-                Change <span class="visuallyhidden">Exporter name</span>
+              <a href="title_summary?change=1">
+                Change <span class="visuallyhidden">dataset name</span>
               </a>
             </td>
           </tr>
+
           <tr>
             <td>
               Description
             </td>
             <td>
-              Tracks the residential property sales in England and Wales
-              that are lodged with Land Registry for registration.
+              {{ data.summary }}
             </td>
             <td class="change-answer">
-              <a href="#">
-                Change <span class="visuallyhidden">Description</span>
+              <a href="title_summary?change=1">
+                Change <span class="visuallyhidden">description</span>
               </a>
             </td>
           </tr>
+
+          <tr>
+            <td>
+              Themes
+            </td>
+            <td>
+              <ul>
+                {% for theme in data.themes %}
+                <li>{{ theme }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td class="change-answer">
+              <a href="themes?change=1">
+                Change <span class="visuallyhidden">themes</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Countries
+            </td>
+            <td>
+              <ul>
+                {% for country in data.geo %}
+                  <li>
+                    {% if country === 'Other' %}
+                      {{ data.otherGeo }}
+                    {% else %}
+                      {{ country }}
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td class="change-answer">
+              <a href="geo?change=1">
+                Change <span class="visuallyhidden">country</span>
+              </a>
+            </td>
+          </tr>
+
           <tr>
             <td>
               Licence
             </td>
             <td>
-              Open Government Licence
+              {% if data.licence === 'Other' %}
+                {{ data.otherLicence }}
+              {% else %}
+                {{ data.licence }}
+              {% endif %}
             </td>
             <td class="change-answer">
-              <a href="#">
+              <a href="licence?change=1">
                 Change <span class="visuallyhidden">license</span>
               </a>
             </td>
           </tr>
+
           <tr>
             <td>
               Start date
             </td>
             <td>
-              1 January 2016
+              {{ data.startDay }} /
+              {{ data.startMonth }} /
+              {{ data.startYear }}
             </td>
             <td class="change-answer">
-              <a href="#">
+              <a href="start_date?change=1">
                 Change <span class="visuallyhidden">start date</span>
               </a>
             </td>
           </tr>
+
           <tr>
             <td>
               Frequency Update
             </td>
             <td>
-              Every year
+              {{ data.frequency }}
             </td>
             <td class="change-answer">
-              <a href="#">
+              <a href="update_frequency?change=1">
                 Change <span class="visuallyhidden">frequency update</span>
               </a>
             </td>
           </tr>
+
           <tr>
             <td>
               End date
             </td>
             <td>
-              1 Nov 2017
+              {{ data.endDay }} /
+              {{ data.endMonth }} /
+              {{ data.endYear }}
             </td>
             <td class="change-answer">
-              <a href="#">
+              <a href="end_date?change=1">
                 Change <span class="visuallyhidden">end date</span>
               </a>
             </td>
