@@ -24,9 +24,10 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="end_date" class="form">
-
-      {{formData | safe}}
+      <form
+          method="post"
+          action="{% if query.change == 1 %}check{% else %}end_date{% endif %}"
+          class="form">
 
         {{ back.show(5, 9) }}
 
@@ -39,27 +40,30 @@
             Update frequency
           </legend>
 
-
-
-
-
-          {% set frequencies=['Every day',
-                         'Every week',
-                         'Every month',
-                         'Every year',
-                         'No set schedule'
-                         ] %}
+          {% set frequencies=[['Every day', 'day'],
+                              ['Every week', 'week'],
+                              ['Every month', 'month'],
+                              ['Every year', 'month'],
+                              ['No set schedule', 'none']
+                             ] %}
 
 
           <div class="form-group">
             {% for frequency in frequencies %}
-            <label for="{{frequency}}" class="block-label">
-              <input type="radio" id="{{frequency}}" name="theme" value="yes">
-              {{frequency}}
-            </label>
+              <label for="{{frequency[1]}}" class="block-label">
+                <input
+                  type="radio"
+                  id="{{frequency[1]}}"
+                  name="frequency"
+                  value="{{frequency[0]}}"
+                  {% if data.frequency == frequency[0] %}
+                    checked
+                  {% endif %}
+                />
+                  {{frequency[0]}}
+              </label>
             {% endfor %}
           </div>
-
 
         </fieldset>
 

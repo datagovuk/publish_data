@@ -16,7 +16,7 @@
 
 <main id="content" role="main">
 
-{% include "includes/phase_banner_alpha.html" %}
+  {% include "includes/phase_banner_alpha.html" %}
 
 
   <div class="grid-row">
@@ -25,9 +25,10 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="start_date" class="form">
-
-      {{formData | safe}}
+      <form
+          method="post"
+          action="{% if query.change == 1 %}check{% else %}start_date{% endif %}"
+          class="form">
 
         {{ back.show(6, 9) }}
 
@@ -40,33 +41,56 @@
             Would you like to be notified?
           </legend>
 
-          {% set regions=['England',
-                         'Wales',
-                         'Scotland',
-                         'Northern Island',
-                         'Overseas'
+          {% set regions=[['England', 'england'],
+                          ['Wales', 'wales'],
+                          ['Scotland', 'scotland'],
+                          ['Northern Ireland', 'ni'],
+                          ['Overseas', 'overseas']
                          ] %}
 
 
           <div class="form-group">
             {% for region in regions %}
-            <label for="{{region}}" class="block-label">
-              <input type="checkbox" id="{{region}}" name="theme" value="{{region}}">
-              {{region}}
-            </label>
+              <label for="{{region[1]}}" class="block-label">
+                <input
+                  type="checkbox"
+                  id="{{region[1]}}"
+                  name="geo"
+                  value="{{region[0]}}"
+                  {% if (data.geo and data.geo.indexOf(region[0]) !== -1) %}
+                    checked
+                  {% endif %}
+                />
+                {{region[0]}}
+              </label>
             {% endfor %}
 
 
             <label class="block-label" data-target="panel-other-country">
-              <input type="checkbox" id="other" name="theme" value="Other">
+              <input
+                  type="checkbox"
+                  id="other"
+                  name="geo"
+                  value="Other"
+                  {% if (data.geo and data.geo.indexOf("Other") !== -1) %}
+                    checked
+                  {% endif %}
+              />
               Other
             </label>
 
-            <div class="panel panel-border-narrow js-hidden" id="panel-other-country">
+            <div
+              class="panel panel-border-narrow js-hidden"
+              id="panel-other-country">
               <label class="form-label" for="other-country">
-                Please type the name of the country
+                Name of the country
               </label>
-              <input class="form-control" type="text" name="other-country" id="other-country"/>
+              <input
+                  class="form-control"
+                  type="text"
+                  name="other-geo"
+                  id="other-country"
+                  value="{{ data.otherGeo }}"/>
             </div>
 
           </div>
