@@ -24,6 +24,8 @@
 
     <div class="column-two-thirds">
 
+      {{ back.show(9, 10) }}
+
       <h1 class="heading-large">
         Check your dataset
       </h1>
@@ -54,6 +56,20 @@
             <td class="change-answer">
               <a href="title_summary?change=1">
                 Change <span class="visuallyhidden">description</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              URL
+            </td>
+            <td>
+              {{ data.url }}
+            </td>
+            <td class="change-answer">
+              <a href="file_upload?change=1">
+                Change <span class="visuallyhidden">url</span>
               </a>
             </td>
           </tr>
