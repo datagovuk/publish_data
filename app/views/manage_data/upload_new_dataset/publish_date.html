@@ -24,9 +24,7 @@
 
     <div class="column-two-thirds">
 
-      <form method="get" action="/datasets" class="form">
-
-        <input type="hidden" name="status" value="schedule"/>
+      <form method="post" action="/datasets" class="form">
 
         {{ back.show(10, 10) }}
 
@@ -48,7 +46,7 @@
               <input
                   class="form-control"
                   id="day"
-                  name="day"
+                  name="publish-day"
                   type="number"
                   pattern="[0-9]*"
                   min="0"
@@ -60,11 +58,11 @@
               <input
                   class="form-control"
                   id="month"
-                  name="month"
+                  name="publish-month"
                   type="number"
                   pattern="[0-9]*"
                   min="0"
-                  max="31"
+                  max="12"
                   aria-describedby="hint">
             </div>
             <div class="form-group form-group-year">
@@ -72,11 +70,11 @@
               <input
                   class="form-control"
                   id="year"
-                  name="year"
+                  name="publish-year"
                   type="number"
                   pattern="[0-9]*"
                   min="0"
-                  max="31"
+                  max="2100"
                   aria-describedby="hint">
             </div>
           </div>

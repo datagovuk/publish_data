@@ -11,12 +11,10 @@ router.use(function (req, res, next) {
   res.locals.data = req.session.data;
   res.locals.query = req.query
 
-
   //console.log('query', req.query);
   //console.log('headers', req.headers);
 
   if (req.session.data && req.session.data.userName) {
-    console.log(req.session.data);
     next();
   } else {
     if (req.originalUrl.match(/^\/login$/) ||
@@ -72,118 +70,61 @@ router.get(
 
 
 router.post('/manage_data/upload_new_dataset/file_upload', function (req, res) {
-
-  req.session.data.newSet.title = req.body['title-dataset'];
-  req.session.data.newSet.summary = req.body['summary-dataset'];
-
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/file_upload.html');
 });
 
 
 router.post('/manage_data/upload_new_dataset/themes_auto', function (req, res) {
-  req.session.data.newSet.licence = req.body['licence'];
-  req.session.data.newSet.otherLicence = req.body['other-licence'];
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   req.session.data.newSet.themes = ['Business and economy', 'Environment'];
   res.render('manage_data/upload_new_dataset/themes_auto.html');
 });
 
 router.post('/manage_data/upload_new_dataset/geo', function (req, res) {
-  var themes = req.body['themes'];
-  req.session.data.newSet.themes = typeof themes === 'string' ? [themes] : themes;
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/geo.html');
 });
 
 router.post('/manage_data/upload_new_dataset/start_date', function (req, res) {
-  var geo = req.body['geo'];
-  req.session.data.newSet.geo = typeof geo === 'string' ? [geo] : geo;
-  req.session.data.newSet.otherGeo = req.body['other-geo'];
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/start_date.html');
 });
 
 router.post(
   '/manage_data/upload_new_dataset/update_frequency',
   function (req, res) {
-    req.session.data.newSet.startDay = req.body['start-day'];
-    req.session.data.newSet.startMonth = req.body['start-month'];
-    req.session.data.newSet.startYear = req.body['start-year'];
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
     res.render('manage_data/upload_new_dataset/update_frequency.html');
   }
 );
 
 router.post('/manage_data/upload_new_dataset/end_date', function (req, res) {
-  req.session.data.newSet.frequency = req.body['frequency'];
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/end_date.html');
 });
 
 router.post('/manage_data/upload_new_dataset/check', function (req, res) {
-
-  // we might be coming back from a modify page, in which case there is
-  // extra post data
-  if (req.body['title-dataset']) {
-    req.session.data.newSet.title = req.body['title-dataset'];
-  }
-  if (req.body['summary-dataset']) {
-    req.session.data.newSet.summary = req.body['summary-dataset'];
-  }
-  if (req.body['url']) {
-    req.session.data.newSet.url = req.body['url'];
-    // we should also re-check for errors if the URL has changed
-  }
-  if (req.body['licence']) {
-    req.session.data.newSet.licence = req.body['licence'];
-  }
-  if (req.body['other-licence']) {
-    req.session.data.newSet.otherLicence = req.body['other-licence'];
-  }
-  if (req.body['themes']) {
-    var themes = req.body['themes'];
-    req.session.data.newSet.themes = typeof themes === 'string' ? [themes] : themes;
-  }
-  if (req.body['geo']) {
-    var geo = req.body['geo'];
-    req.session.data.newSet.geo = typeof geo === 'string' ? [geo] : geo;
-  }
-  if (req.body['other-geo']) {
-    req.session.data.newSet.otherGeo = req.body['other-geo'];
-  }
-  if (req.body['start-day']) {
-    req.session.data.newSet.startDay = req.body['start-day'];
-  }
-  if (req.body['start-month']) {
-    req.session.data.newSet.startMonth = req.body['start-month'];
-  }
-  if (req.body['start-year']) {
-    req.session.data.newSet.startYear = req.body['start-year'];
-  }
-  if (req.body['end-day']) {
-    req.session.data.newSet.endDay = req.body['end-day'];
-  }
-  if (req.body['end-month']) {
-    req.session.data.newSet.endMonth = req.body['end-month'];
-  }
-  if (req.body['end-year']) {
-    req.session.data.newSet.endYear = req.body['end-year'];
-  }
-  if (req.body['frequency']) {
-    req.session.data.newSet.frequency = req.body['frequency'];
-  }
-
-
-
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/check.html');
 });
 
-
 router.get('/datasets/edit/:index', function (req, res) {
-  console.log(req.params.index, req.session.data.sets[req.params.index]);
-
-  req.session.data.newSet = req.session.data.sets.splice(req.params.index, 1)[0];
-
-  res.redirect('/manage_data/upload_new_dataset/check?edit=1');
+  var datasetToEdit = req.session.data.sets[req.params.index];
+  res.render(
+    'manage_data/edit_dataset/index.html',
+    { index: req.params.index, dataset: datasetToEdit }
+  );
 });
 
 
-router.get('/datasets', function (req, res) {
+router.post('/datasets', function (req, res) {
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+
+  req.session.data.sets.unshift(req.session.data.newSet);
+  req.session.data.newSet = {};
+  latestSet = req.session.data.sets[0];
+
   res.render('datasets/index.html', { query: req.query });
 });
 
@@ -195,8 +136,8 @@ router.get('/menu', function (req, res) {
 });
 
 router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
-  req.session.data.newSet.url = req.body['dataset-url'];
-  if (req.body['dataset-url'] === 'http://justice.gov.uk/test-data') {
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+  if (req.session.data.newSet === 'http://justice.gov.uk/test-data') {
     res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
   } else {
     res.render('manage_data/upload_new_dataset/licence.html');
@@ -204,31 +145,34 @@ router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
 });
 
 
-router.get('/manage_data/upload_new_dataset/publish_submit',
+router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+  if (req.session.data.newSet.frequency !== 'none'
+      && !req.session.data.newSet.notify) {
+    res.redirect('/manage_data/upload_new_dataset/want_notifications');
+  } else {
+    res.render('manage_data/upload_new_dataset/publish.html');
+  }
+});
+
+
+router.post('/manage_data/upload_new_dataset/publish_submit',
   function (req, res) {
-    req.session.data.sets.unshift(req.session.data.newSet);
-    req.session.data.newSet = {};
-    latestSet = req.session.data.sets[0];
-    switch(req.query['status']) {
-      case 'now':
-        latestSet.status = 'published';
-        res.redirect('/manage_data/upload_new_dataset/want_notifications');
-        break;
-      case 'draft':
-        latestSet.status = 'draft';
-        res.redirect('/datasets?status=draft');
-        break;
-      case 'schedule':
-        latestSet.status = 'scheduled';
-        res.redirect('/manage_data/upload_new_dataset/publish_date');
-        break;
-      default:
-        console.log('Error: unhandled status value: ' + req.query.status);
-        res.render('manage_data/upload_new_dataset/want_notifications.html');
-        break;
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    if (req.session.data.newSet.status === 'scheduled') {
+      res.redirect('/manage_data/upload_new_dataset/publish_date');
+    } else {
+      res.redirect(307, '/datasets?newset=1');
     }
   }
 );
+
+
+router.post('/datasets/edit/edit_submit', function(req, res) {
+  req.session.data.sets[req.body.index] =
+    collectFormData(req, req.session.data.sets[req.body.index]);
+  res.redirect('/datasets');
+});
 
 
 router.post('/send-login', function (req, res) {
@@ -246,5 +190,75 @@ router.get('/logout', function (req, res) {
   });
 })
 
-
 module.exports = router;
+
+
+function collectFormData(req, dataset) {
+
+  if (req.body['title-dataset']) {
+    dataset.title = req.body['title-dataset'];
+  }
+  if (req.body['summary-dataset']) {
+    dataset.summary = req.body['summary-dataset'];
+  }
+  if (req.body['dataset-url']) {
+    dataset.url = req.body['dataset-url'];
+    // we should also re-check for errors if the URL has changed
+  }
+  if (req.body['licence']) {
+    dataset.licence = req.body['licence'];
+  }
+  if (req.body['other-licence']) {
+    dataset.otherLicence = req.body['other-licence'];
+  }
+  if (req.body['themes']) {
+    var themes = req.body['themes'];
+    dataset.themes = typeof themes === 'string' ? [themes] : themes;
+  }
+  if (req.body['geo']) {
+    var geo = req.body['geo'];
+    dataset.geo = typeof geo === 'string' ? [geo] : geo;
+  }
+  if (req.body['other-geo']) {
+    dataset.otherGeo = req.body['other-geo'];
+  }
+  if (req.body['start-day']) {
+    dataset.startDay = req.body['start-day'];
+  }
+  if (req.body['start-month']) {
+    dataset.startMonth = req.body['start-month'];
+  }
+  if (req.body['start-year']) {
+    dataset.startYear = req.body['start-year'];
+  }
+  if (req.body['end-day']) {
+    dataset.endDay = req.body['end-day'];
+  }
+  if (req.body['end-month']) {
+    dataset.endMonth = req.body['end-month'];
+  }
+  if (req.body['end-year']) {
+    dataset.endYear = req.body['end-year'];
+  }
+  if (req.body['frequency']) {
+    dataset.frequency = req.body['frequency'];
+  }
+  if (req.body['notify']) {
+    dataset.notify = req.body['notify'];
+  }
+
+  if (req.body['status']) {
+    dataset.status = req.body['status'];
+  }
+  if (req.body['publish-day']) {
+    dataset.publishDay = req.body['publish-day'];
+  }
+  if (req.body['publish-month']) {
+    dataset.publishMonth = req.body['publish-month'];
+  }
+  if (req.body['publish-year']) {
+    dataset.publishYear = req.body['publish-year'];
+  }
+
+  return dataset;
+}

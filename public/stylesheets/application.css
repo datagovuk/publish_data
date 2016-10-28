@@ -2221,4 +2221,47 @@ ul.themes {
 
 .just-added {
   background-color: #ffdfa4;
+  transition: background-color 500ms linear;
+  -webkit-transition: background-color 500ms linear;
+}
+
+form.compact {
+  line-height: 1.6;
+}
+
+form.compact legend {
+  font-weight: bold;
+}
+
+form.compact .form-date .form-group {
+  width: 80px;
+  margin-right: 0;
+}
+
+form.compact .form-date .form-group label {
+  display: inline;
+}
+
+form.compact .form-date .form-group input[type=number] {
+  width: 75%;
+}
+
+form.compact .form-group input[type=text], form.compact .form-group textarea {
+  width: 100%;
+}
+
+form.compact .form-group input[type=text].inline, form.compact .form-group textarea.inline {
+  display: inline;
+  width: 9em;
+  font-size: 80%;
+}
+
+form.compact .form-group textarea {
+  height: 4em;
+}
+
+form.compact .form-group label.small-label {
+  background-color: #dee0e2;
+  margin-right: 1em;
+  white-space: nowrap;
 }
