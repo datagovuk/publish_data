@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   var filter = function(event) {
     var nameSearch = $(selector + ' #name').val();
-    var status = $(selector + ' .statuses input[type=radio]:checked').val();
+    var status = $(selector + ' .statuses select option:checked').val();
 
     updateTable(nameSearch, status);
   }
@@ -29,7 +29,9 @@ $(document).ready(function() {
     });
   }
 
-  $('.filtered-table input[class~=filter]').on('click', filter);
+  $('.filtered-table input').on('click keyup', filter)
+  $('.filtered-table select').on('change', filter)
+
 
 
 });
