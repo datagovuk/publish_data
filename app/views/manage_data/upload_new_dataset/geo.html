@@ -57,7 +57,7 @@
                   id="{{region[1]}}"
                   name="geo"
                   value="{{region[0]}}"
-                  {% if (data.geo and data.geo.indexOf(region[0]) !== -1) %}
+                  {% if (data.newSet.geo and data.newSet.geo.indexOf(region[0]) !== -1) %}
                     checked
                   {% endif %}
                 />
@@ -72,7 +72,7 @@
                   id="other"
                   name="geo"
                   value="Other"
-                  {% if (data.geo and data.geo.indexOf("Other") !== -1) %}
+                  {% if (data.newSet.geo and data.newSet.geo.indexOf("Other") !== -1) %}
                     checked
                   {% endif %}
               />
@@ -90,7 +90,7 @@
                   type="text"
                   name="other-geo"
                   id="other-country"
-                  value="{{ data.otherGeo }}"/>
+                  value="{{ data.newSet.otherGeo }}"/>
             </div>
 
           </div>
