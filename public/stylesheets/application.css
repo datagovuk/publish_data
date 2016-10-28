@@ -1911,6 +1911,25 @@ pre.language-markup {
   background-color: #F5F2F0;
 }
 
+.csv-preview {
+  border: 5px solid #dee0e2;
+  margin: 30px 0 30px;
+}
+
+.csv-preview-inner {
+  border: 1px solid #bfc1c3;
+  padding: 10px 24px;
+  height: 800px;
+  overflow: auto;
+}
+
+.err {
+  background-color: #FF5353;
+  color: #fff;
+  padding: 4px;
+  font-weight: bold;
+}
+
 #back a {
   display: inline-block;
   margin-top: 15px;
