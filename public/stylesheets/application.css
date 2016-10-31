@@ -1923,7 +1923,7 @@ pre.language-markup {
   overflow: auto;
 }
 
-.err {
+.error-cell {
   background-color: #FF5353;
   color: #fff;
   padding: 4px;
