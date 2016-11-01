@@ -26,25 +26,24 @@
 
       <form
           method="post"
-          action="frequency_routing"
+          action="check"
           class="form">
 
         <h1 class="heading-large">
-          How often is this dataset updated?
+          What time period does this file cover?
         </h1>
 
         <fieldset>
           <legend class="visuallyhidden">
-            Update frequency
+            Time period
           </legend>
 
-          {% set frequencies=[['Every day', 'day'],
-                              ['Every week', 'week'],
-                              ['Every month', 'month'],
-                              ['Every quarter', 'quarter'],
-                              ['Every year', 'year'],
-                              ['No set schedule', 'none']
-                             ] %}
+          {% set frequencies=[
+          ['First quarter (1 January - 31 March)', 'first'],
+          ['Second quarter (1 April - 30 June)', 'second'],
+          ['Third quarter (1 July - 31 September)', 'third'],
+          ['Fourth quarter (1 October - 31 December)', 'fourth']
+          ] %}
 
 
           <div class="form-group">
@@ -53,7 +52,7 @@
                 <input
                   type="radio"
                   id="{{frequency[1]}}"
-                  name="frequency"
+                  name="period-quarter"
                   value="{{frequency[1]}}"
                   {% if data.newSet.frequency == frequency[1] %}
                     checked

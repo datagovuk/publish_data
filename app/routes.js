@@ -155,6 +155,30 @@ router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
 });
 
 
+router.post('/manage_data/upload_new_dataset/frequency_routing',
+  function(req, res) {
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    switch (req.session.data.newSet.frequency) {
+      case 'week':
+        res.redirect('/manage_data/upload_new_dataset/period_week');
+        break;
+      case 'month':
+        res.redirect('/manage_data/upload_new_dataset/period_month');
+        break;
+      case 'quarter':
+        res.redirect('/manage_data/upload_new_dataset/period_quarter');
+        break;
+      case 'year':
+        res.redirect('/manage_data/upload_new_dataset/period_year');
+        break;
+      default:
+        res.redirect('/manage_data/upload_new_dataset/check');
+        break;
+    }
+  }
+);
+
+
 router.post('/manage_data/upload_new_dataset/publish_submit',
   function (req, res) {
     req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -172,6 +196,7 @@ router.post('/datasets/edit/edit_submit', function(req, res) {
     collectFormData(req, req.session.data.sets[req.body.index]);
   res.redirect('/datasets');
 });
+
 
 
 router.post('/send-login', function (req, res) {
@@ -224,10 +249,36 @@ function collectFormData(req, dataset) {
   if (req.body['frequency']) {
     dataset.frequency = req.body['frequency'];
   }
+  if (req.body['start-day']) {
+    dataset.startDay = req.body['start-day'];
+  }
+  if (req.body['start-month']) {
+    dataset.startMonth = req.body['start-month'];
+  }
+  if (req.body['start-year']) {
+    dataset.startYear = req.body['start-year'];
+  }
+  if (req.body['end-day']) {
+    dataset.endDay = req.body['end-day'];
+  }
+  if (req.body['end-month']) {
+    dataset.endMonth = req.body['end-month'];
+  }
+  if (req.body['end-year']) {
+    dataset.endYear = req.body['end-year'];
+  }
+  if (req.body['period-month']) {
+    dataset.periodMonth = req.body['period-month'];
+  }
+  if (req.body['period-year']) {
+    dataset.periodYear = req.body['period-year'];
+  }
+  if (req.body['period-quarter']) {
+    dataset.periodQuarter = req.body['period-quarter'];
+  }
   if (req.body['notify']) {
     dataset.notify = req.body['notify'];
   }
-
   if (req.body['status']) {
     dataset.status = req.body['status'];
   }

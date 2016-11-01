@@ -138,6 +138,23 @@
             </td>
             <td>
               {{ data.newSet.frequency }}
+              <br/>
+              {% if data.newSet.frequency === 'week' %}
+              Start:
+              {{ data.newSet.startDay }} /
+              {{ data.newSet.startMonth }} /
+              {{ data.newSet.startyear }}
+              End:
+              {{ data.newSet.endDay }} /
+              {{ data.newSet.endMonth }} /
+              {{ data.newSet.endyear }}
+              {% elif data.newSet.frequency === 'month' %}
+              {{ data.newSet.periodMonth }} / {{ data.newSet.periodYear }}
+              {% elif data.newSet.frequency === 'quarter' %}
+              {{ data.newSet.periodQuarter }}
+              {% elif data.newSet.frequency === 'year' %}
+              {{ data.newSet.periodYear }}
+              {% endif %}
             </td>
             <td class="change-answer">
               <a href="update_frequency?change=1">
@@ -146,21 +163,6 @@
             </td>
           </tr>
 
-          <tr>
-            <td>
-              End date
-            </td>
-            <td>
-              {{ data.newSet.endDay }} /
-              {{ data.newSet.endMonth }} /
-              {{ data.newSet.endYear }}
-            </td>
-            <td class="change-answer">
-              <a href="end_date?change=1">
-                Change <span class="visuallyhidden">end date</span>
-              </a>
-            </td>
-          </tr>
         </tbody>
       </table>
 

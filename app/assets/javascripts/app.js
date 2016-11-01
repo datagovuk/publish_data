@@ -42,11 +42,30 @@ $(document).ready(function() {
   });
 
   $('input[name=frequency]').on('click', function(e) {
-    if (e.target.value === 'none') {
-      $('#notify').addClass('js-hidden');
-    } else {
-      $('#notify').removeClass('js-hidden');
+    $('#notify, #frequency-month, #frequency-year, #frequency-quarter, #frequency-week-start, #frequency-week-end').addClass('js-hidden');
+    switch (e.target.value) {
+      case 'none':
+        $('#notify').addClass('js-hidden');
+        break;
+      case 'week':
+        $('#notify, #frequency-week-start, #frequency-week-end').removeClass('js-hidden');
+        break;
+      case 'month':
+        $('#notify, #frequency-month').removeClass('js-hidden');
+        break;
+      case 'quarter':
+        $('#notify, #frequency-quarter').removeClass('js-hidden');
+        break;
+      case 'year':
+        $('#notify, #frequency-year').removeClass('js-hidden');
+        break;
+      default:
+        $('#notify').removeClass('js-hidden');
+        break;
     }
   });
+
+
+
 
 });
