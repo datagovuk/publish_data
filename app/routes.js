@@ -81,14 +81,18 @@ router.post('/manage_data/upload_new_dataset/themes_auto', function (req, res) {
   res.render('manage_data/upload_new_dataset/themes_auto.html');
 });
 
+
+router.post('/manage_data/upload_new_dataset/themes_confirm',
+  function (req, res) {
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    res.render('manage_data/upload_new_dataset/themes_confirm.html');
+  }
+);
+
+
 router.post('/manage_data/upload_new_dataset/geo', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/geo.html');
-});
-
-router.post('/manage_data/upload_new_dataset/start_date', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.render('manage_data/upload_new_dataset/start_date.html');
 });
 
 router.post(
@@ -98,11 +102,6 @@ router.post(
     res.render('manage_data/upload_new_dataset/update_frequency.html');
   }
 );
-
-router.post('/manage_data/upload_new_dataset/end_date', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.render('manage_data/upload_new_dataset/end_date.html');
-});
 
 router.post('/manage_data/upload_new_dataset/check', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -156,6 +155,30 @@ router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
 });
 
 
+router.post('/manage_data/upload_new_dataset/frequency_routing',
+  function(req, res) {
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    switch (req.session.data.newSet.frequency) {
+      case 'week':
+        res.redirect('/manage_data/upload_new_dataset/period_week');
+        break;
+      case 'month':
+        res.redirect('/manage_data/upload_new_dataset/period_month');
+        break;
+      case 'quarter':
+        res.redirect('/manage_data/upload_new_dataset/period_quarter');
+        break;
+      case 'year':
+        res.redirect('/manage_data/upload_new_dataset/period_year');
+        break;
+      default:
+        res.redirect('/manage_data/upload_new_dataset/check');
+        break;
+    }
+  }
+);
+
+
 router.post('/manage_data/upload_new_dataset/publish_submit',
   function (req, res) {
     req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -173,6 +196,7 @@ router.post('/datasets/edit/edit_submit', function(req, res) {
     collectFormData(req, req.session.data.sets[req.body.index]);
   res.redirect('/datasets');
 });
+
 
 
 router.post('/send-login', function (req, res) {
@@ -222,6 +246,9 @@ function collectFormData(req, dataset) {
   if (req.body['other-geo']) {
     dataset.otherGeo = req.body['other-geo'];
   }
+  if (req.body['frequency']) {
+    dataset.frequency = req.body['frequency'];
+  }
   if (req.body['start-day']) {
     dataset.startDay = req.body['start-day'];
   }
@@ -240,13 +267,18 @@ function collectFormData(req, dataset) {
   if (req.body['end-year']) {
     dataset.endYear = req.body['end-year'];
   }
-  if (req.body['frequency']) {
-    dataset.frequency = req.body['frequency'];
+  if (req.body['period-month']) {
+    dataset.periodMonth = req.body['period-month'];
+  }
+  if (req.body['period-year']) {
+    dataset.periodYear = req.body['period-year'];
+  }
+  if (req.body['period-quarter']) {
+    dataset.periodQuarter = req.body['period-quarter'];
   }
   if (req.body['notify']) {
     dataset.notify = req.body['notify'];
   }
-
   if (req.body['status']) {
     dataset.status = req.body['status'];
   }
@@ -259,6 +291,8 @@ function collectFormData(req, dataset) {
   if (req.body['publish-year']) {
     dataset.publishYear = req.body['publish-year'];
   }
+
+  console.log(dataset);
 
   return dataset;
 }

@@ -31,15 +31,11 @@
           Themes
         </h1>
 
-        <p>
-          Your dataset has been tagged to the following themes based on its
-          title and description.
-        </p>
-
         <div class="form-group">
           <ul class="themes">
-            <li>Business and Economy</li>
-            <li>Environment</li>
+            {% for theme in data.newSet.themes %}
+              <li>{{ theme }}</li>
+            {% endfor %}
           </ul>
         </div>
 

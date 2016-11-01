@@ -27,16 +27,14 @@
 
       <form
           method="post"
-          action="{% if query.change == 1 %}check{% else %}geo{% endif %}"
+          action="{% if query.change == 1 %}check{% else %}themes_confirm{% endif %}"
           class="form">
-
-        {{ back.show(4, 10) }}
 
         <h1 class="heading-large">
           Choose a theme
         </h1>
 
-        <p>Tag your dataset to one or more of the following themes.</p>
+        <p>Tag your dataset to at least one of the following themes.</p>
 
         <fieldset>
           <legend class="visuallyhidden">

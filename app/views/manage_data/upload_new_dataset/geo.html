@@ -27,10 +27,8 @@
 
       <form
           method="post"
-          action="{% if query.change == 1 %}check{% else %}start_date{% endif %}"
+          action="{% if query.change == 1 %}check{% else %}update_frequency{% endif %}"
           class="form">
-
-        {{ back.show(5, 10) }}
 
         <h1 class="heading-large">
           Choose a country
@@ -40,6 +38,11 @@
           <legend class="visuallyhidden">
             Geographical coverage of the dataset
           </legend>
+
+          <p>
+            Which area does your dataset cover? You must choose at least one
+            of the following.
+          </p>
 
           {% set regions=[['England', 'england'],
                           ['Wales', 'wales'],

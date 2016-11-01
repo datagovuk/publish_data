@@ -215,109 +215,6 @@
 
         </fieldset>
 
-        <!-- ############## START DATE ############## -->
-
-
-        <div class="grid-row">
-          <div class="column-one-half">
-            <fieldset>
-              <legend>
-                Start date
-              </legend>
-              <div class="form-date form-group">
-                <div class="form-group form-group-day">
-                  <label class="form-label visuallyhidden" for="start-day">Day</label>
-                  <input
-                      class="form-control"
-                      id="start-day"
-                      name="start-day"
-                      type="number"
-                      pattern="[0-9]*"
-                      min="0"
-                      max="31"
-                      value="{{ dataset.startDay }}"
-                      aria-describedby="start-hint">
-                  /
-                </div>
-                <div class="form-group form-group-month">
-                  <label class="form-label visuallyhidden" for="start-month">Month</label>
-                  <input
-                      class="form-control"
-                      id="start-month"
-                      name="start-month"
-                      type="number"
-                      pattern="[0-9]*"
-                      min="0"
-                      max="12"
-                      value="{{ dataset.startMonth }}">
-                  /
-                </div>
-                <div class="form-group form-group-year">
-                  <label class="form-label visuallyhidden" for="start-year">Year</label>
-                  <input
-                      class="form-control"
-                      id="start-year"
-                      name="start-year"
-                      type="number"
-                      pattern="[0-9]*"
-                      min="0"
-                      value="{{ dataset.startYear }}">
-                </div>
-              </div>
-            </fieldset>
-          </div>
-
-        <!-- ########### END DATE ########## -->
-
-          <div class="column-one-half">
-            <fieldset>
-              <legend>
-                End date
-              </legend>
-              <div class="form-date form-group">
-                <div class="form-group form-group-day">
-                  <label class="form-label visuallyhidden" for="end-day">Day</label>
-                  <input
-                      class="form-control"
-                      id="end-day"
-                      name="end-day"
-                      type="number"
-                      pattern="[0-9]*"
-                      min="0"
-                      max="31"
-                      value="{{ dataset.endDay }}"
-                      aria-describedby="end-hint">
-                  /
-                </div>
-                <div class="form-group form-group-month">
-                  <label class="form-label visuallyhidden" for="end-month">Month</label>
-                  <input
-                      class="form-control"
-                      id="end-month"
-                      name="end-month"
-                      type="number"
-                      pattern="[0-9]*"
-                      min="0"
-                      max="12"
-                      value="{{ dataset.endMonth }}">
-                  /
-                </div>
-                <div class="form-group form-group-year">
-                  <label class="form-label visuallyhidden" for="end-year">Year</label>
-                  <input
-                      class="form-control"
-                      id="end-year"
-                      name="end-year"
-                      type="number"
-                      pattern="[0-9]*"
-                      min="0"
-                      value="{{ dataset.endYear }}">
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </div>
-
         <!-- ########### UPDATE FREQUENCY ########## -->
 
         <fieldset>
@@ -328,6 +225,7 @@
           {% set frequencies=[['Every day', 'day'],
           ['Every week', 'week'],
           ['Every month', 'month'],
+          ['Every quarter', 'quarter'],
           ['Every year', 'year'],
           ['No set schedule', 'none']
           ] %}
@@ -348,6 +246,143 @@
             </label>
             {% endfor %}
           </div>
+
+          <div class="form-date form-group {% if dataset.frequency != 'week' %}js-hidden{% endif %}" id="frequency-week-start">
+            <p>Start date</p>
+            <div class="form-group form-group-day">
+              <label class="form-label visuallyhidden" for="start-day">Day</label>
+              <input
+                  class="form-control"
+                  id="start-day"
+                  name="start-day"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  max="31"
+                  value="{{ dataset.startDay }}"
+                  aria-describedby="start-hint">
+              /
+            </div>
+            <div class="form-group form-group-month">
+              <label class="form-label visuallyhidden" for="start-month">Month</label>
+              <input
+                  class="form-control"
+                  id="start-month"
+                  name="start-month"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  max="12"
+                  value="{{ dataset.startMonth }}">
+              /
+            </div>
+            <div class="form-group form-group-year">
+              <label class="form-label visuallyhidden" for="start-year">Year</label>
+              <input
+                  class="form-control"
+                  id="start-year"
+                  name="start-year"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  value="{{ dataset.startYear }}">
+            </div>
+          </div>
+
+          <div class="form-date form-group {% if dataset.frequency != 'week' %}js-hidden{% endif %}" id="frequency-week-end">
+            <p>End date</p>
+            <div class="form-group form-group-day">
+              <label class="form-label visuallyhidden" for="end-day">Day</label>
+              <input
+                  class="form-control"
+                  id="end-day"
+                  name="end-day"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  max="31"
+                  value="{{ dataset.endDay }}"
+                  aria-describedby="end-hint">
+              /
+            </div>
+            <div class="form-group form-group-month">
+              <label class="form-label visuallyhidden" for="end-month">Month</label>
+              <input
+                  class="form-control"
+                  id="end-month"
+                  name="end-month"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  max="12"
+                  value="{{ dataset.endMonth }}">
+              /
+            </div>
+            <div class="form-group form-group-year">
+              <label class="form-label visuallyhidden" for="end-year">Year</label>
+              <input
+                  class="form-control"
+                  id="end-year"
+                  name="end-year"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  value="{{ dataset.endYear }}">
+            </div>
+          </div>
+
+          <div class="form-date form-group {% if dataset.frequency != 'month' %}js-hidden{% endif %}" id="frequency-month">
+            <p>Time period</p>
+            <div class="form-group form-group-month">
+              <label class="form-label visuallyhidden" for="period-month">Month</label>
+              <input
+                  class="form-control"
+                  id="period-month"
+                  name="period-month"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  max="12"
+                  value="{{ dataset.periodMonth }}">
+              /
+            </div>
+            <div class="form-group form-group-year">
+              <label class="form-label visuallyhidden" for="period-year">Year</label>
+              <input
+                  class="form-control"
+                  id="period-year"
+                  name="period-year"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  value="{{ dataset.periodYear }}">
+            </div>
+          </div>
+
+          <div class="form-date form-group {% if dataset.frequency != 'year' %}js-hidden{% endif %}" id="frequency-year">
+            <p>Time period</p>
+            <div class="form-group form-group-year">
+              <label class="form-label visuallyhidden" for="period-year">Year</label>
+              <input
+                  class="form-control"
+                  id="period-year"
+                  name="period-year"
+                  type="number"
+                  pattern="[0-9]*"
+                  min="0"
+                  value="{{ dataset.periodYear }}">
+            </div>
+          </div>
+
+          <div class="form-group {% if dataset.frequency != 'quarter' %}js-hidden{% endif %}" id="frequency-quarter">
+            <select name="period-quarter">
+              <option value="first">First quarter</option>
+              <option value="second">Second quarter</option>
+              <option value="third">Third quarter</option>
+              <option value="fourth">Fourth quarter</option>
+            </select>
+          </div>
+
         </fieldset>
 
         <!-- ############## Receive Notifications ######### -->
