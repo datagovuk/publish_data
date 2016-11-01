@@ -27,11 +27,7 @@
       {{ back.show(9, 10) }}
 
       <h1 class="heading-large">
-        {% if query.edit == 1 %}
-          Edit your dataset
-        {% else %}
-          Check your dataset
-        {% endif %}
+        Check your dataset
       </h1>
 
       <table class="check-your-answers">
@@ -188,10 +184,11 @@
 
       <br/>
 
-      <div class="form-group">
-        <a href="publish" class="button">Accept</a>
-      </div>
-
+      <form method="post" action="publish" class="form">
+        <div class="form-group">
+          <input type="submit" class="button" value="Accept"/>
+        </div>
+      </form>
 
 
     </div>

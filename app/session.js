@@ -14,8 +14,9 @@ module.exports = {
         startDay: '1',
         startMonth: '1',
         startYear: '2016',
-        frequency: 'Every month',
-        status: 'published'
+        frequency: 'month',
+        status: 'published',
+        notify: 'yes'
       },
       {
         title: 'INSPIRE View Service and Metadata',
@@ -29,8 +30,9 @@ module.exports = {
         startDay: '1',
         startMonth: '1',
         startYear: '2016',
-        frequency: 'Every month',
-        status: 'published'
+        frequency: 'week',
+        status: 'published',
+        notify: 'no'
       }
     ];
   }

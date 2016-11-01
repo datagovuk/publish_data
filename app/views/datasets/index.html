@@ -43,19 +43,19 @@
           </fieldset>
         </form>
 
-        {% if query.status == 'now' %}
+        {% if set.status == 'now' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been published
           </h1>
         </div>
-        {% elif query.status == 'draft' %}
+        {% elif set.status == 'draft' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been saved as a draft
           </h1>
         </div>
-        {% elif query.status == 'schedule' %}
+        {% elif set.status == 'schedule' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been scheduled
@@ -101,7 +101,7 @@
             </thead>
             <tbody>
               {% for set in data.sets %}
-                <tr class="{% if query.status and loop.index == 1 %}just-added{%endif%}">
+                <tr class="{% if query.newset == 1 and loop.index == 1 %}just-added{%endif%}">
                   <td class="name">{{ set.title }}</td>
                   <td data-status="{{ set.status }}">{{ set.status }}</td>
                   <td>

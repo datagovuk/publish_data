@@ -43,7 +43,7 @@
           {% set frequencies=[['Every day', 'day'],
                               ['Every week', 'week'],
                               ['Every month', 'month'],
-                              ['Every year', 'month'],
+                              ['Every year', 'year'],
                               ['No set schedule', 'none']
                              ] %}
 
@@ -55,8 +55,8 @@
                   type="radio"
                   id="{{frequency[1]}}"
                   name="frequency"
-                  value="{{frequency[0]}}"
-                  {% if data.newSet.frequency == frequency[0] %}
+                  value="{{frequency[1]}}"
+                  {% if data.newSet.frequency == frequency[1] %}
                     checked
                   {% endif %}
                 />

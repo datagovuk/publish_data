@@ -33,5 +33,20 @@ $(document).ready(function() {
   $('.filtered-table select').on('change', filter)
 
 
+  $('select[name=status]').on('change', function(e) {
+    if ($(e.target).find(':selected').val() === 'scheduled') {
+      $('#scheduled-date').removeClass('js-hidden');
+    } else {
+      $('#scheduled-date').addClass('js-hidden');
+    }
+  });
+
+  $('input[name=frequency]').on('click', function(e) {
+    if (e.target.value === 'none') {
+      $('#notify').addClass('js-hidden');
+    } else {
+      $('#notify').removeClass('js-hidden');
+    }
+  });
 
 });

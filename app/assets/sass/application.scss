@@ -367,4 +367,42 @@ ul.themes {
 
 .just-added {
   background-color: #ffdfa4;
+  transition: background-color 500ms linear;
+  -webkit-transition: background-color 500ms linear;
+}
+
+
+form.compact {
+  line-height: 1.6;
+  legend {
+    font-weight: bold;
+  }
+  .form-date .form-group {
+    width: 80px;
+    margin-right: 0;
+    label {
+      display: inline;
+    }
+    input[type=number] {
+      width: 75%;
+    }
+  }
+  .form-group {
+    input[type=text], textarea {
+      width: 100%;
+      &.inline {
+        display: inline;
+        width: 9em;
+        font-size: 80%;
+      }
+    }
+    textarea {
+      height: 4em;
+    }
+    label.small-label {
+      background-color: $panel-colour;
+      margin-right: 1em;
+      white-space:nowrap;
+    }
+  }
 }

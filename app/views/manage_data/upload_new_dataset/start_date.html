@@ -52,6 +52,7 @@
                 pattern="[0-9]*"
                 min="0"
                 max="31"
+                  value="{{ data.newSet.startDay }}"
                 aria-describedby="start-hint">
             </div>
             <div class="form-group form-group-month">
@@ -63,7 +64,8 @@
                 type="number"
                 pattern="[0-9]*"
                 min="0"
-                max="12">
+                max="12"
+                value="{{ data.newSet.startMonth }}">
             </div>
             <div class="form-group form-group-year">
               <label class="form-label" for="start-year">Year</label>
@@ -73,7 +75,8 @@
                 name="start-year"
                 type="number"
                 pattern="[0-9]*"
-                min="0">
+                min="0"
+                value="{{ data.newSet.startYear }}">
             </div>
           </div>
         </fieldset>
