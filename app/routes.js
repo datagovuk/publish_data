@@ -86,11 +86,6 @@ router.post('/manage_data/upload_new_dataset/geo', function (req, res) {
   res.render('manage_data/upload_new_dataset/geo.html');
 });
 
-router.post('/manage_data/upload_new_dataset/start_date', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.render('manage_data/upload_new_dataset/start_date.html');
-});
-
 router.post(
   '/manage_data/upload_new_dataset/update_frequency',
   function (req, res) {
@@ -98,11 +93,6 @@ router.post(
     res.render('manage_data/upload_new_dataset/update_frequency.html');
   }
 );
-
-router.post('/manage_data/upload_new_dataset/end_date', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.render('manage_data/upload_new_dataset/end_date.html');
-});
 
 router.post('/manage_data/upload_new_dataset/check', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -221,24 +211,6 @@ function collectFormData(req, dataset) {
   }
   if (req.body['other-geo']) {
     dataset.otherGeo = req.body['other-geo'];
-  }
-  if (req.body['start-day']) {
-    dataset.startDay = req.body['start-day'];
-  }
-  if (req.body['start-month']) {
-    dataset.startMonth = req.body['start-month'];
-  }
-  if (req.body['start-year']) {
-    dataset.startYear = req.body['start-year'];
-  }
-  if (req.body['end-day']) {
-    dataset.endDay = req.body['end-day'];
-  }
-  if (req.body['end-month']) {
-    dataset.endMonth = req.body['end-month'];
-  }
-  if (req.body['end-year']) {
-    dataset.endYear = req.body['end-year'];
   }
   if (req.body['frequency']) {
     dataset.frequency = req.body['frequency'];
