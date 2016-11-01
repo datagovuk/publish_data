@@ -81,6 +81,15 @@ router.post('/manage_data/upload_new_dataset/themes_auto', function (req, res) {
   res.render('manage_data/upload_new_dataset/themes_auto.html');
 });
 
+
+router.post('/manage_data/upload_new_dataset/themes_confirm',
+  function (req, res) {
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    res.render('manage_data/upload_new_dataset/themes_confirm.html');
+  }
+);
+
+
 router.post('/manage_data/upload_new_dataset/geo', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   res.render('manage_data/upload_new_dataset/geo.html');
@@ -231,6 +240,8 @@ function collectFormData(req, dataset) {
   if (req.body['publish-year']) {
     dataset.publishYear = req.body['publish-year'];
   }
+
+  console.log(dataset);
 
   return dataset;
 }
