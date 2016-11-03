@@ -43,24 +43,30 @@
           </fieldset>
         </form>
 
-        {% if set.status == 'now' %}
+        {% if status == 'published' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been published
           </h1>
         </div>
-        {% elif set.status == 'draft' %}
+        {% elif status == 'draft' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been saved as a draft
           </h1>
         </div>
-        {% elif set.status == 'schedule' %}
+        {% elif status == 'scheduled' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been scheduled
           </h1>
           <p>It will be published on 1 January 2017</p>
+        </div>
+        {% elif query.deleted == 1 %}
+        <div class="govuk-box-highlight">
+          <h1 class="bold-large">
+            Your dataset has been deleted
+          </h1>
         </div>
         {% endif %}
 
@@ -110,6 +116,8 @@
                     </a>
                     <br/>
                     <a href="/datasets/edit/{{ loop.index - 1 }}">Edit</a>
+                    <br/>
+                    <a href="/datasets/delete/{{ loop.index - 1 }}">Delete</a>
                   </td>
                 </tr>
               {% endfor %}

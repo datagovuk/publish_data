@@ -95,7 +95,7 @@ app.use(function (req, res, next) {
   res.locals.cookieText=config.cookieText;
   res.locals.releaseVersion="v" + releaseVersion;
   // Changes GOV.UK in head to 'Prototype'
-  res.locals.global_header_text = "GOV.UK";
+  res.locals.global_header_text = "data.gov.uk";
   next();
 });
 

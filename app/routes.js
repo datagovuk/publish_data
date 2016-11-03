@@ -116,6 +116,11 @@ router.get('/datasets/edit/:index', function (req, res) {
   );
 });
 
+router.get('/datasets/delete/:index', function (req, res) {
+  req.session.data.sets.splice(req.params.index, 1);
+  res.redirect('/datasets?deleted=1');
+});
+
 
 router.post('/datasets', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -124,7 +129,10 @@ router.post('/datasets', function (req, res) {
   req.session.data.newSet = {};
   latestSet = req.session.data.sets[0];
 
-  res.render('datasets/index.html', { query: req.query });
+  res.render(
+    'datasets/index.html',
+    { query: req.query, status: latestSet.status }
+  );
 });
 
 
