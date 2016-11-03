@@ -62,6 +62,12 @@
           </h1>
           <p>It will be published on 1 January 2017</p>
         </div>
+        {% elif query.deleted == 1 %}
+        <div class="govuk-box-highlight">
+          <h1 class="bold-large">
+            Your dataset has been deleted
+          </h1>
+        </div>
         {% endif %}
 
 
@@ -110,6 +116,8 @@
                     </a>
                     <br/>
                     <a href="/datasets/edit/{{ loop.index - 1 }}">Edit</a>
+                    <br/>
+                    <a href="/datasets/delete/{{ loop.index - 1 }}">Delete</a>
                   </td>
                 </tr>
               {% endfor %}
