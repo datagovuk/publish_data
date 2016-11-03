@@ -124,7 +124,10 @@ router.post('/datasets', function (req, res) {
   req.session.data.newSet = {};
   latestSet = req.session.data.sets[0];
 
-  res.render('datasets/index.html', { query: req.query });
+  res.render(
+    'datasets/index.html',
+    { query: req.query, status: latestSet.status }
+  );
 });
 
 

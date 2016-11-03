@@ -43,19 +43,19 @@
           </fieldset>
         </form>
 
-        {% if set.status == 'now' %}
+        {% if status == 'published' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been published
           </h1>
         </div>
-        {% elif set.status == 'draft' %}
+        {% elif status == 'draft' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been saved as a draft
           </h1>
         </div>
-        {% elif set.status == 'schedule' %}
+        {% elif status == 'scheduled' %}
         <div class="govuk-box-highlight">
           <h1 class="bold-large">
             Your dataset has been scheduled
