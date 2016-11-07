@@ -2269,3 +2269,34 @@ form.compact .form-group label.small-label {
   margin-right: 1em;
   white-space: nowrap;
 }
+
+#global-header-bar {
+  display: none;
+}
+
+.button-start,
+.button-get-started {
+  background-color: white !important;
+  color: #005EA5 !important;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: none;
+  background-image: url("/public/images/icons/icon-pointer.png");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  padding: 0.3684210526em 2.1578947368em 0.2105263158em 0.8421052632em;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .button-start,
+  .button-get-started {
+    background-image: url("/public/images/icons/icon-pointer-2x.png");
+    background-size: 30px 19px;
+  }
+}
+
+.button-start {
+  font-size: 24px;
+}
