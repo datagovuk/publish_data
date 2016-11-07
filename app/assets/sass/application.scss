@@ -115,8 +115,12 @@ pre.language-markup {
 
 // Hide Crown
 
+#global-header #logo {
+  background-image: none;
+}
+
 .header-logo img {
-  display: none;
+  display: none !important;
 }
 
 .design-update {
