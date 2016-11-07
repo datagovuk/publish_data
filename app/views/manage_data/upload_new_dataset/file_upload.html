@@ -66,6 +66,22 @@
                 value="{{ data.newSet.url }}">
           </div>
 
+
+          <div class="form-group">
+            <label class="form-label bold" for="dataset-url-title">
+            Title
+            </label>
+            <span class="form-hint">
+              You must give the file a descriptive title.
+            </span>
+            <input
+                class="form-control form-control-2-3"
+                id="dataset-url-title"
+                name="dataset-url-title"
+                type="text"
+                value="{{ data.newSet.url_title }}">
+          </div>
+
           {% if query.error %}
             <div class="form-group">
               <input type="submit" class="button" value="Check again" />
