@@ -235,6 +235,7 @@ function collectFormData(req, dataset) {
   }
   if (req.body['dataset-url']) {
     dataset.url = req.body['dataset-url'];
+    dataset.url_title = req.body['dataset-url-title'];
     // we should also re-check for errors if the URL has changed
   }
   if (req.body['licence']) {
