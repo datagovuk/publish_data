@@ -1993,8 +1993,12 @@ pre.language-markup {
   color: #6f777b;
 }
 
+#global-header #logo {
+  background-image: none;
+}
+
 .header-logo img {
-  display: none;
+  display: none !important;
 }
 
 .design-update {
