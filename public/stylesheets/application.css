@@ -2194,16 +2194,11 @@ pre.language-markup {
 }
 
 .filtered-table .filter-panel input[type="text"] {
-  width: 80%;
+  max-width: 40%;
 }
 
 .filtered-table .filter-panel .statuses legend {
   display: inline;
-}
-
-.filtered-table .filter-panel .button.filter {
-  background-color: #6f777b;
-  margin-top: 1em;
 }
 
 ul.publisher-tasks li::before {
@@ -2225,8 +2220,8 @@ ul.themes {
 
 .just-added {
   background-color: #ffdfa4;
-  transition: background-color 500ms linear;
-  -webkit-transition: background-color 500ms linear;
+  border-radius: 20px;
+  opacity: 0;
 }
 
 form.compact {

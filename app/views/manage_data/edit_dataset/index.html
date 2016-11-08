@@ -417,90 +417,15 @@
               >
               No
             </label>
-
           </div>
-
         </fieldset>
 
-
-        <!-- ############### Status ############ -->
-
-        <fieldset>
-          <legend>Publication status</legend>
-          <div class="form-group grid-row">
-            <div class="column-one-third">
-            <label for="status" class="visuallyhidden">Status</label>
-            <select name="status" class="form-control">
-              <option
-                  value="ok"
-                  {% if dataset.status == 'ok' %}selected{% endif %}>
-                Published
-              </option>
-              <option
-                  value="draft"
-                  {% if dataset.status == 'draft' %}selected{% endif %}>
-                Draft
-              </option>
-              <option
-                  value="scheduled"
-                  {% if dataset.status == 'scheduled' %}selected{% endif %}>
-                Scheduled
-              </option>
-            </select>
-            </div>
-            <div class="column-two-thirds">
-
-          <div
-              class="form-date {% if dataset.status != 'scheduled' %}js-hidden{% endif %}"
-              id="scheduled-date">
-            <div class="form-group form-group-day">
-              <label class="form-label visuallyhidden" for="scheduled-day">Day</label>
-              <input
-                  class="form-control"
-                  id="scheduled-day"
-                  name="scheduled-day"
-                  type="number"
-                  pattern="[0-9]*"
-                  min="0"
-                  max="31"
-                  value="{{ dataset.endDay }}"
-                  aria-describedby="scheduled-hint">
-              /
-            </div>
-            <div class="form-group form-group-month">
-              <label class="form-label visuallyhidden" for="scheduled-month">Month</label>
-              <input
-                  class="form-control"
-                  id="scheduled-month"
-                  name="scheduled-month"
-                  type="number"
-                  pattern="[0-9]*"
-                  min="0"
-                  max="12"
-                  value="{{ dataset.endMonth }}">
-              /
-            </div>
-            <div class="form-group form-group-year">
-              <label class="form-label visuallyhidden" for="scheduled-year">Year</label>
-              <input
-                  class="form-control"
-                  id="scheduled-year"
-                  name="scheduled-year"
-                  type="number"
-                  pattern="[0-9]*"
-                  min="0"
-                  value="{{ dataset.endYear }}">
-            </div>
-          </div>
-            </div>
-        </fieldset>
-
-
-      <div class="form-group">
-        <input type="submit" class="button" value="Done" />
-      </div>
+        <div class="form-group">
+          <input type="submit" class="button" value="Done" />
+        </div>
+      </form>
     </div>
   </div>
-
 </main>
+
 {% endblock %}
