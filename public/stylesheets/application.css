@@ -2225,8 +2225,7 @@ ul.themes {
 
 .just-added {
   background-color: #ffdfa4;
-  transition: background-color 500ms linear;
-  -webkit-transition: background-color 500ms linear;
+  opacity: 0;
 }
 
 form.compact {

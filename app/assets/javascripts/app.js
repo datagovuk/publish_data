@@ -65,7 +65,9 @@ $(document).ready(function() {
     }
   });
 
-
+  $(".just-added").animate({
+    opacity: 1
+  }, 500);
 
 
 });
