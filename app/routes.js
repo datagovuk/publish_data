@@ -151,14 +151,13 @@ router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
   }
 });
 
-
 router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   if (req.session.data.newSet.frequency !== 'none'
       && !req.session.data.newSet.notify) {
     res.redirect('/manage_data/upload_new_dataset/want_notifications');
   } else {
-    res.render('manage_data/upload_new_dataset/publish.html');
+    res.redirect('/datasets?newset=1');
   }
 });
 
@@ -187,22 +186,10 @@ router.post('/manage_data/upload_new_dataset/frequency_routing',
 );
 
 
-router.post('/manage_data/upload_new_dataset/publish_submit',
-  function (req, res) {
-    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-    if (req.session.data.newSet.status === 'scheduled') {
-      res.redirect('/manage_data/upload_new_dataset/publish_date');
-    } else {
-      res.redirect(307, '/datasets?newset=1');
-    }
-  }
-);
-
-
 router.post('/datasets/edit/edit_submit', function(req, res) {
   req.session.data.sets[req.body.index] =
     collectFormData(req, req.session.data.sets[req.body.index]);
-  res.redirect('/datasets');
+  res.redirect('/datasets?modified=1');
 });
 
 
@@ -290,15 +277,6 @@ function collectFormData(req, dataset) {
   }
   if (req.body['status']) {
     dataset.status = req.body['status'];
-  }
-  if (req.body['publish-day']) {
-    dataset.publishDay = req.body['publish-day'];
-  }
-  if (req.body['publish-month']) {
-    dataset.publishMonth = req.body['publish-month'];
-  }
-  if (req.body['publish-year']) {
-    dataset.publishYear = req.body['publish-year'];
   }
 
   console.log(dataset);

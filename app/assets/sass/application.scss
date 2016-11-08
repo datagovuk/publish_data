@@ -338,16 +338,12 @@ pre.language-markup {
       margin-left: 1em;
     }
     input[type="text"] {
-      width: 80%;
+      max-width: 40%;
     }
     .statuses {
       legend {
         display: inline;
       }
-    }
-    .button.filter {
-      background-color: $grey-1;
-      margin-top: 1em;
     }
   }
 }
@@ -371,6 +367,7 @@ ul.themes {
 
 .just-added {
   background-color: #ffdfa4;
+  border-radius: 20px;
   opacity: 0;
 }
 

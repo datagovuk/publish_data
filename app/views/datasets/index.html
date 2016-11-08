@@ -28,73 +28,32 @@
 
         <h1 class="heading-large">Manage data</h1>
 
-        <form class="form">
-          <fieldset>
-            <legend class="visuallyhidden">
-              Create a new dataset
-            </legend>
-
-            <div class="form-group">
-              <a class="button"
-                 href="/manage_data/upload_new_dataset">
-                Create a dataset
-              </a>
-            </div>
-          </fieldset>
-        </form>
-
-        {% if status == 'published' %}
-        <div class="govuk-box-highlight">
-          <h1 class="bold-large">
-            Your dataset has been published
-          </h1>
-        </div>
-        {% elif status == 'draft' %}
-        <div class="govuk-box-highlight">
-          <h1 class="bold-large">
-            Your dataset has been saved as a draft
-          </h1>
-        </div>
-        {% elif status == 'scheduled' %}
-        <div class="govuk-box-highlight">
-          <h1 class="bold-large">
-            Your dataset has been scheduled
-          </h1>
-          <p>It will be published on 1 January 2017</p>
-        </div>
+        {% if query.newset == 1 %}
+          <div class="govuk-box-highlight">
+            <h1 class="bold-large">
+              Your dataset has been published
+            </h1>
+          </div>
+        {% elif query.modified == 1 %}
+          <div class="govuk-box-highlight">
+            <h1 class="bold-large">
+              Your dataset has been edited
+            </h1>
+          </div>
         {% elif query.deleted == 1 %}
-        <div class="govuk-box-highlight">
-          <h1 class="bold-large">
-            Your dataset has been deleted
-          </h1>
-        </div>
+          <div class="govuk-box-highlight">
+            <h1 class="bold-large">
+              Your dataset has been deleted
+            </h1>
+          </div>
         {% endif %}
 
 
         <h2 class="heading-small">Find existing datasets</h2>
         <div class="filtered-table">
           <div class="filter-panel">
-            <div class="grid-row">
-              <div class="column-one-half">
-                <label for="name">Name: </label>
-                <input class="form-control" id="name" type="text">
-              </div>
-              <div class="column-one-quarter">
-                <fieldset class="statuses">
-                  <legend>Show: </legend>
-                  <br/>
-                  <select>
-                    <option value="all">All</option>
-                    <option value="ok">Up to date</option>
-                    <option value="due">Update due</option>
-                    <option value="draft">Draft</option>
-                  </select>
-                </fieldset>
-              </div>
-              <div class="column-one-quarter">
-                <input type="submit" class="button filter" value="Filter">
-              </div>
-            </div>
+            <label for="name">Filter by name: </label>
+            <input class="form-control" id="name" type="text">
           </div>
 
           <table>
