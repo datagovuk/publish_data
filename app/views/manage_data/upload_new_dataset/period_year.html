@@ -26,7 +26,7 @@ with-proposition
 
       <form
           method="post"
-          action="check"
+          action="{% if query.change == 1 %}check{% else %}file_upload{% endif %}"
           class="form">
 
         <h1 class="heading-large">

@@ -2212,7 +2212,7 @@ div.dataset-preview {
 }
 
 ul.themes {
-  background-color: #dee0e2;
+  list-style-type: disc;
   width: 60%;
   padding: 1em;
   font-size: 120%;

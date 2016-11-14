@@ -108,6 +108,8 @@ router.post('/manage_data/upload_new_dataset/check', function (req, res) {
   res.render('manage_data/upload_new_dataset/check.html');
 });
 
+/* === Dataset management === */
+
 router.get('/datasets/edit/:index', function (req, res) {
   var datasetToEdit = req.session.data.sets[req.params.index];
   res.render(
@@ -120,7 +122,6 @@ router.get('/datasets/delete/:index', function (req, res) {
   req.session.data.sets.splice(req.params.index, 1);
   res.redirect('/datasets?deleted=1');
 });
-
 
 router.post('/datasets', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -135,7 +136,31 @@ router.post('/datasets', function (req, res) {
   );
 });
 
+/* === Data file management === */
 
+router.post('/manage_data/upload_new_dataset/datafiles', function (req, res) {
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+  res.render('manage_data/upload_new_dataset/datafiles.html');
+});
+
+router.get(
+  '/manage_data/upload_new_dataset/datafiles/edit/:index',
+  function (req, res) {
+    var datasetFile = req.session.data.newSet.files[req.params.index];
+    res.render('manage_data/upload_new_dataset/file_upload.html');
+  }
+);
+
+router.get(
+  '/manage_data/upload_new_dataset/datafiles/delete/:index',
+  function (req, res) {
+    req.session.data.newSet.files.splice(req.params.index, 1);
+    res.redirect('/manage_data/upload_new_dataset/datafiles');
+  }
+);
+
+
+/* ============================ */
 
 // Check if we've got to this page but user actually selected harvest
 router.get('/menu', function (req, res) {
@@ -153,33 +178,46 @@ router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
 
 router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  if (req.session.data.newSet.frequency !== 'none'
-      && !req.session.data.newSet.notify) {
-    res.redirect('/manage_data/upload_new_dataset/want_notifications');
-  } else {
-    res.redirect('/datasets?newset=1');
-  }
+  res.redirect('/datasets?newset=1');
 });
 
+router.post(
+  '/manage_data/upload_new_dataset/want_notifications',
+  function (req, res) {
+    delete req.session.data.newSet.notify;
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    if (req.session.data.newSet.frequency !== 'none'
+        && !req.session.data.newSet.notify) {
+      res.redirect('/manage_data/upload_new_dataset/want_notifications');
+    } else {
+      res.redirect('/manage_data/upload_new_dataset/check');
+    }
+  }
+);
 
 router.post('/manage_data/upload_new_dataset/frequency_routing',
   function(req, res) {
     req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    queryString = req.query.change ? '?change=1' : '';
     switch (req.session.data.newSet.frequency) {
       case 'week':
-        res.redirect('/manage_data/upload_new_dataset/period_week');
+        res.redirect('/manage_data/upload_new_dataset/period_week' + queryString);
         break;
       case 'month':
-        res.redirect('/manage_data/upload_new_dataset/period_month');
+        res.redirect('/manage_data/upload_new_dataset/period_month' + queryString);
         break;
       case 'quarter':
-        res.redirect('/manage_data/upload_new_dataset/period_quarter');
+        res.redirect('/manage_data/upload_new_dataset/period_quarter' + queryString);
         break;
       case 'year':
-        res.redirect('/manage_data/upload_new_dataset/period_year');
+        res.redirect('/manage_data/upload_new_dataset/period_year' + queryString);
         break;
       default:
-        res.redirect('/manage_data/upload_new_dataset/check');
+        if (req.query.change) {
+          res.redirect('/manage_data/upload_new_dataset/check');
+        } else {
+          res.redirect('/manage_data/upload_new_dataset/file_upload');
+        }
         break;
     }
   }
@@ -220,10 +258,12 @@ function collectFormData(req, dataset) {
   if (req.body['summary-dataset']) {
     dataset.summary = req.body['summary-dataset'];
   }
-  if (req.body['dataset-url']) {
-    dataset.url = req.body['dataset-url'];
-    dataset.url_title = req.body['dataset-url-title'];
-    // we should also re-check for errors if the URL has changed
+  if (req.body['file-url']) {
+    if (!dataset.files) dataset.files = [];
+    dataset.files.push({
+      url: req.body['file-url'],
+      title: req.body['file-title']
+    });
   }
   if (req.body['licence']) {
     dataset.licence = req.body['licence'];
