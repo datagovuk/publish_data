@@ -47,39 +47,38 @@
 
         <h1 class="heading-large">Add a file</h1>
 
-        <form method="post" action="{% if query.change == 1 %}check{% else %}licence{% endif %}" class="form">
+        <form method="post" action="datafiles" class="form">
           {{formData | safe}}
 
           <div class="form-group">
             <label class="form-label bold" for="filename">
               URL
             </label>
-            <span class="form-hint">
-              The URL should start with <code>http://</code>
-              or <code>https://</code> and point directly at the data file.
-            </span>
             <input
                 class="form-control form-control-2-3"
-                id="dataset-url"
-                name="dataset-url"
+                id="file-url"
+                name="file-url"
                 type="text"
-                value="{{ data.newSet.url }}">
+                placeholder="http://"
+                value="">
           </div>
 
 
           <div class="form-group">
-            <label class="form-label bold" for="dataset-url-title">
+            <label class="form-label bold" for="file-title">
             Title
             </label>
             <span class="form-hint">
-              You must give the file a descriptive title.
+              Give your file a descriptive title to help users understand what
+              data it contains. The title shouldn’t be the same as the file
+              name.
             </span>
             <input
                 class="form-control form-control-2-3"
-                id="dataset-url-title"
-                name="dataset-url-title"
+                id="file-title"
+                name="file-title"
                 type="text"
-                value="{{ data.newSet.url_title }}">
+                value="">
           </div>
 
           {% if query.error %}

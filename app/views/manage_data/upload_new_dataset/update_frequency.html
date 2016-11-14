@@ -26,7 +26,7 @@
 
       <form
           method="post"
-          action="frequency_routing"
+          action="frequency_routing{% if query.change == 1 %}?change=1{% endif %}"
           class="form">
 
         <h1 class="heading-large">

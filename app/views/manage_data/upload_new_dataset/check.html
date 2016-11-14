@@ -60,14 +60,15 @@
 
           <tr>
             <td>
-              URL
+              Files
             </td>
             <td>
-              {{ data.newSet.url_title }}<br/>
-              {{ data.newSet.url }}
+              {% for file in data.newSet.files %}
+                {{ file.title }} <br/> {{ file.url }}<br/>
+              {% endfor %}
             </td>
             <td class="change-answer">
-              <a href="file_upload?change=1">
+              <a href="datafiles?change=1">
                 Change <span class="visuallyhidden">url</span>
               </a>
             </td>
@@ -164,6 +165,22 @@
             </td>
           </tr>
 
+          {% if data.newSet.frequency != 'none' %}
+            <tr>
+              <td>
+                Notifications
+              </td>
+              <td>
+                {{ data.newSet.notify }}
+              </td>
+              </td>
+              <td class="change-answer">
+                <a href="want_notifications?change=1">
+                  Change <span class="visuallyhidden">notifications</span>
+                </a>
+              </td>
+            </tr>
+          {% endif %}
         </tbody>
       </table>
 
