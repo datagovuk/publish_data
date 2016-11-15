@@ -139,8 +139,12 @@ router.post('/datasets', function (req, res) {
 /* === Data file management === */
 
 router.post('/manage_data/upload_new_dataset/datafiles', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.render('manage_data/upload_new_dataset/datafiles.html');
+  if (req.body['file-url'].indexOf('invalid') !== -1) {
+    res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
+  } else {
+    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+    res.render('manage_data/upload_new_dataset/datafiles.html');
+  }
 });
 
 router.get(
@@ -169,11 +173,7 @@ router.get('/menu', function (req, res) {
 
 router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  if (req.session.data.newSet === 'http://justice.gov.uk/test-data') {
-    res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
-  } else {
-    res.render('manage_data/upload_new_dataset/licence.html');
-  }
+  res.render('manage_data/upload_new_dataset/licence.html');
 });
 
 router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
