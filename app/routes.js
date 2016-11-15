@@ -125,7 +125,7 @@ router.get('/datasets/delete/:index', function (req, res) {
 
 router.post('/datasets', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-
+  console.log('unshift');
   req.session.data.sets.unshift(req.session.data.newSet);
   req.session.data.newSet = {};
   latestSet = req.session.data.sets[0];
@@ -178,7 +178,7 @@ router.post('/manage_data/upload_new_dataset/licence', function (req, res) {
 
 router.post('/manage_data/upload_new_dataset/publish', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.redirect('/datasets?newset=1');
+  res.redirect(307, '/datasets?newset=1');
 });
 
 router.post(
