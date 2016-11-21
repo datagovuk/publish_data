@@ -2232,6 +2232,22 @@ form.compact legend {
   font-weight: bold;
 }
 
+form.compact fieldset ul {
+  margin-left: 2em;
+}
+
+form.compact fieldset ul li.form-group {
+  margin-bottom: 0;
+}
+
+form.compact fieldset ul li.form-group input[type=text].title {
+  width: 29%;
+}
+
+form.compact fieldset ul li.form-group input[type=text].url {
+  width: 70%;
+}
+
 form.compact .form-date .form-group {
   width: 80px;
   margin-right: 0;
@@ -2245,11 +2261,11 @@ form.compact .form-date .form-group input[type=number] {
   width: 75%;
 }
 
-form.compact .form-group input[type=text], form.compact .form-group textarea {
+form.compact .form-group input[type=text], form.compact .form-group textarea, form.compact .form-group label {
   width: 100%;
 }
 
-form.compact .form-group input[type=text].inline, form.compact .form-group textarea.inline {
+form.compact .form-group input[type=text].inline, form.compact .form-group textarea.inline, form.compact .form-group label.inline {
   display: inline;
   width: 9em;
   font-size: 80%;

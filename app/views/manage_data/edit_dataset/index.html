@@ -56,17 +56,45 @@
               id="summary">{{ dataset.summary }}</textarea>
         </div>
 
-        <!-- ################ URL ################  -->
+        <!-- ################ FILES ################  -->
 
-        <div class="form-group">
-          <label class="form-label bold" for="url">URL</label>
-          <input
-              class="form-control"
-              type="text"
-              name="dataset-url"
-              value="{{ dataset.url }}"
-              id="url"/>
-        </div>
+        <fieldset>
+          <legend>Files</legend>
+          <ul>
+            {% for file in dataset.files %}
+              <li class="form-group">
+                <input
+                    class="form-control inline title"
+                    type="text"
+                    name="file-title"
+                    value="{{ file.title }}"/>
+                <input
+                    class="form-control inline url"
+                    type="text"
+                    name="file-url"
+                    value="{{ file.url }}"
+                    id="url"/>
+              </li>
+            {% endfor %}
+            <li class="form-group">
+              <label>Add new:</label>
+              <br/>
+              <input
+                  class="form-control inline title"
+                  type="text"
+                  name="file-title"
+                  placeholder="New title"
+                  value=""/>
+              <input
+                  class="form-control inline url"
+                  type="text"
+                  name="file-url"
+                  placeholder="New URL"
+                  value=""
+                  id="url"/>
+            </li>
+          </ul>
+        </fieldset>
 
         <!-- ################ THEMES ################  -->
 

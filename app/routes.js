@@ -125,7 +125,6 @@ router.get('/datasets/delete/:index', function (req, res) {
 
 router.post('/datasets', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  console.log('unshift');
   req.session.data.sets.unshift(req.session.data.newSet);
   req.session.data.newSet = {};
   latestSet = req.session.data.sets[0];
@@ -225,8 +224,7 @@ router.post('/manage_data/upload_new_dataset/frequency_routing',
 
 
 router.post('/datasets/edit/edit_submit', function(req, res) {
-  req.session.data.sets[req.body.index] =
-    collectFormData(req, req.session.data.sets[req.body.index]);
+  req.session.data.sets[req.body.index] = collectFormData(req, {});
   res.redirect('/datasets?modified=1');
 });
 
@@ -245,7 +243,7 @@ router.get('/logout', function (req, res) {
   req.session.destroy(function(err) {
     res.redirect('/');
   });
-})
+});
 
 module.exports = router;
 
@@ -258,12 +256,18 @@ function collectFormData(req, dataset) {
   if (req.body['summary-dataset']) {
     dataset.summary = req.body['summary-dataset'];
   }
-  if (req.body['file-url']) {
+  var titles = req.body['file-title'];
+  var urls = req.body['file-url'];
+  if (titles) {
     if (!dataset.files) dataset.files = [];
-    dataset.files.push({
-      url: req.body['file-url'],
-      title: req.body['file-title']
-    });
+    if (titles.length === undefined) titles = [titles];
+    if (urls.length === undefined) urls = [urls];
+    for (var i=0; i<titles.length; i++) {
+      dataset.files.push({
+        title: titles[i],
+        url: urls[i]
+      });
+    }
   }
   if (req.body['licence']) {
     dataset.licence = req.body['licence'];
