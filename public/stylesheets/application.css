@@ -2224,6 +2224,10 @@ ul.themes {
   opacity: 0;
 }
 
+.form-group input[name=period-year] {
+  width: 70px;
+}
+
 form.compact {
   line-height: 1.6;
 }
