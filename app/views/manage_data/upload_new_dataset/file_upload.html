@@ -48,12 +48,20 @@
         <h1 class="heading-large">Add a file</h1>
 
         <form method="post" action="datafiles" class="form">
-          {{formData | safe}}
 
           <div class="form-group">
             <label class="form-label bold" for="filename">
               URL
             </label>
+            <p>
+              Enter the URL (beginning with <code>http://</code>) of the page
+              where your data file has been uploaded.
+            </p>
+            <p>
+              This might be your organisation’s website or another
+              website, such as GOV.UK or Amazon Web Services (AWS).
+            </p>
+
             <input
                 class="form-control form-control-2-3"
                 id="file-url"

@@ -208,7 +208,8 @@ router.post('/manage_data/upload_new_dataset/frequency_routing',
       case 'quarter':
         res.redirect('/manage_data/upload_new_dataset/period_quarter' + queryString);
         break;
-      case 'year':
+      case 'calendar-year':
+      case 'financial-year':
         res.redirect('/manage_data/upload_new_dataset/period_year' + queryString);
         break;
       default:
