@@ -2,6 +2,19 @@ var express = require('express');
 var router = express.Router();
 var session = require('./session');
 
+
+var helmet = require('helmet');
+router.use(helmet());
+router.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    styleSrc: ["'self'"],
+    scriptSrc: ["'self'", "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='"],
+    fontSrc: ['data:']
+  }
+}));
+
+
 router.use(function (req, res, next) {
 
   // Store common vars
