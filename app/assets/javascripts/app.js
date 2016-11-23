@@ -70,4 +70,28 @@ $(document).ready(function() {
   }, 1000);
 
 
+  $(".dashboard tr").each(function(position) {
+    if ($(this).index()>=3) {
+      $(this).hide();
+    }
+  });
+
+
+  $(".dashboard .table-title a").on('click', function(e) {
+    var a = $(this);
+    var rows = $(this).parents('section').first().find('tr');
+    a.toggleClass('expanded');
+
+    if (a.hasClass('expanded')) {
+      a.text('Close');
+      rows.show();
+    } else {
+      a.text('Show all');
+      rows.each(function(i) {
+        if ($(this).index() >=3) $(this).hide();
+      });
+    }
+  });
+
+
 });
