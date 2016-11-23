@@ -199,37 +199,49 @@ pre.language-markup {
 
 // dashboard
 
-.dashboard-panel {
-  padding: .5em;
-  margin-bottom: 18px;
-  width: 45%;
-  margin-right: 12px;
-
-  .big-number {
+.dashboard {
+  a:visited {
+    color: $link-colour;
+  }
+  .bignum {
     font-size: 200%;
-    font-weight: bold;
-    height: 3.5em;
-
-    color: #fff;
-    padding-left: 18px;
-    padding-top: 18px;
-    padding-bottom: 16px;
+    padding-right: .5em;
   }
-
-  &.panel-published {
-    background-color: $govuk-blue;
+  .table-title {
+    > h2 {
+      display: table-cell;
+      width: 100%;
+      vertical-align: baseline;
+    }
+    > div {
+      display: table-cell;
+      min-width: 10em;
+      vertical-align: baseline;
+      text-align: right;
+    }
   }
-
-  &.panel-broken {
-    background-color: $error-colour;
+  .actions {
+    text-align: right;
   }
-
-  a {
-    color: #fff;
+  .overdue {
+    color: $error-colour;
+    border-left: 4px solid $error-colour;
+    padding-left: 2px;
   }
-
+  .passed {
+    color: $grey-1;
+  }
+  .update {
+    padding-right: .5em;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  table {
+    border-top: 1px solid $grey-1;
+    margin-bottom: 2em;
+  }
 }
-
 
 // side navigation
 
