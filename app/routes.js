@@ -138,13 +138,14 @@ router.post('/datasets', function (req, res) {
 /* === Data file management === */
 
 router.post('/manage_data/upload_new_dataset/datafiles', function (req, res) {
+  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
   if (req.body['file-url'].indexOf('invalid') !== -1) {
     res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
   } else {
-    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
     res.render('manage_data/upload_new_dataset/datafiles.html');
   }
 });
+
 
 router.get(
   '/manage_data/upload_new_dataset/datafiles/edit/:index',
@@ -257,19 +258,19 @@ function collectFormData(req, dataset) {
   if (req.body['summary-dataset']) {
     dataset.summary = req.body['summary-dataset'];
   }
-  var titles = req.body['file-title'];
-  var urls = req.body['file-url'];
-  if (titles) {
-    if (!dataset.files) dataset.files = [];
-    if (titles.length === undefined) titles = [titles];
-    if (urls.length === undefined) urls = [urls];
-    for (var i=0; i<titles.length; i++) {
-      dataset.files.push({
-        title: titles[i],
-        url: urls[i]
-      });
+
+  var title = req.body['file-title'];
+  var url = req.body['file-url'];
+  if (url) {
+    var newSet = { title: title, url: url };
+    dataset.files = dataset.files ? dataset.files : [];
+    if (req.body['after_error'] === 'yes') {
+      dataset.files[dataset.files.length-1] = newSet;
+    } else {
+      dataset.files.push(newSet);
     }
   }
+
   if (req.body['licence']) {
     dataset.licence = req.body['licence'];
   }

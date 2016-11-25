@@ -54,8 +54,9 @@
               URL
             </label>
             <p>
-              Enter the URL (beginning with <code>http://</code>) of the page
-              where your data file has been uploaded.
+              Enter the URL (beginning with <code>http://</code> or
+              <code>https://</code>) of the page where your data file
+              has been uploaded.
             </p>
             <p>
               This might be your organisation’s website or another
@@ -67,8 +68,8 @@
                 id="file-url"
                 name="file-url"
                 type="text"
-                placeholder="http://"
-                value="">
+                placeholder="http:// or https://"
+                value="{{ data.newSet.files[0].url }}">
           </div>
 
 
@@ -86,20 +87,22 @@
                 id="file-title"
                 name="file-title"
                 type="text"
-                value="">
+                value="{{ data.newSet.files[0].title }}">
           </div>
 
-          {% if query.error %}
-            <div class="form-group">
-              <input type="submit" class="button" value="Check again" />
-            </div>
-            <p><a href="licence">Continue with errors</a></p>
-          {% else %}
-            <div class="form-group">
+          <div class="form-group">
+            {% if query.error %}
+              <div>
+                <input type="hidden" value="yes" name="after_error" />
+                <input type="submit" class="button" value="Check again" />
+              </div>
+              <p>
+                <a href="datafiles">Continue with errors</a>
+              </p>
+            {% else %}
               <input type="submit" class="button" value="Check for errors" />
-            </div>
-          {% endif %}
-
+            {% endif %}
+          </div>
         </form>
       </div>
     </div>
