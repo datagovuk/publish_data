@@ -2088,6 +2088,7 @@ pre.language-markup {
 
 .dashboard .actions {
   text-align: right;
+  padding-right: 0;
 }
 
 .dashboard .overdue {
@@ -2109,8 +2110,20 @@ pre.language-markup {
 }
 
 .dashboard table {
-  border-top: 1px solid #6f777b;
   margin-bottom: 2em;
+}
+
+.dashboard table.todos {
+  border-top: 1px solid #bfc1c3;
+}
+
+.dashboard table td .nb-downloads {
+  display: inline-block;
+  min-width: 3em;
+}
+
+.dashboard table td span.text-supporting {
+  color: #6f777b;
 }
 
 #side-navigation {
