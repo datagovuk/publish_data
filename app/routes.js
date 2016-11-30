@@ -68,27 +68,10 @@ router.get(
   }
 );
 
-
-router.post('/manage_data/upload_new_dataset/file_upload', function (req, res) {
+router.post('/manage_data/upload_new_dataset/link', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  res.render('manage_data/upload_new_dataset/file_upload.html');
+  res.render('manage_data/upload_new_dataset/link.html');
 });
-
-
-router.post('/manage_data/upload_new_dataset/themes_auto', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  req.session.data.newSet.themes = ['Business and economy', 'Environment'];
-  res.render('manage_data/upload_new_dataset/themes_auto.html');
-});
-
-
-router.post('/manage_data/upload_new_dataset/themes_confirm',
-  function (req, res) {
-    req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-    res.render('manage_data/upload_new_dataset/themes_confirm.html');
-  }
-);
-
 
 router.post('/manage_data/upload_new_dataset/geo', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
@@ -135,31 +118,30 @@ router.post('/datasets', function (req, res) {
   );
 });
 
-/* === Data file management === */
+/* === Data link management === */
 
-router.post('/manage_data/upload_new_dataset/datafiles', function (req, res) {
+router.post('/manage_data/upload_new_dataset/links', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  if (req.body['file-url'].indexOf('invalid') !== -1) {
-    res.redirect('/manage_data/upload_new_dataset/file_upload?error=1')
+  if (req.body['link-url'].indexOf('invalid') !== -1) {
+    res.redirect('/manage_data/upload_new_dataset/link?error=1')
   } else {
-    res.render('manage_data/upload_new_dataset/datafiles.html');
+    res.render('manage_data/upload_new_dataset/links.html');
   }
 });
 
 
 router.get(
-  '/manage_data/upload_new_dataset/datafiles/edit/:index',
+  '/manage_data/upload_new_dataset/links/edit/:index',
   function (req, res) {
-    var datasetFile = req.session.data.newSet.files[req.params.index];
-    res.render('manage_data/upload_new_dataset/file_upload.html');
+    res.render('manage_data/upload_new_dataset/link.html');
   }
 );
 
 router.get(
-  '/manage_data/upload_new_dataset/datafiles/delete/:index',
+  '/manage_data/upload_new_dataset/links/delete/:index',
   function (req, res) {
-    req.session.data.newSet.files.splice(req.params.index, 1);
-    res.redirect('/manage_data/upload_new_dataset/datafiles');
+    req.session.data.newSet.links.splice(req.params.index, 1);
+    res.redirect('/manage_data/upload_new_dataset/links');
   }
 );
 
@@ -217,7 +199,7 @@ router.post('/manage_data/upload_new_dataset/frequency_routing',
         if (req.query.change) {
           res.redirect('/manage_data/upload_new_dataset/check');
         } else {
-          res.redirect('/manage_data/upload_new_dataset/file_upload');
+          res.redirect('/manage_data/upload_new_dataset/link');
         }
         break;
     }
@@ -259,15 +241,15 @@ function collectFormData(req, dataset) {
     dataset.summary = req.body['summary-dataset'];
   }
 
-  var title = req.body['file-title'];
-  var url = req.body['file-url'];
+  var title = req.body['link-title'];
+  var url = req.body['link-url'];
   if (url) {
     var newSet = { title: title, url: url };
-    dataset.files = dataset.files ? dataset.files : [];
+    dataset.links = dataset.links ? dataset.links : [];
     if (req.body['after_error'] === 'yes') {
-      dataset.files[dataset.files.length-1] = newSet;
+      dataset.links[dataset.links.length-1] = newSet;
     } else {
-      dataset.files.push(newSet);
+      dataset.links.push(newSet);
     }
   }
 
@@ -277,16 +259,9 @@ function collectFormData(req, dataset) {
   if (req.body['other-licence']) {
     dataset.otherLicence = req.body['other-licence'];
   }
-  if (req.body['themes']) {
-    var themes = req.body['themes'];
-    dataset.themes = typeof themes === 'string' ? [themes] : themes;
-  }
   if (req.body['geo']) {
     var geo = req.body['geo'];
     dataset.geo = typeof geo === 'string' ? [geo] : geo;
-  }
-  if (req.body['other-geo']) {
-    dataset.otherGeo = req.body['other-geo'];
   }
   if (req.body['frequency']) {
     dataset.frequency = req.body['frequency'];
