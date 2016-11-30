@@ -45,17 +45,17 @@
         {% endif %}
 
 
-        <h1 class="heading-large">Add a file</h1>
+        <h1 class="heading-large">Add a link</h1>
 
-        <form method="post" action="datafiles" class="form">
+        <form method="post" action="links" class="form">
 
           <div class="form-group">
-            <label class="form-label bold" for="filename">
+            <label class="form-label bold" for="link-url">
               URL
             </label>
             <p>
-              Enter the URL (beginning with <code>http://</code> or
-              <code>https://</code>) of the page where your data file
+              Enter a link (beginning with <code>http://</code> or
+              <code>https://</code>) to the page where your data file
               has been uploaded.
             </p>
             <p>
@@ -65,29 +65,28 @@
 
             <input
                 class="form-control form-control-2-3"
-                id="file-url"
-                name="file-url"
+                id="link-url"
+                name="link-url"
                 type="text"
                 placeholder="http:// or https://"
-                value="{{ data.newSet.files[0].url }}">
+                value="{{ data.newSet.links[0].url }}">
           </div>
 
 
           <div class="form-group">
-            <label class="form-label bold" for="file-title">
+            <label class="form-label bold" for="link-title">
             Title
             </label>
             <span class="form-hint">
-              Give your file a descriptive title to help users understand what
-              data it contains. The title shouldn’t be the same as the file
-              name.
+              Give your link a descriptive title to help users understand what
+              data it contains. The title shouldn’t be the same as the URL.
             </span>
             <input
                 class="form-control form-control-2-3"
-                id="file-title"
-                name="file-title"
+                id="link-title"
+                name="link-title"
                 type="text"
-                value="{{ data.newSet.files[0].title }}">
+                value="{{ data.newSet.links[0].title }}">
           </div>
 
           <div class="form-group">
@@ -97,7 +96,7 @@
                 <input type="submit" class="button" value="Check again" />
               </div>
               <p>
-                <a href="datafiles">Continue with errors</a>
+                <a href="links">Continue with errors</a>
               </p>
             {% else %}
               <input type="submit" class="button" value="Check for errors" />

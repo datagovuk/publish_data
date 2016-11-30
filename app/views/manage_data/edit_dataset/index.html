@@ -56,23 +56,23 @@
               id="summary">{{ dataset.summary }}</textarea>
         </div>
 
-        <!-- ################ FILES ################  -->
+        <!-- ################ LINKS ################  -->
 
         <fieldset>
-          <legend>Files</legend>
+          <legend>Links</legend>
           <ul>
-            {% for file in dataset.files %}
+            {% for link in dataset.links %}
               <li class="form-group">
                 <input
                     class="form-control inline title"
                     type="text"
-                    name="file-title"
-                    value="{{ file.title }}"/>
+                    name="link-title"
+                    value="{{ link.title }}"/>
                 <input
                     class="form-control inline url"
                     type="text"
-                    name="file-url"
-                    value="{{ file.url }}"
+                    name="link-url"
+                    value="{{ link.url }}"
                     id="url"/>
               </li>
             {% endfor %}
@@ -82,13 +82,13 @@
               <input
                   class="form-control inline title"
                   type="text"
-                  name="file-title"
+                  name="link-title"
                   placeholder="New title"
                   value=""/>
               <input
                   class="form-control inline url"
                   type="text"
-                  name="file-url"
+                  name="link-url"
                   placeholder="New URL"
                   value=""
                   id="url"/>
@@ -96,50 +96,12 @@
           </ul>
         </fieldset>
 
-        <!-- ################ THEMES ################  -->
-
-        <fieldset class="inline">
-
-          <legend>Themes</legend>
-
-          {% set themes=[['Business and economy', 'business'],
-          ['Crime and justice', 'crime'],
-          ['Defence', 'defence'],
-          ['Education', 'education'],
-          ['Environment', 'environment'],
-          ['Government', 'government'],
-          ['Government spending', 'government-spending'],
-          ['Health', 'health'],
-          ['Mapping', 'mapping'],
-          ['Society', 'society'],
-          ['Towns and cities', 'towns'],
-          ['Transport', 'transport']
-          ] %}
-
-          <div class="form-group">
-            {% for theme in themes %}
-            <label for="{{theme[1]}}" class="small-label">
-              <input
-                  type="checkbox"
-                  id="{{theme[1]}}"
-                  name="themes"
-                  value="{{theme[0]}}"
-                  {% if (dataset.themes and dataset.themes.indexOf(theme[0]) !== -1) %}
-                  checked
-                  {% endif %}
-              />
-              {{ theme[0] }}
-            </label>
-            {% endfor %}
-          </div>
-        </fieldset>
-
         <!-- ################ GEO ################  -->
 
         <fieldset>
-          <legend>Countries</legend>
+          <legend>Areas</legend>
 
-          {% set regions=[['England', 'england'],
+          {% set areas=[['England', 'england'],
           ['Wales', 'wales'],
           ['Scotland', 'scotland'],
           ['Northern Ireland', 'ni'],
@@ -148,39 +110,20 @@
 
 
           <div class="form-group">
-            {% for region in regions %}
-            <label for="{{region[1]}}" class="small-label">
+            {% for area in areas %}
+            <label for="{{area[1]}}" class="small-label">
               <input
                   type="checkbox"
-                  id="{{region[1]}}"
+                  id="{{area[1]}}"
                   name="geo"
-                  value="{{region[0]}}"
-                  {% if (dataset.geo and dataset.geo.indexOf(region[0]) !== -1) %}
+                  value="{{area[0]}}"
+                  {% if (dataset.geo and dataset.geo.indexOf(area[0]) !== -1) %}
                   checked
                   {% endif %}
               />
-              {{region[0]}}
+              {{area[0]}}
             </label>
             {% endfor %}
-
-            <label class="small-label" data-target="panel-other-country">
-              <input
-                  type="checkbox"
-                  id="other"
-                  name="geo"
-                  value="Other"
-                  {% if (dataset.geo and dataset.geo.indexOf("Other") !== -1) %}
-                  checked
-                  {% endif %}
-              />
-              Other:
-              <input
-                  class="inline"
-                  type="text"
-                  id="other-geo"
-                  name="other-geo"
-                  value="{{ dataset.otherGeo }}"/>
-            </label>
 
           </div>
         </fieldset>

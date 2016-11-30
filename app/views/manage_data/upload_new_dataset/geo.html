@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Publish government data
+  Choose an area - Publish government data
 {% endblock %}
 
 {% block proposition_header %}
@@ -31,7 +31,7 @@
           class="form">
 
         <h1 class="heading-large">
-          Choose a country
+          Choose an area
         </h1>
 
         <fieldset>
@@ -47,7 +47,8 @@
           {% set regions=[['England', 'england'],
                           ['Wales', 'wales'],
                           ['Scotland', 'scotland'],
-                          ['Northern Ireland', 'ni']
+                          ['Northern Ireland', 'ni'],
+                          ['Overseas', 'overseas']
                          ] %}
 
 
@@ -66,35 +67,6 @@
                 {{region[0]}}
               </label>
             {% endfor %}
-
-
-            <label class="block-label" data-target="panel-other-country">
-              <input
-                  type="checkbox"
-                  id="other"
-                  name="geo"
-                  value="Other"
-                  {% if (data.newSet.geo and data.newSet.geo.indexOf("Other") !== -1) %}
-                    checked
-                  {% endif %}
-              />
-              Other
-            </label>
-
-            <div
-              class="panel panel-border-narrow js-hidden"
-              id="panel-other-country">
-              <label class="form-label" for="other-country">
-                Name of the country
-              </label>
-              <input
-                  class="form-control"
-                  type="text"
-                  name="other-geo"
-                  id="other-country"
-                  value="{{ data.newSet.otherGeo }}"/>
-            </div>
-
           </div>
 
         </fieldset>

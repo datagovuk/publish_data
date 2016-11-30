@@ -60,15 +60,15 @@
 
           <tr>
             <td>
-              Files
+              Links
             </td>
             <td>
-              {% for file in data.newSet.files %}
-                {{ file.title }} <br/> {{ file.url }}<br/>
+              {% for link in data.newSet.links %}
+                {{ link.title }} <br/> {{ link.url }}<br/>
               {% endfor %}
             </td>
             <td class="change-answer">
-              <a href="datafiles?change=1">
+              <a href="links?change=1">
                 Change <span class="visuallyhidden">url</span>
               </a>
             </td>
@@ -76,42 +76,20 @@
 
           <tr>
             <td>
-              Themes
+              Areas
             </td>
             <td>
               <ul>
-                {% for theme in data.newSet.themes %}
-                <li>{{ theme }}</li>
-                {% endfor %}
-              </ul>
-            </td>
-            <td class="change-answer">
-              <a href="themes?change=1">
-                Change <span class="visuallyhidden">themes</span>
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Countries
-            </td>
-            <td>
-              <ul>
-                {% for country in data.newSet.geo %}
+                {% for area in data.newSet.geo %}
                   <li>
-                    {% if country === 'Other' %}
-                      {{ data.newSet.otherGeo }}
-                    {% else %}
-                      {{ country }}
-                    {% endif %}
+                    {{ area }}
                   </li>
                 {% endfor %}
               </ul>
             </td>
             <td class="change-answer">
               <a href="geo?change=1">
-                Change <span class="visuallyhidden">country</span>
+                Change <span class="visuallyhidden">area</span>
               </a>
             </td>
           </tr>
