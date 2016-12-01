@@ -24,7 +24,7 @@
 
       <div class="column-two-thirds">
         <h1 class="heading-large">
-          Add a link
+          Dataset links
         </h1>
 
         <table>
@@ -37,8 +37,8 @@
                 <td>{{ link.title }}</td>
                 <td>{{ link.url }}</td>
                 <td>
-                  <a href="links/edit/{{ loop.index -1 }}">Edit</a>
-                  <a href="links/delete/{{ loop.index -1 }}">Delete</a>
+                  <a href="links/edit/{{ loop.index -1 }}/">Edit</a>
+                  <a href="links/delete/{{ loop.index -1 }}/">Delete</a>
                 </td>
               </tr>
             {% endfor %}

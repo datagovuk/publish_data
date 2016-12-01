@@ -133,7 +133,24 @@ router.post('/manage_data/upload_new_dataset/links', function (req, res) {
 router.get(
   '/manage_data/upload_new_dataset/links/edit/:index',
   function (req, res) {
-    res.render('manage_data/upload_new_dataset/link.html');
+    var linkToEdit = req.session.data.newSet.links[req.params.index];
+    res.render('manage_data/upload_new_dataset/link.html',
+      { index: req.params.index, link: linkToEdit }
+    );
+  }
+);
+
+router.post(
+  '/manage_data/upload_new_dataset/links/edit/:index/submit',
+  function (req, res) {
+    var links = req.session.data.newSet.links;
+    var title = req.body['link-title'];
+    var url = req.body['link-url'];
+    if (url) {
+      // should re-check for errors frst
+      links[req.params.index] = { title: title, url: url };
+    }
+    res.redirect('/manage_data/upload_new_dataset/links');
   }
 );
 
@@ -244,12 +261,12 @@ function collectFormData(req, dataset) {
   var title = req.body['link-title'];
   var url = req.body['link-url'];
   if (url) {
-    var newSet = { title: title, url: url };
+    var newLink = { title: title, url: url };
     dataset.links = dataset.links ? dataset.links : [];
     if (req.body['after_error'] === 'yes') {
-      dataset.links[dataset.links.length-1] = newSet;
+      dataset.links[dataset.links.length-1] = newLink;
     } else {
-      dataset.links.push(newSet);
+      dataset.links.push(newLink);
     }
   }
 

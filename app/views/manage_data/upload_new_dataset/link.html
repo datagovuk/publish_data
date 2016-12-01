@@ -45,9 +45,15 @@
         {% endif %}
 
 
-        <h1 class="heading-large">Add a link</h1>
+        <h1 class="heading-large">
+          {% if index %}
+            Edit a link
+          {% else %}
+            Add a link
+          {% endif %}
+        </h1>
 
-        <form method="post" action="links" class="form">
+        <form method="post" action="{% if index %}submit{% else %}links{% endif %}" class="form">
 
           <div class="form-group">
             <label class="form-label bold" for="link-url">
