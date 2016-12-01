@@ -29,13 +29,25 @@
 
         <table>
           <thead>
-            <tr><td>Title</td><td>Url</td><td></td></tr>
+            <tr>
+              <th>Title</th>
+              <th>Url</th>
+              <th>Valid</th>
+              <th><span class="visuallyhidden">actions</span></th>
+            </tr>
           </thead>
           <tbody>
             {% for link in data.newSet.links %}
               <tr>
                 <td>{{ link.title }}</td>
                 <td>{{ link.url }}</td>
+                <td>
+                  {% if link.isValid %}
+                    <span class="link-valid">✔</span>
+                  {% else %}
+                    <span class="link-invalid">✘</span>
+                  {% endif %}
+                </td>
                 <td>
                   <a href="links/edit/{{ loop.index -1 }}/">Edit</a>
                   <a href="links/delete/{{ loop.index -1 }}/">Delete</a>

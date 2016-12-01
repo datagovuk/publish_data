@@ -75,7 +75,14 @@
                 name="link-url"
                 type="text"
                 placeholder="http:// or https://"
-                value="{{ data.newSet.links[0].url }}">
+                {% if query.error %}
+                  value="{{ data.newSet.links[data.newSet.links.length-1].url }}"
+                {% else %}
+                  {% if index %}
+                    value="{{ data.newSet.links[index].url }}"
+                  {% endif %}
+                {% endif %}
+            >
           </div>
 
 
@@ -92,7 +99,14 @@
                 id="link-title"
                 name="link-title"
                 type="text"
-                value="{{ data.newSet.links[0].title }}">
+                {% if query.error %}
+                  value="{{ data.newSet.links[data.newSet.links.length-1].title }}"
+                {% else %}
+                  {% if index %}
+                    value="{{ data.newSet.links[index].title }}"
+                  {% endif %}
+                {% endif %}
+            >
           </div>
 
           <div class="form-group">
