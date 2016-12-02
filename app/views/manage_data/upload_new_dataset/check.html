@@ -64,7 +64,13 @@
             </td>
             <td>
               {% for link in data.newSet.links %}
-                {{ link.title }} <br/> {{ link.url }}<br/>
+                {{ link.title }} <br/> {{ link.url }}
+              {% if link.isValid %}
+              <span class="link-valid">✔</span>
+              {% else %}
+              <span class="link-invalid">✘</span>
+              {% endif %}
+              <br/>
               {% endfor %}
             </td>
             <td class="change-answer">

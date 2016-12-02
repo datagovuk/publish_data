@@ -121,11 +121,15 @@ router.post('/datasets', function (req, res) {
 /* === Data link management === */
 
 router.post('/manage_data/upload_new_dataset/links', function (req, res) {
-  req.session.data.newSet = collectFormData(req, req.session.data.newSet);
-  if (req.body['link-url'].indexOf('invalid') !== -1) {
-    res.redirect('/manage_data/upload_new_dataset/link?error=1')
-  } else {
+  var isValidLink = req.body['link-url'].indexOf('invalid') === -1;
+  console.log('link-url', req.body['link-url']);
+  console.log('index', req.body['link-url'].indexOf('invalid'));
+  req.session.data.newSet =
+    collectFormData(req, req.session.data.newSet, { isValid: isValidLink });
+  if (isValidLink) {
     res.render('manage_data/upload_new_dataset/links.html');
+  } else {
+    res.redirect('/manage_data/upload_new_dataset/link?error=1')
   }
 });
 
@@ -146,9 +150,12 @@ router.post(
     var links = req.session.data.newSet.links;
     var title = req.body['link-title'];
     var url = req.body['link-url'];
+    var isValidLink = url.indexOf('invalid') === -1;
+
     if (url) {
-      // should re-check for errors frst
-      links[req.params.index] = { title: title, url: url };
+      // if there are errors we should re-show the link form with errors
+      links[req.params.index] =
+        { title: title, url: url, isValid: isValidLink };
     }
     res.redirect('/manage_data/upload_new_dataset/links');
   }
@@ -249,7 +256,7 @@ router.get('/logout', function (req, res) {
 module.exports = router;
 
 
-function collectFormData(req, dataset) {
+function collectFormData(req, dataset, extras) {
 
   if (req.body['title-dataset']) {
     dataset.title = req.body['title-dataset'];
@@ -261,7 +268,12 @@ function collectFormData(req, dataset) {
   var title = req.body['link-title'];
   var url = req.body['link-url'];
   if (url) {
-    var newLink = { title: title, url: url };
+    var newLink = {
+      title: title,
+      url: url,
+      isValid: extras.isValid === true
+    };
+
     dataset.links = dataset.links ? dataset.links : [];
     if (req.body['after_error'] === 'yes') {
       dataset.links[dataset.links.length-1] = newLink;
