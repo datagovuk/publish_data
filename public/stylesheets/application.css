@@ -2341,3 +2341,7 @@ form.compact .form-group label.small-label {
 .button-start {
   font-size: 24px;
 }
+
+code {
+  font-size: 80%;
+}
