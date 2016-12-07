@@ -14,7 +14,7 @@ router.use(function (req, res, next) {
   //console.log('query', req.query);
   //console.log('headers', req.headers);
 
-  if (req.session.data && req.session.data.userName) {
+  if (req.session.data && req.session.data.user) {
     next();
   } else {
     if (req.originalUrl.match(/^\/login$/) ||
@@ -26,6 +26,7 @@ router.use(function (req, res, next) {
       res.redirect('/login');
     }
   }
+
 });
 
 
@@ -108,6 +109,7 @@ router.get('/datasets/delete/:index', function (req, res) {
 
 router.post('/datasets', function (req, res) {
   req.session.data.newSet = collectFormData(req, req.session.data.newSet);
+  if (!req.session.data.sets) req.session.data.sets = [];
   req.session.data.sets.unshift(req.session.data.newSet);
   req.session.data.newSet = {};
   latestSet = req.session.data.sets[0];
@@ -121,9 +123,8 @@ router.post('/datasets', function (req, res) {
 /* === Data link management === */
 
 router.post('/manage_data/upload_new_dataset/links', function (req, res) {
-  var isValidLink = req.body['link-url'].indexOf('invalid') === -1;
-  console.log('link-url', req.body['link-url']);
-  console.log('index', req.body['link-url'].indexOf('invalid'));
+  var isValidLink = req.body['link-url'].indexOf('2109') === -1;
+
   req.session.data.newSet =
     collectFormData(req, req.session.data.newSet, { isValid: isValidLink });
   if (isValidLink) {
@@ -237,12 +238,27 @@ router.post('/datasets/edit/edit_submit', function(req, res) {
 });
 
 
+findBy = function(array, key, value) {
+  if (array.length > 0) {
+    if (value.indexOf(array[0][key]) !== -1) {
+      return array[0];
+    } else {
+      array.shift();
+      return findBy(array, key, value);
+    }
+  } else {
+    return undefined;
+  }
+};
 
 router.post('/send-login', function (req, res) {
-  if (req.body.email == 'a@b.c' && req.body.password == 'foobar') {
-    req.session.data = { userName: req.body.email };
-    req.session.data.sets = session.initialDataSets();
+  var user = findBy(session.users, 'email', req.body.email);
+
+  if (user) {
+    req.session.data = { user: user, sets: user.datasets };
     res.redirect('/dashboard');
+  } else {
+    console.log('User not found');
   }
 });
 
