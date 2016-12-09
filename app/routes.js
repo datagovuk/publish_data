@@ -239,17 +239,14 @@ router.post('/datasets/edit/edit_submit', function(req, res) {
 
 
 findBy = function(array, key, value) {
-  if (array.length > 0) {
-    if (value.indexOf(array[0][key]) !== -1) {
-      return array[0];
-    } else {
-      array.shift();
-      return findBy(array, key, value);
+  for (var i=0; i<array.length; i++) {
+    if (array[i][key] === value) {
+      return array[1];
     }
-  } else {
-    return undefined;
   }
+  return undefined;
 };
+
 
 router.post('/send-login', function (req, res) {
   var user = findBy(session.users, 'email', req.body.email);
