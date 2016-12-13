@@ -69,6 +69,11 @@ module.exports = {
 
   users: [
     {
+      email: "a@b.c",
+      department: "Home Office",
+      datasets: allSets.slice(0, 6)
+    },
+    {
       email: "user@homeoffice.gsi.gov.uk",
       department: "Home Office",
       datasets: allSets.slice(0, 6)
