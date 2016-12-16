@@ -210,7 +210,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 main {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -226,7 +226,7 @@ main {
 }
 
 .font-xxlarge {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 53px;
@@ -241,7 +241,7 @@ main {
 }
 
 .font-xlarge {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 32px;
@@ -256,7 +256,7 @@ main {
 }
 
 .font-large {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 24px;
@@ -271,7 +271,7 @@ main {
 }
 
 .font-medium {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 18px;
@@ -286,7 +286,7 @@ main {
 }
 
 .font-small {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -301,7 +301,7 @@ main {
 }
 
 .font-xsmall {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -316,7 +316,7 @@ main {
 }
 
 .bold-xxlarge {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 53px;
@@ -331,7 +331,7 @@ main {
 }
 
 .bold-xlarge {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 32px;
@@ -346,7 +346,7 @@ main {
 }
 
 .bold-large {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 24px;
@@ -361,7 +361,7 @@ main {
 }
 
 .bold-medium {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 18px;
@@ -376,7 +376,7 @@ main {
 }
 
 .bold-small {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 16px;
@@ -391,7 +391,7 @@ main {
 }
 
 .bold-xsmall {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 14px;
@@ -406,7 +406,7 @@ main {
 }
 
 .heading-xlarge {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 32px;
@@ -430,7 +430,7 @@ main {
 }
 
 .heading-xlarge .heading-secondary {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 20px;
@@ -457,7 +457,7 @@ main {
 }
 
 .heading-large {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 24px;
@@ -481,7 +481,7 @@ main {
 }
 
 .heading-large .heading-secondary {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 18px;
@@ -508,7 +508,7 @@ main {
 }
 
 .heading-medium {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 18px;
@@ -532,7 +532,7 @@ main {
 }
 
 .heading-small {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 16px;
@@ -567,7 +567,7 @@ p {
 }
 
 .lede {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 18px;
@@ -610,7 +610,7 @@ p {
   display: -moz-inline-stack;
   display: inline-block;
   position: relative;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -811,7 +811,7 @@ hr {
 
 .button-start,
 .button-get-started {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 18px;
@@ -1189,7 +1189,7 @@ table {
 
 table th,
 table td {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -1217,7 +1217,7 @@ table th.numeric {
 }
 
 table td.numeric {
-  font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -1334,7 +1334,7 @@ textarea {
 }
 
 .form-label {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -1349,7 +1349,7 @@ textarea {
 }
 
 .form-label-bold {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 16px;
@@ -1388,7 +1388,7 @@ legend .form-label-bold {
 }
 
 .form-hint {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -1410,7 +1410,7 @@ legend .form-label-bold {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -1631,7 +1631,7 @@ input[type=number] {
 }
 
 .error-message {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -1699,7 +1699,7 @@ input[type=number] {
 }
 
 .breadcrumbs li {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -1753,7 +1753,7 @@ input[type=number] {
   display: table;
   margin: 0;
   color: #000;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -1772,7 +1772,7 @@ input[type=number] {
   display: inline-block;
   margin: 0 8px 0 0;
   padding: 2px 5px 0;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 14px;
@@ -1811,7 +1811,7 @@ input[type=number] {
   display: table;
   margin: 0;
   color: #000;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 14px;
@@ -1830,7 +1830,7 @@ input[type=number] {
   display: inline-block;
   margin: 0 8px 0 0;
   padding: 2px 5px 0;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: none;
   font-size: 14px;
@@ -1869,7 +1869,7 @@ input[type=number] {
 }
 
 .check-your-answers td {
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-weight: 400;
   text-transform: none;
   font-size: 16px;
@@ -1888,6 +1888,10 @@ input[type=number] {
   text-align: right;
   font-weight: bold;
   padding-right: 0;
+}
+
+#global-header #logo {
+  font-weight: normal;
 }
 
 .bordered {
@@ -1938,7 +1942,7 @@ pre.language-markup {
   color: #0b0c0c;
   text-decoration: none;
   background: url("/public/images/icon-caret-left.png") no-repeat 0 4px;
-  font-family: "nta", Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-size: 16px;
   line-height: 1.25;
   font-weight: 400;
@@ -2006,7 +2010,7 @@ pre.language-markup {
 }
 
 #product-style {
-  background-color: #005EA5;
+  background-color: #64aa28;
   color: #ffffff;
 }
 
@@ -2035,15 +2039,6 @@ pre.language-markup {
 .js-enabled #global-header .header-proposition #proposition-links {
   position: relative;
   top: -1px;
-}
-
-#product-style {
-  background-color: #005EA5;
-  color: #ffffff;
-}
-
-#product-style a {
-  color: #ffffff;
 }
 
 .login-white {
@@ -2140,7 +2135,7 @@ pre.language-markup {
 }
 
 .get-started {
-  background-color: #005EA5;
+  background-color: #8bc658;
   color: #ffffff;
   padding-left: 30px;
   padding-right: 18px;
@@ -2317,9 +2312,9 @@ form.compact .form-group label.small-label {
 
 .button-start,
 .button-get-started {
-  background-color: white !important;
-  color: #005EA5 !important;
-  font-family: "nta", Arial, sans-serif;
+  background-color: #00823b !important;
+  color: #00823b;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 700;
