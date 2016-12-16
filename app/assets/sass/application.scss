@@ -1,9 +1,22 @@
+$helvetica-regular: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+$nta-light-tabular: $helvetica-regular;
+$toolkit-font-stack: $helvetica-regular;
+$toolkit-font-stack-tabular: $helvetica-regular;
+$NTA-Light: $helvetica-regular;
+$NTA-Light-Tabular: $helvetica-regular;
+$Helvetica-Regular: $helvetica-regular;
+
 // Import GOV.UK elements, this will import the frontend toolkit and some base styles.
 // Take a look in _govuk-elements.scss to see which files are imported.
 @import 'govuk-elements';
 
 // Take a look at patterns.scss to see which files are imported.
 @import 'patterns';
+
+
+#global-header #logo {
+  font-weight: normal;
+}
 
 .bordered {
   border-bottom: solid 2px #ddd;
@@ -52,7 +65,7 @@ pre.language-markup {
   color: #0b0c0c;
   text-decoration: none;
   background: url("/public/images/icon-caret-left.png") no-repeat 0 4px;
-  font-family: "nta", Arial, sans-serif;
+  font-family: $helvetica-regular;
   font-size: 16px;
   line-height: 1.25;
   font-weight: 400;
@@ -130,7 +143,7 @@ pre.language-markup {
 // product page
 
 #product-style {
-  background-color: #005EA5;
+  background-color: #64aa28;
   color: #ffffff;
 }
 
@@ -164,17 +177,6 @@ pre.language-markup {
     top: -1px;
   }
 
-}
-
-// product page
-
-#product-style {
-  background-color: #005EA5;
-  color: #ffffff;
-}
-
-#product-style a {
-  color: #ffffff;
 }
 
 // buttons
@@ -275,7 +277,7 @@ pre.language-markup {
 // get started
 
 .get-started {
-  background-color: #005EA5;
+  background-color: #8bc658;
   color: #ffffff;
   padding-left: 30px;
   padding-right: 18px;
@@ -444,9 +446,9 @@ form.compact {
 
 .button-start,
 .button-get-started {
-  background-color: white!important;
-  color: #005EA5!important;
-  font-family: "nta", Arial, sans-serif;
+  background-color: $button-colour!important;
+  color: $button-colour;
+  font-family: $helvetica-regular;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 700;
