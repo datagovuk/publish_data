@@ -444,25 +444,32 @@ form.compact {
   display: none;
 }
 
+
+header#product-style {
+
+$alpine-fresh: #128400;
+background-color: $alpine-fresh!important;
+
+
 .button-start,
 .button-get-started {
-  background-color: $button-colour!important;
-  color: $button-colour;
+  color: $alpine-fresh!important;
+  background-color: $page-colour;
   font-family: $helvetica-regular;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 700;
   text-transform: none;
-  background-image: url("/public/images/icons/icon-pointer.png");
+  background-image: url("/public/images/icon-pointer-green.png");
   background-repeat: no-repeat;
-  background-position: 100% 50%;
-  padding: 0.3684210526em 2.1578947368em 0.2105263158em 0.8421052632em;
+  background-position: 95% 50%;
+  padding: em(5) em(41) em(6) em(16);
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .button-start,
   .button-get-started {
-    background-image: url("/public/images/icons/icon-pointer-2x.png");
+    background-image: url("/public/images/icon-pointer-green-2x.png");
     background-size: 30px 19px;
   }
 }
@@ -473,4 +480,6 @@ form.compact {
 
 code {
   font-size: 80%;
+}
+
 }

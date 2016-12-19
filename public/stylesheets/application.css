@@ -2310,33 +2310,37 @@ form.compact .form-group label.small-label {
   display: none;
 }
 
-.button-start,
-.button-get-started {
-  background-color: #00823b !important;
-  color: #00823b;
+header#product-style {
+  background-color: #128400 !important;
+}
+
+header#product-style .button-start,
+header#product-style .button-get-started {
+  color: #128400 !important;
+  background-color: #fff;
   font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 700;
   text-transform: none;
-  background-image: url("/public/images/icons/icon-pointer.png");
+  background-image: url("/public/images/icon-pointer-green.png");
   background-repeat: no-repeat;
-  background-position: 100% 50%;
-  padding: 0.3684210526em 2.1578947368em 0.2105263158em 0.8421052632em;
+  background-position: 95% 50%;
+  padding: 0.2631578947em 2.1578947368em 0.3157894737em 0.8421052632em;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .button-start,
-  .button-get-started {
-    background-image: url("/public/images/icons/icon-pointer-2x.png");
+  header#product-style .button-start,
+  header#product-style .button-get-started {
+    background-image: url("/public/images/icon-pointer-green-2x.png");
     background-size: 30px 19px;
   }
 }
 
-.button-start {
+header#product-style .button-start {
   font-size: 24px;
 }
 
-code {
+header#product-style code {
   font-size: 80%;
 }
