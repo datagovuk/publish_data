@@ -4,3 +4,4 @@ govuk_modules/govuk_frontend_toolkit/package.json
 .DS_Store
 .#*
 #*
+.tern-port

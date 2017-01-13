@@ -40,6 +40,13 @@ router.get('/', function (req, res) {
 
 // Branching
 
+
+router.get('/find-gov-data/dataset/:index', function (req, res) {
+  var set = session.sets[req.params.index];
+  res.render('find-gov-data/dataset.html', { set: set });
+});
+
+
 // Question for questions/eligibility/index.html
 router.get('/create_account/enter_details', function (req, res) {
 

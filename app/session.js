@@ -90,11 +90,5 @@ module.exports = {
     }
   ],
 
-  initialDataSets: function (indexes) {
-    var sets=[];
-    indexes.forEach(function(i) {
-      sets.push(allSets[i]);
-    });
-  }
-
+  sets: allSets
 }
